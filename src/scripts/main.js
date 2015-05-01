@@ -1,93 +1,66 @@
-function getPage(url, callback) {
-  var request = new XMLHttpRequest();
-  request.open('GET', url, true);
+(function(window, document, hljs, Snap) {
+  /**
+   * init source highlight
+   */
+  hljs.initHighlightingOnLoad();
 
-  request.onreadystatechange = function() {
-    if (this.readyState === 4){
-      if (this.status >= 200 && this.status < 400){
-        callback(this.responseText, false);
-      } else {
-        callback(this.responseText, true);
+
+  /**
+   * animate logo on page-load
+   */
+  window.addEventListener('load', function() {
+
+    /**
+     * do animation on svg
+     */
+    function doAnimation() {
+      // init canvas from svg
+      var canvas = Snap('#hero-logo-animated');
+      if (!canvas) {
+        return;
+      }
+      // grab existing elements from svg
+      var shadow = canvas.select('#Shadow');
+      var halo = canvas.select('#Halo');
+      var p = canvas.select('#P');
+
+      // set helper mask for shadow animation
+      var circle = canvas.circle('50%', '45%', 0).attr({'fill': '#fff'});
+      shadow.attr({mask: circle});
+
+      // animate
+      var speed = 500;
+      var easing = mina.easeout();
+
+      var animation1 = function() {
+        p.animate({opacity: 1}, speed/2, easing, animation2);
+      }
+
+      var animation2 = function() {
+        shadow.animate({fillOpacity: 1}, 2*speed, easing);
+        halo.animate({fillOpacity: 0.7}, 2*speed, easing);
+        circle.animate({r: '60%', fillOpacity: 1}, speed, easing);
+      }
+
+      animation1();
+    }
+
+    /**
+     * wait for the svg to be loaded
+     */
+    function start() {
+      var object = document.getElementById('hero-logo-animated');
+      if (!object) {
+        return;
+      }
+      var svg = object.contentDocument;
+      if (!svg) {
+        setTimeout(start, 300);
+      }  else {
+        doAnimation();
       }
     }
-  };
-  request.send();
-  request = null;
-}
 
-function highlight(parent) {
-  var items = parent.querySelectorAll('pre code');
-  for (var i = items.length - 1; i >= 0; i--) {
-    hljs.highlightBlock(items[i]);
-  }
-}
-
-function homeFn() {
-  var pages = [
-    {
-      file: '[HOW-TO]-Installation.html',
-      id: 'installation'
-    },
-    {
-      file: '[COMMUNITY]-Sites-using-Phile.html',
-      id: 'sites'
-    },
-    {
-      file: '[DEVELOPER]-Developer-Guidelines.html',
-      id: 'developer'
-    },
-    {
-      file: '[COMMUNITY] Plugins.html',
-      id: 'plugins'
-    },
-  ];
-  pages.forEach(function(item) {
-    getPage('html/' + item.file, function(res, err) {
-      if (err) {
-        console.error(err, res);
-      }
-      var elem = document.getElementById(item.id);
-      elem.innerHTML = res;
-      highlight(elem);
-    });
+    start();
   });
-}
-
-var scroller = '', interior = '';
-
-// shim layer with setTimeout fallback
-window.requestAnimFrame = (function () {
-  return window.requestAnimationFrame ||
-  window.webkitRequestAnimationFrame ||
-  window.mozRequestAnimationFrame ||
-  window.oRequestAnimationFrame ||
-  window.msRequestAnimationFrame ||
-  function (callback) {
-    window.setTimeout(callback, 1000 / 60);
-  };
-})();
-
-document.addEventListener('DOMContentLoaded', function() {
-  if (document.body.className == 'home-page') {
-    homeFn();
-  } else if(document.body.className == 'docs-page') {
-    hljs.initHighlightingOnLoad();
-  }
-  scroller = document.getElementsByClassName('big-heading')[0];
-  interior = document.getElementsByClassName('header-inside')[0];
-});
-
-function updateBg() {
-  var size = (this.pageYOffset > 0) ? this.pageYOffset: 0;
-  var o = (1 - (this.pageYOffset / 800)).toFixed(2);
-  if (size < 1000) {
-    scroller.style.backgroundSize = 100+size+'%';
-  }
-  if (o > 0) {
-    interior.style.opacity = o;
-  }
-}
-
-window.addEventListener('mousewheel', function() {
-  requestAnimFrame(updateBg);
-});
+})(window, document, hljs, Snap);

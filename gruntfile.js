@@ -67,20 +67,44 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      options: {
-        livereload: true
-      },
+      //options: {
+      //  livereload: true
+      //},
       templates: {
-        files: ['**/*.{html,php}'],
-        tasks: []
+        files: ['pages/*.html', 'templates/*.twig'],
+        tasks: ['twigRender']
       },
       styles: {
-        files: ['src/styles/*.scss'],
+        files: ['src/styles/**/*.scss'],
         tasks: ['sass']
       },
       scripts: {
         files: ['src/scripts/*.js'],
         tasks: ['concat']
+      }
+    },
+    twigRender: {
+      options: {},
+      pages: {
+        options: {},
+        files: [
+          {
+            data: {
+              title: 'PhileCMS',
+              page: 'index.html'
+            },
+            template: "templates/layout.twig",
+            dest: "index.html"
+          },
+          {
+            data: {
+              title: 'Docs',
+              page: 'docs.html'
+            },
+            template: "templates/layout.twig",
+            dest: "docs.html"
+          }
+        ]
       }
     }
   });
@@ -92,7 +116,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-twig-render');
 
   grunt.registerTask('default', ['sass', 'concat']);
-  grunt.registerTask('build', ['sass', 'autoprefixer', 'cssmin', 'concat', 'uglify', 'imagemin']);
+  grunt.registerTask('build', ['twigRender', 'sass', 'autoprefixer', 'cssmin', 'concat', 'uglify', 'imagemin']);
 };

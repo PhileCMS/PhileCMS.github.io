@@ -1,14 +1,15 @@
 @import "imports/__normalize";
 @import "imports/_grid";
 @import "imports/_mixins";
-@import "imports/_highlight";
+// vanilla highlight.js theme file
+@import "imports/_railscasts";
 
 // [class^="icon"] {
 //   position: relative;
 //   top: 0.1em;
 // }
 
-$dark: #111111;
+$dark: #333;
 $middle: #424242;
 $light: #9B9B9B;
 $red: #B44646;
@@ -40,8 +41,9 @@ body {
   border: 0;
 }
 
-h1,h2,h3,h4,h5,h6,strong {
-  font-weight: 700
+h1, h2, h3, h4, h5, h6, strong {
+  color: $red;
+  font-weight: bold;
 }
 
 h1 {
@@ -50,13 +52,16 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5em;
-  margin: .83em 0
+  font-size: 1.6em;
+  margin: .83em 0;
+  font-weight: 400;
 }
 
 h3 {
-  font-size: 1.17em;
-  margin: 1em 0
+//  font-size: 1.17em;
+  font-size: 1.0em;
+  font-weight: bold;
+  margin: 1em 0;
 }
 
 h4 {
@@ -85,8 +90,14 @@ hr {
 }
 
 a {
-  color: $dark;
+  color: $red;
   text-decoration: underline;
+}
+
+.list-silent {
+  &, li {
+    list-style-type: none;
+  }
 }
 
 table {
@@ -122,83 +133,172 @@ table {
   }
 }
 
-@mixin diagonal-gradient($start, $stop) {
-  background: $start;
-  background: -moz-linear-gradient(-45deg, $start 0%, $stop 100%);
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,$start), color-stop(100%,$stop));
-  background: -webkit-linear-gradient(-45deg, $start 0%,$stop 100%);
-  background: -o-linear-gradient(-45deg, $start 0%,$stop 100%);
-  background: -ms-linear-gradient(-45deg, $start 0%,$stop 100%);
-  background: linear-gradient(135deg, $start 0%,$stop 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$start}', endColorstr='#{$stop}',GradientType=1 );
+.right, .right-center {
+  text-align: right;
 }
 
-.big-heading {
-  text-align: center;
-  @include diagonal-gradient(darken($light, 25%), lighten($light, 35%));
-  padding: 10% 0;
-  color: white;
-  background-size: 100%;
-  h1, h3 {
-    font-weight: 300
+.section-0, .section-1 {
+  &, a, h1, h2, h3 {
+    color: white;
+    text-decoration: none;
   }
 }
 
-.header-inside {
-  opacity: 1;
-  -webkit-backface-visibility: hidden;
+.section-0 {
+  background: $middle;
+}
+
+.section-1 {
+  a:hover {
+    text-decoration: underline;
+  }
+  background: $red;
+}
+
+.section-2, .section-3 {
+  h2 {
+    text-align: center;
+    margin-top: 0;
+  }
+}
+
+.section-2 {
+  background: #f3f3f3;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.section-3 {
+}
+
+#pageTitle {
+  font-weight: bold;
+}
+
+.top-menu {
+  width: 100%;
+  position: relative;
+  z-index: 100;
+
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.34);
+  padding: 1em;
+
+  .grid {
+    overflow: visible;
+  }
+
+  ul {
+    @extend .list-silent;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  p, li {
+    margin: 0.5em 1em 0.5em 0;
+  }
+}
+
+.top-menu-nav {
+  padding-left: 120px;
+
+  a {
+    white-space: nowrap;
+  }
+}
+
+.top-menu-hero {
+  position: relative;
+  padding-left: 120px;
+
+  img {
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    top: 0px;
+    left: 20px;
+
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.55));
+  }
+}
+
+.big-heading {
+  @extend .section-0;
+  text-align: center;
+  padding: 3em 0 5em 0;
+
+  .grid {
+    overflow: visible;
+  }
+
+  h1 {
+    font-weight: 900;
+    font-size: 72px;
+  }
+
+  h2, p {
+    line-height: 1.6em;
+    font-weight: 400;
+  }
+
+  p {
+    @extend h2;
+  }
+
+  #phile-logo {
+    max-height: 330px;
+    width: 75%;
+    margin: 35px auto;
+  }
+
+  .hero-logo {
+    height: 330px;
+    width: 75%;
+    margin: 2em auto 0 auto;
+  }
 }
 
 a.btn {
   @include inline-block();
-  font-size: 1.2em;
-  padding: 1.2em 2em;
-  margin: 2em 0;
+  padding: 1em 1em;
+  margin: 0.5em 0;
   background: $red;
-  border-radius: 0.5em;
+  border-radius: 3em;
   color: white;
   text-decoration: none;
   font-weight: bold;
   font-family: 'Lato', sans-serif;
   box-shadow: 0 0 0 rgba(0,0,0,0);
-  transition: background 0.2s ease, box-shadow 0.5s ease;
+  transition: box-shadow 0.5s ease;
   &:hover {
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    color: $red;
-    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
   }
 }
 
 .instructions {
-  padding-bottom: 5%;
+  ul, ol {
+    padding-left: 1.5em;
+    text-align: left;
+  }
   i {
     font-size: 4em;
   }
 }
 
-section {
-  border-bottom: 1px solid #ccc;
-  padding: 1em 10%;
-  p {
-    font-weight: 300
-  }
-  &:last-child {
-    border: none;
-  }
+section, .section, footer {
+  padding: 1.5em 10%;
+}
+
+footer {
+  font-size: small;
 }
 
 iframe {
   margin: 5% 0;
   max-width: 100%;
-}
-
-footer {
-  padding: 1em 2em;
-  color: white;
-  background: $dark;
-  a {
-    color: white;
-  }
 }
 
 pre code, .hljs {
@@ -209,91 +309,16 @@ pre code, .hljs {
   line-height: 1.4;
 }
 
-/* Tomorrow Night Bright Theme */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-title {
-  color: #969896;
-}
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-attribute,
-.hljs-tag,
-.hljs-regexp,
-.ruby .hljs-constant,
-.xml .hljs-tag .hljs-title,
-.xml .hljs-pi,
-.xml .hljs-doctype,
-.html .hljs-doctype,
-.css .hljs-id,
-.css .hljs-class,
-.css .hljs-pseudo {
-  color: #d54e53;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-preprocessor,
-.hljs-pragma,
-.hljs-built_in,
-.hljs-literal,
-.hljs-params,
-.hljs-operator,
-.hljs-constant {
-  color: #e78c45;
-}
-
-/* Tomorrow Yellow */
-.ruby .hljs-class .hljs-title,
-.css .hljs-rules .hljs-attribute {
-  color: #e7c547;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-value,
-.hljs-inheritance,
-.hljs-header,
-.ruby .hljs-symbol,
-.xml .hljs-cdata {
-  color: #b9ca4a;
-}
-
-/* Tomorrow Aqua */
-.css .hljs-hexcolor {
-  color: #70c0b1;
-}
-
-/* Tomorrow Blue */
-.hljs-function,
-.python .hljs-decorator,
-.python .hljs-title,
-.ruby .hljs-function .hljs-title,
-.ruby .hljs-title .hljs-keyword,
-.perl .hljs-sub,
-.javascript .hljs-title,
-.coffeescript .hljs-title {
-  color: #7aa6da;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.javascript .hljs-function {
-  color: #c397d8;
-}
-
-.coffeescript .javascript,
-.javascript .xml,
-.tex .hljs-formula,
-.xml .javascript,
-.xml .vbscript,
-.xml .css,
-.xml .hljs-cdata {
-  opacity: 0.5;
+@media handheld, only screen and (max-width: 767px) {
+  body {
+    line-height: 1.6em;
+  }
+  .right {
+    text-align: left;
+  }
+  .right-center, .left-center {
+    text-align: center;
+  }
 }
 
 @media handheld, only screen and (max-width: 480px) {
@@ -303,5 +328,14 @@ pre code, .hljs {
   table {
     font-size: 0.8em;
     word-break: break-word;
+  }
+
+  .big-heading {
+    h1 {
+      font-size: 36px;
+    }
+    h2 {
+      font-size: 22px;
+    }
   }
 }

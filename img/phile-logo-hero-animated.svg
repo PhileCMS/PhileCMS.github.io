@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   version="1.1"
+   viewBox="0 0 124 126"
+   height="126"
+   width="124"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="phile-logo-hero-animated.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1890"
+     inkscape:window-height="1035"
+     id="namedview17"
+     showgrid="false"
+     inkscape:zoom="5.3126872"
+     inkscape:cx="27.418671"
+     inkscape:cy="60.883349"
+     inkscape:window-x="96"
+     inkscape:window-y="75"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Oval-1-+-Rectangle-1-+-P" />
+  <metadata
+     id="metadata24">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Untitled</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <title
+     id="title4">Untitled</title>
+  <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+  <defs
+     id="defs6">
+    <circle
+       r="57"
+       cy="57"
+       cx="57"
+       id="path-1" />
+    <linearGradient
+       stop-color="#111111"
+       id="linearGradient-3"
+       y2="0.5"
+       x2="0.3594133"
+       y1="0.5"
+       x1="1">
+      <stop
+         id="stop10"
+         offset="0%" />
+      <stop
+         id="stop12"
+         offset="100%" />
+    </linearGradient>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4287"
+       x="-0.069600001"
+       width="1.1392"
+       y="-0.069600001"
+       height="1.1392">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="3.306"
+         id="feGaussianBlur4289" />
+    </filter>
+  </defs>
+  <g
+     sketch:type="MSPage"
+     id="Page-1"
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(0,12)">
+    <g
+       sketch:type="MSLayerGroup"
+       id="Oval-1-+-Rectangle-1-+-P">
+      <mask
+         fill="white"
+         sketch:name="Oval 1"
+         id="mask-2">
+        <use
+           id="use17"
+           xlink:href="#path-1"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+      </mask>
+      <use
+         xlink:href="#path-1"
+         sketch:type="MSShapeGroup"
+         id="use4196"
+         transform="matrix(1.5052454,0,0,1.4325957,-23.90504,-30.31591)"
+         style="fill:#424242;fill-opacity:0"
+         x="0"
+         y="0"
+         width="100%"
+         height="100%" />
+      <use
+         id="Halo"
+         sketch:type="MSShapeGroup"
+         xlink:href="#path-1"
+         style="fill:#ffffff;fill-opacity:0;filter:url(#filter4287)"
+         x="0"
+         y="0"
+         width="100%"
+         height="100%"
+         transform="translate(4.8939452,-5.6579555)" />
+      <rect
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:0.82700004;fill:#000000;fill-opacity:0.35087723;fill-rule:nonzero;stroke:#ba5252;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+         id="rect4144"
+         width="17.99"
+         height="14.7518"
+         x="54.366444"
+         y="36.382046" />
+      <use
+         xlink:href="#path-1"
+         sketch:type="MSShapeGroup"
+         id="Circle"
+         style="fill:#424242"
+         x="0"
+         y="0"
+         width="100%"
+         height="100%"
+         transform="translate(4.8939452,-5.6579555)" />
+      <path
+         sketch:type="MSShapeGroup"
+         id="Shadow"
+         d="m 78.115609,29.563708 c -1.084102,0.399665 -8.127054,-0.361064 -12.743926,1.490335 -5.656775,2.268406 -11.502563,4.627103 -11.502563,4.627103 0,0 -1.683208,5.493295 -3.784669,12.594489 -1.20998,4.088729 -2.558621,8.710513 -3.804461,13.123692 -1.713297,6.069065 -0.992275,14.02226 -1.655409,17.367361 14.797642,14.797642 13.647446,13.647446 28.445088,28.445092 17.324275,-3.55155 27.423501,-13.923503 27.423501,-13.923503 0,0 11.58259,-10.082601 15.94623,-25.40078 L 78.115609,29.563708 Z"
+         style="fill:#111111;fill-opacity:0;stroke:none"
+         inkscape:connector-curvature="0" />
+      <path
+         sketch:type="MSShapeGroup"
+         id="P"
+         d="m 46.237695,25.342044 c -1.5625,0.07714 -2.34375,0.848571 -2.34375,2.391429 l 0,49.294285 c 0,1.465715 0.859375,2.314286 2.34375,2.314286 l 8.75,0 c 1.5625,0 2.34375,-0.771429 2.34375,-2.314286 l 0,-12.342857 c 0,-1.542857 0.859375,-2.314286 2.34375,-2.314286 l 3.75,0 c 13.90625,0 19.53125,-5.862857 19.53125,-18.514285 0,-12.651429 -5.625,-18.514286 -19.53125,-18.514286 l -17.1875,0 z m 13.4375,23.76 c -1.484375,0 -2.34375,-0.848571 -2.34375,-2.314286 l 0,-5.862857 c 0,-1.542857 0.859375,-2.314286 2.34375,-2.314286 l 4.21875,0 c 3.75,0 5.625,0.462858 5.625,5.245715 0,4.782857 -1.875,5.245714 -5.625,5.245714 l -4.21875,0 z"
+         style="opacity:0;fill:#b44646;fill-opacity:1;stroke:#ba5252;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>

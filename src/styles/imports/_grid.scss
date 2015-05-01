@@ -10,7 +10,7 @@
 .grid {
   width: 100%;
   max-width: 1400px;
-  min-width: 755px;
+  // min-width: 755px;
   margin: 0 auto;
   overflow: hidden;
   &:after {
@@ -120,7 +120,6 @@
   [class*='col-'] {
     width: auto;
     float: none;
-    margin: 1em 0;
     padding-left: 1em;
     padding-right: 1em;
     &:last-of-type {
@@ -133,7 +132,7 @@
     float: left;
     padding: 0;
   }
-  
+
   [class*='col-'].m-33 {
     width: 33.3%;
     float: left;
