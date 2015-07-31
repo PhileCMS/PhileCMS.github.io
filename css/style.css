@@ -1,7 +1,19 @@
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
   display: block; }
 
-audio, canvas, video {
+audio,
+canvas,
+video {
   display: inline-block;
   *display: inline;
   *zoom: 1; }
@@ -20,7 +32,11 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
 
-html, button, input, select, textarea {
+html,
+button,
+input,
+select,
+textarea {
   font-family: sans-serif; }
 
 body {
@@ -28,7 +44,9 @@ body {
 
 a:focus {
   outline: thin dotted; }
-a:hover, a:active {
+
+a:hover,
+a:active {
   outline: 0; }
 
 h1 {
@@ -58,7 +76,8 @@ h6 {
 abbr[title] {
   border-bottom: 1px dotted; }
 
-b, strong {
+b,
+strong {
   font-weight: bold; }
 
 blockquote {
@@ -71,10 +90,14 @@ mark {
   background: #ff0;
   color: #000; }
 
-p, pre {
+p,
+pre {
   margin: 1em 0; }
 
-code, kbd, pre, samp {
+code,
+kbd,
+pre,
+samp {
   font-family: monospace, serif;
   _font-family: 'courier new', monospace;
   font-size: 1em; }
@@ -90,14 +113,16 @@ q {
 q {
   quotes: none; }
 
-q:before, q:after {
+q:before,
+q:after {
   content: '';
   content: none; }
 
 small {
   font-size: 80%; }
 
-sub, sup {
+sub,
+sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
@@ -109,16 +134,22 @@ sup {
 sub {
   bottom: -0.25em; }
 
-dl, menu, ol, ul {
+dl,
+menu,
+ol,
+ul {
   margin: 1em 0; }
 
 dd {
   margin: 0 0 0 40px; }
 
-menu, ol, ul {
+menu,
+ol,
+ul {
   padding: 0 0 0 40px; }
 
-nav ul, nav ol {
+nav ul,
+nav ol {
   list-style-image: none; }
 
 img {
@@ -145,28 +176,37 @@ legend {
   white-space: normal;
   *margin-left: -7px; }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   font-family: inherit;
   font-size: 100%;
   margin: 0;
   vertical-align: baseline;
   *vertical-align: middle; }
 
-button, input {
+button,
+input {
   line-height: normal; }
 
-button, select {
+button,
+select {
   text-transform: none; }
 
-button, html input[type="button"], input[type="reset"], input[type="submit"] {
+button,
+html input[type="button"], input[type="reset"],
+input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer;
   *overflow: visible; }
 
-button[disabled], input[disabled] {
+button[disabled],
+input[disabled] {
   cursor: default; }
 
-input[type="checkbox"], input[type="radio"] {
+input[type="checkbox"],
+input[type="radio"] {
   box-sizing: border-box;
   padding: 0;
   *height: 13px;
@@ -176,7 +216,8 @@ input[type="search"] {
   -webkit-appearance: textfield;
   box-sizing: content-box; }
 
-input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
 
 button::-moz-focus-inner, input::-moz-focus-inner {
@@ -307,41 +348,85 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
   color: #e6e1dc;
   -webkit-text-size-adjust: none; }
 
-.hljs-comment, .hljs-javadoc, .hljs-shebang {
+.hljs-comment,
+.hljs-javadoc,
+.hljs-shebang {
   color: #bc9458;
   font-style: italic; }
 
-.hljs-keyword, .ruby .hljs-function .hljs-keyword, .hljs-request, .hljs-status, .nginx .hljs-title, .method, .hljs-list .hljs-title {
+.hljs-keyword,
+.ruby .hljs-function .hljs-keyword,
+.hljs-request,
+.hljs-status,
+.nginx .hljs-title,
+.method,
+.hljs-list .hljs-title {
   color: #c26230; }
 
-.hljs-string, .hljs-number, .hljs-regexp, .hljs-tag .hljs-value, .hljs-cdata, .hljs-filter .hljs-argument, .hljs-attr_selector, .apache .hljs-cbracket, .hljs-date, .tex .hljs-command, .asciidoc .hljs-link_label, .markdown .hljs-link_label {
+.hljs-string,
+.hljs-number,
+.hljs-regexp,
+.hljs-tag .hljs-value,
+.hljs-cdata,
+.hljs-filter .hljs-argument,
+.hljs-attr_selector,
+.apache .hljs-cbracket,
+.hljs-date,
+.tex .hljs-command,
+.asciidoc .hljs-link_label,
+.markdown .hljs-link_label {
   color: #a5c261; }
 
 .hljs-subst {
   color: #519f50; }
 
-.hljs-tag, .hljs-tag .hljs-keyword, .hljs-tag .hljs-title, .hljs-doctype, .hljs-sub .hljs-identifier, .hljs-pi, .input_number {
+.hljs-tag,
+.hljs-tag .hljs-keyword,
+.hljs-tag .hljs-title,
+.hljs-doctype,
+.hljs-sub .hljs-identifier,
+.hljs-pi,
+.input_number {
   color: #e8bf6a; }
 
 .hljs-identifier {
   color: #d0d0ff; }
 
-.hljs-class .hljs-title, .hljs-type, .smalltalk .hljs-class, .hljs-javadoctag, .hljs-yardoctag, .hljs-phpdoc, .hljs-dartdoc {
+.hljs-class .hljs-title,
+.hljs-type,
+.smalltalk .hljs-class,
+.hljs-javadoctag,
+.hljs-yardoctag,
+.hljs-phpdoc,
+.hljs-dartdoc {
   text-decoration: none; }
 
-.hljs-constant, .hljs-name {
+.hljs-constant,
+.hljs-name {
   color: #da4939; }
 
-.hljs-symbol, .hljs-built_in, .ruby .hljs-symbol .hljs-string, .ruby .hljs-symbol .hljs-identifier, .asciidoc .hljs-link_url, .markdown .hljs-link_url, .hljs-attribute {
+.hljs-symbol,
+.hljs-built_in,
+.ruby .hljs-symbol .hljs-string,
+.ruby .hljs-symbol .hljs-identifier,
+.asciidoc .hljs-link_url,
+.markdown .hljs-link_url,
+.hljs-attribute {
   color: #6d9cbe; }
 
-.asciidoc .hljs-link_url, .markdown .hljs-link_url {
+.asciidoc .hljs-link_url,
+.markdown .hljs-link_url {
   text-decoration: underline; }
 
-.hljs-params, .hljs-variable, .clojure .hljs-attribute {
+.hljs-params,
+.hljs-variable,
+.clojure .hljs-attribute {
   color: #d0d0ff; }
 
-.css .hljs-tag, .hljs-rule .hljs-property, .hljs-pseudo, .tex .hljs-special {
+.css .hljs-tag,
+.hljs-rule .hljs-property,
+.hljs-pseudo,
+.tex .hljs-special {
   color: #cda869; }
 
 .css .hljs-class {
@@ -356,19 +441,27 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .css .hljs-id {
   color: #8b98ab; }
 
-.hljs-annotation, .apache .hljs-sqbracket, .nginx .hljs-built_in {
+.hljs-annotation,
+.apache .hljs-sqbracket,
+.nginx .hljs-built_in {
   color: #9b859d; }
 
-.hljs-preprocessor, .hljs-preprocessor *, .hljs-pragma {
+.hljs-preprocessor,
+.hljs-preprocessor *,
+.hljs-pragma {
   color: #8996a8 !important; }
 
-.hljs-hexcolor, .css .hljs-value .hljs-number {
+.hljs-hexcolor,
+.css .hljs-value .hljs-number {
   color: #a5c261; }
 
-.hljs-title, .hljs-decorator, .css .hljs-function {
+.hljs-title,
+.hljs-decorator,
+.css .hljs-function {
   color: #ffc66d; }
 
-.diff .hljs-header, .hljs-chunk {
+.diff .hljs-header,
+.hljs-chunk {
   background-color: #2f33ab;
   color: #e6e1dc;
   display: inline-block;
@@ -392,14 +485,20 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
   display: inline-block;
   width: 100%; }
 
-.coffeescript .javascript, .javascript .xml, .tex .hljs-formula, .xml .javascript, .xml .vbscript, .xml .css, .xml .hljs-cdata {
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
   opacity: 0.7; }
 
 html {
   min-height: 100%; }
 
 body {
-  font: normal normal 400 16px/1.4 'Lato', sans-serif;
+  font: normal normal 400 16px/1.4 "Lato", sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -410,7 +509,8 @@ body {
 
 .clearfix {
   *zoom: 1; }
-  .clearfix:before, .clearfix:after {
+  .clearfix:before,
+  .clearfix:after {
     content: "";
     display: table; }
   .clearfix:after {
@@ -436,7 +536,7 @@ h2, .big-heading p {
   font-weight: 400; }
 
 h3 {
-  font-size: 1em;
+  font-size: 1.0em;
   font-weight: bold;
   margin: 1em 0; }
 
@@ -460,6 +560,9 @@ hr {
   margin: 1em 0;
   background-color: rgba(0, 0, 0, 0.2);
   width: 100%; }
+
+li {
+  padding-bottom: 0.3em; }
 
 a {
   color: #B44646;
@@ -588,13 +691,15 @@ a.btn {
   font-weight: bold;
   font-family: 'Lato', sans-serif;
   box-shadow: 0 0 0 transparent;
-  transition: box-shadow 0.5s ease; }
+  -webkit-transition: box-shadow 0.5s ease;
+          transition: box-shadow 0.5s ease; }
   a.btn:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); }
 
 .instructions ul, .instructions ol {
   padding-left: 1.5em;
   text-align: left; }
+
 .instructions i {
   font-size: 4em; }
 
@@ -633,3 +738,7 @@ pre code, .hljs {
     font-size: 36px; }
   .big-heading h2, .big-heading p {
     font-size: 22px; } }
+
+.info {
+  font-size: small;
+  color: #606060; }

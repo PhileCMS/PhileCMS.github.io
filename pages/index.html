@@ -1,4 +1,4 @@
-{% set current = "1.5.2" %}
+{% set current = "1.6.0" %}
 {% set download = "https://github.com/PhileCMS/Phile/releases/download/" ~ current ~ "/Phile.zip" %}
 
 <header class="big-heading">
@@ -29,17 +29,22 @@
 
 <div class="section section-2">
   <div class="grid">
-    <div class="col-1-2 right-center">
-      <a href="{{ download }}" class="btn">
+    <div class="col-1-2 center">
+      <a href="https://github.com/PhileCMS/Phile/releases/download/{{ current }}/Phile.zip"
+         class="btn">
         Download Phile {{ current }}
       </a>
+      <br>
+      <span class="info"> requires PHP 5.4+ </span>
     </div>
     <div class="col-1-2 left-center">
-      <ul class="list-silent">
-        <li>
-          requires PHP 5.4
-        </li>
-      </ul>
+      <p>
+        <a href="https://github.com/PhileCMS/Phile/releases/tag/{{ current }}"
+           style="text-decoration: none;">
+          <i class="fa fa-star"></i>&nbsp;
+          What's new in Phile {{ current }}
+        </a>
+      </p>
     </div>
   </div>
 </div>

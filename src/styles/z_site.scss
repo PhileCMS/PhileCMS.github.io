@@ -89,6 +89,10 @@ hr {
   width: 100%;
 }
 
+li {
+  padding-bottom: 0.3em;
+}
+
 a {
   color: $red;
   text-decoration: underline;
@@ -338,4 +342,9 @@ pre code, .hljs {
       font-size: 22px;
     }
   }
+}
+
+.info {
+  font-size: small;
+  color: #606060;
 }
