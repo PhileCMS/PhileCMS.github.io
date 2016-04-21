@@ -1,6 +1,9 @@
-<h3 id="requirements">Requirements</h3>
-<p>Phile requires PHP 5.4.0+. If you&#39;re running Apache, <em>mod_rewrite</em> must be enabled.</p>
-<h3 id="download-the-files">Download the Files</h3>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>PHP <code>&gt;=5.4.0</code></li>
+<li>If you&#39;re running Apache, <code>mod_rewrite</code> must be enabled</li>
+</ul>
+<h2 id="download-the-files">Download the Files</h2>
 <h4 id="download-from-http-philecms-com">Download from <a href="http://philecms.com">http://philecms.com</a></h4>
 <p>Download and extract the the latest version from <a href="http://philecms.com">http://philecms.com</a>.</p>
 <h4 id="download-via-composer">Download via composer</h4>
@@ -8,33 +11,34 @@
 <pre><code>composer create-project --no-dev phile-cms/phile
 </code></pre><h4 id="download-for-developers">Download for Developers</h4>
 <p>Clone the repository and install the required libraries by running in the root directory (the root has the <code>composer.json</code> file):</p>
-<pre><code>git clone https://github.com/PhileCMS/Phile phile;
-cd phile;
-composer install;
-</code></pre><h3 id="put-the-files-on-the-web-server">Put the Files on the Web-Server</h3>
+<pre><code class="lang-shell">git clone https://github.com/PhileCMS/Phile phile
+cd phile
+composer install
+</code></pre>
+<h2 id="put-the-files-on-the-web-server">Put the Files on the Web-Server</h2>
 <p>Upload the Phile folder to your web-server. If you open the URL of that folder in your web browser you should see Phile&#39;s setup page.</p>
 <p>If you upload the folder content separately don&#39;t miss the <code>.htaccess</code> file. It&#39;s placed the root-directory and might be invisible on systems like Linux or Mac OS X.</p>
 <p>Phile can also run locally using PHP&#39;s build in web-server. In the Phile root directory:</p>
 <pre><code class="lang-shell">php -S localhost:8080
 </code></pre>
 <p>to start Phile at <a href="http://localhost:8080/">http://localhost:8080/</a>.</p>
-<h3 id="post-installation">Post Installation</h3>
+<h2 id="post-installation">Post Installation</h2>
 <h4 id="encryptionkey">EncryptionKey</h4>
-<p>You must set the <a href="https://github.com/PhileCMS/Phile/blob/master/config.php#L8">encryptionKey</a> value in the config to a non-empty string. There is a <a href="https://github.com/PhileCMS/Phile/blob/master/generator.php">generator.php</a> file that, when run, will generate a random string for you.</p>
+<p>You must set the <a href="https://github.com/PhileCMS/Phile/blob/master/config.php#L13">encryptionKey</a> value in the <code>config.php</code> to a non-empty string. There is a <a href="https://github.com/PhileCMS/Phile/blob/master/generator.php">generator.php</a> file that, when run, will generate a random string for you.</p>
 <h4 id="permissions">Permissions</h4>
 <p>Make sure you have full access privileges on the content, html caching and template caching folders:</p>
 <pre><code class="lang-shell">chmod 777 content lib/cache lib/datastorage
 </code></pre>
-<p>The lib/cache is needed for the <a href="https://github.com/PhileCMS/Phile/tree/master/plugins/phile/phpFastCache">philePhpFastCache</a> and <a href="https://github.com/PhileCMS/Phile/tree/master/plugins/phile/templateTwig">phileTemplateTwig</a>.</p>
-<h3 id="development">Development</h3>
-<p>You can turn <a href="https://github.com/PhileCMS/Phile/blob/master/plugins/phile/templateTwig/config.php#L6">debug to true</a> when building a theme. It exposes the <a href="http://twig.sensiolabs.org/doc/functions/dump.html">dump()</a> function in Twig.</p>
+<p>The <code>lib/cache</code> is needed for the <a href="https://github.com/PhileCMS/Phile/tree/master/plugins/phile/phpFastCache">philePhpFastCache</a> and <a href="https://github.com/PhileCMS/Phile/tree/master/plugins/phile/templateTwig">phileTemplateTwig</a>.</p>
+<h2 id="development">Development</h2>
+<p>You can turn <a href="https://github.com/PhileCMS/Phile/blob/master/plugins/phile/templateTwig/config.php#L7">debug to <strong>true</strong></a> when building a theme. It exposes the <a href="http://twig.sensiolabs.org/doc/functions/dump.html"><code>dump()</code></a> function in Twig.</p>
 <p>If you want to contribute to the development of Phile, you can install the additional libraries required for documentation with composer, from the root directory of your phile instance:</p>
 <pre><code>composer install
-</code></pre><h3 id="production">Production</h3>
-<p>Keep the <a href="https://github.com/PhileCMS/Phile/blob/master/default_config.php#L24">philePhpFastCache plugin</a> enabled. This caches page requests, which will decrease server load immensely.</p>
-<p>Make sure you turn the <a href="https://github.com/PhileCMS/Phile/blob/master/plugins/phile/templateTwig/config.php#L4">Twig cache</a> on during production. This will greatly increase the speed of your site.</p>
+</code></pre><h2 id="production">Production</h2>
+<p>Keep the <a href="https://github.com/PhileCMS/Phile/blob/master/default_config.php#L98">philePhpFastCache plugin</a> enabled. This caches page requests, which will decrease server load immensely.</p>
+<p>Make sure you turn the <a href="https://github.com/PhileCMS/Phile/blob/master/plugins/phile/templateTwig/config.php#L5">Twig cache</a> on during production. This will greatly increase the speed of your site.</p>
 <p>Lastly, be sure to run <code>composer dump-autoload --optimize</code> so that composer can serve the optimized version of the autoloader. There is speculation that this could increase the performance of your site by ~20%.</p>
-<h3 id="additional-setup-and-configuration">Additional Setup and Configuration</h3>
+<h2 id="additional-setup-and-configuration">Additional Setup and Configuration</h2>
 <h4 id="setup-a-virtual-host-in-apache">Setup a Virtual Host in apache</h4>
 <p>Set up a virtual host inside your <code>apache.conf</code>, and then restart apache:</p>
 <pre><code class="lang-apache">NameVirtualHost *:80 # if needed

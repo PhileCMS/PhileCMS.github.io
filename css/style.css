@@ -45,8 +45,7 @@ body {
 a:focus {
   outline: thin dotted; }
 
-a:hover,
-a:active {
+a:hover, a:active {
   outline: 0; }
 
 h1 {
@@ -195,7 +194,8 @@ select {
   text-transform: none; }
 
 button,
-html input[type="button"], input[type="reset"],
+html input[type="button"],
+input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer;
@@ -498,7 +498,7 @@ html {
   min-height: 100%; }
 
 body {
-  font: normal normal 400 16px/1.4 "Lato", sans-serif;
+  font: normal normal 400 16px/1.4 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -509,8 +509,7 @@ body {
 
 .clearfix {
   *zoom: 1; }
-  .clearfix:before,
-  .clearfix:after {
+  .clearfix:before, .clearfix:after {
     content: "";
     display: table; }
   .clearfix:after {

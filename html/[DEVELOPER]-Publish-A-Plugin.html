@@ -1,0 +1,28 @@
+<h2 id="composer-json-publish-using-composer">composer.json – Publish Using Composer</h2>
+<p>We recommend to create a <code>composer.json</code> file for each plugin. we have created a composer installer for plugins, which make it easy to install plugins in the correct folder by a single line of code:</p>
+<pre><code class="lang-bash">composer require mycompany/my-cool-plugin:dev-master
+</code></pre>
+<p>here is an example <code>composer.json</code> file which must be located in the root of your repository, if you add a <code>composer.json</code> file to your repository please also add your repository to <a href="https://packagist.org/">Packagist.org</a></p>
+<pre><code>{
+    &quot;name&quot;: &quot;mycompany/my-cool-plugin&quot;, // will result in install path: plugins/mycompany/myCoolPlugin
+    &quot;type&quot;: &quot;phile-plugin&quot;, // this type is important
+    &quot;version&quot;: &quot;1.0.0&quot;,
+    &quot;license&quot;: &quot;MIT&quot;,
+    &quot;description&quot;: &quot;a short description of your plugin&quot;, // add a short description here
+    &quot;homepage&quot;: &quot;http://philecms.com&quot;, // feel free to add your homepage or repo url
+    &quot;keywords&quot;: [&quot;cms&quot;, &quot;phile&quot;, &quot;myTag&quot;], // please use the tags &quot;cms&quot; and &quot;phile&quot; for each plugin and add your own
+    &quot;authors&quot;: [
+        {
+            &quot;name&quot;: &quot;Dave Developer&quot;,
+            &quot;email&quot;: &quot;dave@example.com&quot;,
+            &quot;homepage&quot;: &quot;http://example.com/&quot;,
+            &quot;role&quot;: &quot;Developer&quot;
+        }
+    ],
+    &quot;require&quot;: {
+        // feel free to add more requirements for your plugin here
+        &quot;phile-cms/phile&quot;: &quot;1.0.0&quot;, // version 1.0.0 of phile cms is required
+        &quot;phile-cms/plugin-installer-plugin&quot;: &quot;1.0.0&quot; // version 1.0.0 of the composer plugin installer is required
+    }
+}
+</code></pre>
