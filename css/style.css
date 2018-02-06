@@ -690,8 +690,7 @@ a.btn {
   font-weight: bold;
   font-family: 'Lato', sans-serif;
   box-shadow: 0 0 0 transparent;
-  -webkit-transition: box-shadow 0.5s ease;
-          transition: box-shadow 0.5s ease; }
+  transition: box-shadow 0.5s ease; }
   a.btn:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); }
 
