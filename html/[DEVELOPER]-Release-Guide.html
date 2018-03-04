@@ -6,25 +6,16 @@
 <h2 id="prepare-code">Prepare Code</h2>
 <h3 id="create-release-branch">Create release branch</h3>
 <ul>
-<li>branch &quot;&lt;version-string&gt;&quot; release-branch from &quot;develop&quot;</li>
+<li>branch <code>release/&lt;version-string&gt;</code> release-branch from &quot;develop&quot;</li>
 </ul>
 <h3 id="update-version-strings">Update version-strings</h3>
 <ul>
 <li>update version string in <code>Bootstrap.php</code></li>
 <li>update <code>changelog.md</code></li>
 </ul>
-<h3 id="update-composer">Update Composer</h3>
-<ul>
-<li>update version string in <code>composer.json</code></li>
-</ul>
-<p>Without the version string composer will not pickup Phile&#39;s version number. It assumes &quot;1.0.0&quot; and will throw an error if you want to install Phile-plugins requiring &quot;Phile &gt;1.0.0&quot;.</p>
-<ul>
-<li>run <code>composer update --lock</code></li>
-</ul>
-<p>Just generate new hash in the .lock file without updating packages. Avoids &quot;composer.lock outdated&quot; message.</p>
 <h3 id="process-deprecated">Process Deprecated</h3>
 <ul>
-<li>check old <code>@deprecated</code> whether they due for removal: open a todo-issue for the next release (or remove if trivial)</li>
+<li>check code for <code>@deprecated</code> and whether they are due for removal: open a todo-issue for the next release (or remove if trivial)</li>
 <li>check new <code>@deprecated</code> that proper &quot;since &lt;version-string&gt;&quot; is set</li>
 <li>update release-note with those changes</li>
 </ul>
@@ -32,7 +23,7 @@
 <ul>
 <li>run-test cases</li>
 <li>check CI services are &quot;green&quot;</li>
-<li>create release package and do test install</li>
+<li>create release package (see below) and do a test install</li>
 </ul>
 <p>As you see fit:</p>
 <ul>
@@ -43,18 +34,18 @@
 <h2 id="release-code">Release Code</h2>
 <h3 id="make-release">Make Release</h3>
 <ul>
-<li>merge &quot;release&quot; into &quot;master&quot;</li>
+<li>merge the &quot;release&quot; branch into &quot;master&quot;</li>
 <li>last check that everything is still &quot;green&quot;</li>
 <li>tag &quot;master&quot; with version-string and push to origin</li>
 </ul>
 <p>Pushing the tag to the public github repository marks the official release. The tag or code of that release must not be changed. Instead a new release must be published.</p>
-<h3 id="prepare-release-package">Prepare Release Package</h3>
+<h3 id="create-release-package">Create Release Package</h3>
 <ul>
 <li>create release package</li>
 </ul>
-<p>Use the phing build system (<code>./phing</code>).</p>
+<p>Use the phing build system (<code>./phing</code>) to create the release package.</p>
 <ul>
-<li>attach .zip to github release-page</li>
+<li>attach release .zip to github release-page</li>
 </ul>
 <h3 id="publish-release-notes">Publish Release Notes</h3>
 <ul>

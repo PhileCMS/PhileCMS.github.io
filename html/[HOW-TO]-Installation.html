@@ -1,11 +1,11 @@
 <h2 id="requirements">Requirements</h2>
 <ul>
-<li>PHP <code>&gt;=5.4.0</code></li>
+<li>PHP <code>&gt;=5.6.0</code></li>
 <li>If you&#39;re running Apache, <code>mod_rewrite</code> must be enabled</li>
 </ul>
 <h2 id="download-the-files">Download the Files</h2>
-<h4 id="download-from-http-philecms-com">Download from <a href="http://philecms.com">http://philecms.com</a></h4>
-<p>Download and extract the the latest version from <a href="http://philecms.com">http://philecms.com</a>.</p>
+<h4 id="download-from-https-philecms-github-io-">Download from <a href="https://philecms.github.io/">https://philecms.github.io/</a></h4>
+<p>Download and extract the the latest version from <a href="https://philecms.github.io/">https://philecms.github.io/</a>.</p>
 <h4 id="download-via-composer">Download via composer</h4>
 <p>Install <a href="http://php.net/manual/en/install.php">PHP</a> and then <a href="https://getcomposer.org/doc/00-intro.md#system-requirements">composer</a>. Then create a new Phile project:</p>
 <pre><code>composer create-project --no-dev phile-cms/phile
@@ -24,9 +24,9 @@ composer install
 <p>to start Phile at <a href="http://localhost:8080/">http://localhost:8080/</a>.</p>
 <h2 id="post-installation">Post Installation</h2>
 <h4 id="encryptionkey">EncryptionKey</h4>
-<p>You must set the <a href="https://github.com/PhileCMS/Phile/blob/master/config.php#L13">encryptionKey</a> value in the <code>config.php</code> to a non-empty string. There is a <a href="https://github.com/PhileCMS/Phile/blob/master/generator.php">generator.php</a> file that, when run, will generate a random string for you.</p>
+<p>You must set the encryption key value in the <code>config.php</code> to a non-empty string. Follow the instruction on screen when you first visit your Phile installation. Make sure to backup this key (or even better your whole <code>config.php</code>) file.</p>
 <h4 id="permissions">Permissions</h4>
-<p>Make sure you have full access privileges on the content, html caching and template caching folders:</p>
+<p>If you run into problems make sure you have full access privileges on the content, html caching and template caching folders:</p>
 <pre><code class="lang-shell">chmod 777 content lib/cache lib/datastorage
 </code></pre>
 <p>The <code>lib/cache</code> is needed for the <a href="https://github.com/PhileCMS/Phile/tree/master/plugins/phile/phpFastCache">philePhpFastCache</a> and <a href="https://github.com/PhileCMS/Phile/tree/master/plugins/phile/templateTwig">phileTemplateTwig</a>.</p>

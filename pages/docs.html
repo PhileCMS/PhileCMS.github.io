@@ -5,415 +5,608 @@
     <section id="main_content">
       <!-- Content Start -->
 
-      <h3 id="creating-content">Creating Content</h3>
-      <p>Phile is a flat file CMS, this means there is no administration backend and database to deal with. You simply create <code>.md</code> files in the &quot;content&quot;
-        folder and that becomes a page. For example, this file is called <code>index.md</code> and is shown as the main landing page.</p>
+      <h3 id="creatingcontent">Creating Content</h3>
+
+      <p>Phile is a flat file CMS, this means there is no administration backend and database to deal with. You simply create <code>.md</code> files in the &#8220;content&#8221;
+      folder and that becomes a page. For example, this file is called <code>index.md</code> and is shown as the main landing page.</p>
+      
       <p>If you create a folder within the content folder (e.g. <code>content/sub</code>) and put an <code>index.md</code> inside it, you can access that folder at the URL
-        <code>http://yousite.com/sub</code>. If you want another page within the sub folder, simply create a text file with the corresponding name (e.g. <code>content/sub/page.md</code>)
-        and you will be able to access it from the URL <code>http://yousite.com/sub/page</code>. Below we&#39;ve shown some examples of content locations and their corresponding URL&#39;s:</p>
+      <code>http://yousite.com/sub</code>. If you want another page within the sub folder, simply create a text file with the corresponding name (e.g. <code>content/sub/page.md</code>)
+      and you will be able to access it from the URL <code>http://yousite.com/sub/page</code>. Below we&#8217;ve shown some examples of content locations and their corresponding URL&#8217;s:</p>
+      
       <table>
-        <thead>
-        <tr>
-          <th>Physical Location</th>
-          <th style="text-align:left">URL</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>content/index.md</td>
-          <td style="text-align:left">/</td>
-        </tr>
-        <tr>
-          <td>content/sub.md</td>
-          <td style="text-align:left">/sub</td>
-        </tr>
-        <tr>
-          <td>content/sub/index.md</td>
-          <td style="text-align:left">/sub (same as above)</td>
-        </tr>
-        <tr>
-          <td>content/sub/page.md</td>
-          <td style="text-align:left">/sub/page</td>
-        </tr>
-        <tr>
-          <td>content/a/very/long/url.md</td>
-          <td style="text-align:left">/a/very/long/url</td>
-        </tr>
-        </tbody>
+      <colgroup>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      </colgroup>
+      
+      <thead>
+      <tr>
+        <th style="text-align:left;">Physical Location</th>
+        <th style="text-align:left;">URL</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+      <tr>
+        <td style="text-align:left;">content/index.md</td>
+        <td style="text-align:left;">/</td>
+      </tr>
+      <tr>
+        <td style="text-align:left;">content/sub.md</td>
+        <td style="text-align:left;">/sub</td>
+      </tr>
+      <tr>
+        <td style="text-align:left;">content/sub/index.md</td>
+        <td style="text-align:left;">/sub (same as above)</td>
+      </tr>
+      <tr>
+        <td style="text-align:left;">content/sub/page.md</td>
+        <td style="text-align:left;">/sub/page</td>
+      </tr>
+      <tr>
+        <td style="text-align:left;">content/a/very/long/url.md</td>
+        <td style="text-align:left;">/a/very/long/url</td>
+      </tr>
+      </tbody>
       </table>
+      
       <p>If a file cannot be found, the file <code>content/404.md</code> will be shown.</p>
-      <h3 id="text-file-markup">Text File Markup</h3>
+      
+      <h3 id="textfilemarkup">Text File Markup</h3>
+      
       <p>Text files are marked up using <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a>. They can also contain regular HTML.</p>
+      
       <p>At the top of text files you can place a block comment and specify certain attributes of the page. For example:</p>
-<pre><code class="lang-.markdown">/*
-  Title: Welcome
-  Description: This description will go in the meta description tag
-  Author: Joe Bloggs
-  Date: 2013/01/01
-  Robots: noindex,nofollow
-  */
-</code></pre>
-      <p>Phile also allows HTML style block comments:</p>
-<pre><code class="lang-.html">&lt;!--
-  Title: Welcome
-  Description: This description will go in the meta description tag
-  Author: Joe Bloggs
-  Date: 2013/01/01
-  Robots: noindex,nofollow
-  --&gt;
-</code></pre>
-      <h4 id="custom-meta">Custom Meta</h4>
-      <p>You can actually create custom meta attributes by default in Phile. If you want to add a date, author, or even something else, this can be done easily. These values will be contained in the <code>{{ meta }}</code> variable in themes (see below).</p>
-      <h4 id="custom-meta-ordering">Custom Meta Ordering</h4>
-      <p>You can order pages by their custom meta attributes. Like creating an <code>Order</code> meta for each page, then you can use <code>$config[&#39;pages_order_by&#39;] = &quot;meta:order&quot;;</code> in your <code>config.php</code> file.</p>
+      
+      <pre><code class="markdown">
+      /*
+      Title: Welcome
+      Description: This description will go in the meta description tag
+      Author: Joe Bloggs
+      Date: 2013/01/01
+      Robots: noindex,nofollow
+      */
+      </code></pre>
+      
+      <p>Phile also allows HTML or YAML style block comments:</p>
+      
+      <pre><code>
+      &lt;!--
+      Title: Welcome
+      …
+      --&gt;
+      </code></pre>
+      
+      <pre><code>
+      ---
+      Title: Welcome
+      …
+      ---
+      </code></pre>
+      
+      <h4 id="custommeta">Custom Meta</h4>
+      
+      <p>You can create custom meta attributes by default in Phile. If you want to add a date, author, or even something else, this can be done easily. These values will be contained in the <code>{{ meta }}</code> variable in themes (see below).</p>
+      
+      <h4 id="custommetaordering">Custom Meta Ordering</h4>
+      
+      <p>You can order pages by their custom meta attributes. Like creating an <code>Order</code> meta for each page, then you can use <code>$config['pages_order'] = &quot;meta.order:asc&quot;;</code> in your <code>config.php</code> file.</p>
+      
       <h3 id="themes">Themes</h3>
-      <p>You can create themes for your Phile installation in the &quot;themes&quot; folder. Check out the default theme for an example of a theme. Phile uses
-        <a href="http://twig.sensiolabs.org/documentation">Twig</a> for it&#39;s templating engine. You can select your theme by setting the <code>$config[&#39;theme&#39;]</code> variable
-        in config.php to your theme folder.</p>
+      
+      <p>You can create themes for your Phile installation in the &#8220;themes&#8221; folder. Check out the default theme for an example of a theme. Phile uses
+      <a href="http://twig.sensiolabs.org/documentation">Twig</a> for it&#8217;s templating engine. You can select your theme by setting the <code>$config['theme']</code> variable
+      in config.php to your theme folder.</p>
+      
       <p>All themes must include an <code>index.html</code> file to define the HTML structure of the theme. Below are the Twig variables that are available to use in your theme:</p>
+      
       <ul>
-        <li><code>{{ config }}</code> - Contains the values you set in config.php (e.g. <code>{{ config.theme }}</code> = &quot;default&quot;)</li>
-        <li><code>{{ base_dir }}</code> - The path to your Phile root directory</li>
-        <li><code>{{ base_url }}</code> - The URL to your Phile site</li>
-        <li><code>{{ theme_dir }}</code> - The path to the Phile active theme directory</li>
-        <li><code>{{ theme_url }}</code> - The URL to the Phile active theme directory</li>
-        <li><code>{{ content_dir }}</code> - The path to the content direcotry</li>
-        <li><code>{{ content_url }}</code> - The URL to the content directory</li>
-        <li><code>{{ site_title }}</code> - Shortcut to the site title (defined in config.php)</li>
-        <li><code>{{ meta }}</code> - Contains the meta values from the current page<ul>
-          <li><code>{{ meta.title }}</code></li>
-          <li><code>{{ meta.description }}</code></li>
-        </ul>
-        </li>
-        <li><code>{{ content }}</code> - The content of the current page (after it has been processed through Markdown)</li>
-        <li><code>{{ pages }}</code> - A collection of all the content in your site<ul>
-          <li><code>{{ page.title }}</code></li>
-          <li><code>{{ page.url }}</code></li>
-          <li><code>{{ page.content }}</code></li>
-        </ul>
-        </li>
-        <li><code>{{ current_page }}</code> - A page object of the current_page</li>
+      <li><code>{{ config }}</code> - Contains the values you set in config.php (e.g. <code>{{ config.theme }}</code> = &#8220;default&#8221;)</li>
+      <li><code>{{ base_dir }}</code> - The path to your Phile root directory</li>
+      <li><code>{{ base_url }}</code> - The URL to your Phile site</li>
+      <li><code>{{ theme_dir }}</code> - The path to the Phile active theme directory</li>
+      <li><code>{{ theme_url }}</code> - The URL to the Phile active theme directory</li>
+      <li><code>{{ content_dir }}</code> - The path to the content direcotry</li>
+      <li><code>{{ content_url }}</code> - The URL to the content directory</li>
+      <li><code>{{ site_title }}</code> - Shortcut to the site title (defined in config.php)</li>
+      <li><code>{{ meta }}</code> - Contains the meta values from the current page</li>
+      <li><code>{{ meta.title }}</code></li>
+      <li><code>{{ meta.description }}</code></li>
+      <li><code>{{ content }}</code> - The content of the current page (after it has been processed through Markdown)</li>
+      <li><code>{{ pages }}</code> - A collection of all the content in your site</li>
+      <li><code>{{ page.title }}</code></li>
+      <li><code>{{ page.url }}</code></li>
+      <li><code>{{ page.content }}</code></li>
+      <li><code>{{ current_page }}</code> - A page object of the current_page</li>
       </ul>
+      
       <p>Page listing example:</p>
-<pre><code class="lang-.html">&lt;ul class=&quot;nav&quot;&gt;
-  {% for page in pages %}
-  &lt;li&gt;&lt;a href=&quot;{{ page.url }}&quot;&gt;{{ page.title }}&lt;/a&gt;&lt;/li&gt;
-  {% endfor %}
-  &lt;/ul&gt;
-</code></pre>
+      
+      <pre><code class="html">&lt;ul class=&quot;nav&quot;&gt;
+        {% for page in pages %}
+          &lt;li&gt;&lt;a href=&quot;{{ page.url }}&quot;&gt;{{ page.title }}&lt;/a&gt;&lt;/li&gt;
+        {% endfor %}
+      &lt;/ul&gt;
+      </code></pre>
+      
       <h3 id="config">Config</h3>
-      <p>You can override the default Phile settings (and add your own custom settings) by editing config.php in the root Phile directory. The config.php file
-        lists all of the settings and their defaults. To override a setting, simply uncomment it in config.php and set your custom value.</p>
+      
+      <p>You can override the default Phile settings (and add your own custom settings) by editing config/config.php. The config.php file
+      lists all of the settings and their defaults. To override a setting, simply uncomment it in config.php and set your custom value.</p>
+      
       <h3 id="events">Events</h3>
+      
       <p>In the core we trigger a lot of events, which help to manipulate content or other stuff within a plugin.
-        To use the event system, you only have to register your plugin for a specific event, look at the example plugin for more an example.</p>
+      To use the event system, you only have to register your plugin for a specific event, look at the example plugin for more an example.</p>
+      
       <p>The following list shows all events.</p>
+      
       <h4 id="plugins_loaded">plugins_loaded</h4>
+      
       <p>this event is triggered after the plugins loaded</p>
+      
       <table>
-        <thead>
-        <tr>
-          <th>param</th>
-          <th style="text-align:left">type</th>
-          <th style="text-align:left">description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td><code>plugins</code></td>
-          <td style="text-align:left">array</td>
-          <td style="text-align:left"><code>Plugin</code> classes of all loaded plugins</td>
-        </tr>
-        </tbody>
+      <colgroup>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      </colgroup>
+      
+      <thead>
+      <tr>
+        <th style="text-align:left;">param</th>
+        <th style="text-align:left;">type</th>
+        <th style="text-align:left;">description</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+      <tr>
+        <td style="text-align:left;"><code>plugins</code></td>
+        <td style="text-align:left;">array</td>
+        <td style="text-align:left;"><code>Plugin</code> classes of all loaded plugins</td>
+      </tr>
+      </tbody>
       </table>
+      
       <h4 id="config_loaded">config_loaded</h4>
+      
       <p>this event is triggered after the configuration is fully loaded</p>
+      
       <table>
-        <thead>
-        <tr>
-          <th>param</th>
-          <th style="text-align:left">type</th>
-          <th style="text-align:left">description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td><code>config</code></td>
-          <td style="text-align:left">array</td>
-          <td style="text-align:left">the complete configuration</td>
-        </tr>
-        </tbody>
+      <colgroup>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      </colgroup>
+      
+      <thead>
+      <tr>
+        <th style="text-align:left;">param</th>
+        <th style="text-align:left;">type</th>
+        <th style="text-align:left;">description</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+      <tr>
+        <td style="text-align:left;"><code>config</code></td>
+        <td style="text-align:left;">array</td>
+        <td style="text-align:left;">the complete configuration</td>
+      </tr>
+      </tbody>
       </table>
-      <h4 id="after-_init-_core">after_init_core</h4>
+      
+      <h4 id="after_init_core">after_init_core</h4>
+      
       <p>this event is triggered after the core is initialized</p>
+      
       <table>
-        <thead>
-        <tr>
-          <th>param</th>
-          <th style="text-align:left">type</th>
-          <th style="text-align:left">description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td><code>response</code></td>
-          <td style="text-align:left">\Phile\Core\Response</td>
-          <td style="text-align:left">the response</td>
-        </tr>
-        </tbody>
+      <colgroup>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      </colgroup>
+      
+      <thead>
+      <tr>
+        <th style="text-align:left;">param</th>
+        <th style="text-align:left;">type</th>
+        <th style="text-align:left;">description</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+      <tr>
+        <td style="text-align:left;"><code>response</code></td>
+        <td style="text-align:left;">\Phile\Core\Response</td>
+        <td style="text-align:left;">the response, set a PSR&#8211;7 response to send output early</td>
+      </tr>
+      </tbody>
       </table>
+      
       <h4 id="request_uri">request_uri</h4>
+      
       <p>this event is triggered after the request uri is detected.</p>
+      
       <table>
-        <thead>
-        <tr>
-          <th>param</th>
-          <th style="text-align:left">type</th>
-          <th style="text-align:left">description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td><code>uri</code></td>
-          <td style="text-align:left">string</td>
-          <td style="text-align:left">the requested uri (without install_path)</td>
-        </tr>
-        </tbody>
+      <colgroup>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      </colgroup>
+      
+      <thead>
+      <tr>
+        <th style="text-align:left;">param</th>
+        <th style="text-align:left;">type</th>
+        <th style="text-align:left;">description</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+      <tr>
+        <td style="text-align:left;"><code>uri</code></td>
+        <td style="text-align:left;">string</td>
+        <td style="text-align:left;">the requested uri (without install_path)</td>
+      </tr>
+      <tr>
+        <td style="text-align:left;"><code>response</code></td>
+        <td style="text-align:left;">Psr\Http\Message\ResponseInterface</td>
+        <td style="text-align:left;">set a PSR&#8211;7 response to send output early</td>
+      </tr>
+      </tbody>
       </table>
-      <h4 id="after-_404">after_404</h4>
+      
+      <h4 id="after_404">after_404</h4>
+      
       <p>this event is triggered after a requested page is not found</p>
-      <h4 id="after-_resolve-_page">after_resolve_page</h4>
+      
+      <h4 id="after_resolve_page">after_resolve_page</h4>
+      
       <p>this event is triggered after a request is resolved to a page</p>
+      
       <table>
-        <thead>
-        <tr>
-          <th>param</th>
-          <th style="text-align:left">type</th>
-          <th style="text-align:left">description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td><code>pageId</code></td>
-          <td style="text-align:left">string</td>
-          <td style="text-align:left">the requested page-ID</td>
-        </tr>
-        <tr>
-          <td><code>page</code></td>
-          <td style="text-align:left">Phile\Model\Page</td>
-          <td style="text-align:left">the page served</td>
-        </tr>
-        </tbody>
+      <colgroup>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      </colgroup>
+      
+      <thead>
+      <tr>
+        <th style="text-align:left;">param</th>
+        <th style="text-align:left;">type</th>
+        <th style="text-align:left;">description</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+      <tr>
+        <td style="text-align:left;"><code>pageId</code></td>
+        <td style="text-align:left;">string</td>
+        <td style="text-align:left;">the requested page-ID</td>
+      </tr>
+      <tr>
+        <td style="text-align:left;"><code>page</code></td>
+        <td style="text-align:left;">Phile\Model\Page</td>
+        <td style="text-align:left;">the page served</td>
+      </tr>
+      <tr>
+        <td style="text-align:left;"><code>response</code></td>
+        <td style="text-align:left;">Psr\Http\Message\ResponseInterface</td>
+        <td style="text-align:left;">set a PSR&#8211;7 response to send output early</td>
+      </tr>
+      </tbody>
       </table>
-      <h4 id="before-_init-_template">before_init_template</h4>
+      
+      <h4 id="before_init_template">before_init_template</h4>
+      
       <p>this event is triggered before the the template engine is init</p>
-      <h4 id="before-_render-_template">before_render_template</h4>
+      
+      <h4 id="before_render_template">before_render_template</h4>
+      
       <p>this event is triggered before the template is rendered</p>
+      
       <table>
-        <thead>
-        <tr>
-          <th>param</th>
-          <th style="text-align:left">type</th>
-          <th style="text-align:left">description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td><code>templateEngine</code></td>
-          <td style="text-align:left">\Phile\Template\TemplateInterface</td>
-          <td style="text-align:left">the template engine</td>
-        </tr>
-        </tbody>
+      <colgroup>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      </colgroup>
+      
+      <thead>
+      <tr>
+        <th style="text-align:left;">param</th>
+        <th style="text-align:left;">type</th>
+        <th style="text-align:left;">description</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+      <tr>
+        <td style="text-align:left;"><code>templateEngine</code></td>
+        <td style="text-align:left;">\Phile\Template\TemplateInterface</td>
+        <td style="text-align:left;">the template engine</td>
+      </tr>
+      <tr>
+        <td style="text-align:left;"><code>response</code></td>
+        <td style="text-align:left;">Psr\Http\Message\ResponseInterface</td>
+        <td style="text-align:left;">set a PSR&#8211;7 response to send output early</td>
+      </tr>
+      </tbody>
       </table>
-      <h4 id="template-_engine-_registered">template_engine_registered</h4>
+      
+      <h4 id="template_engine_registered">template_engine_registered</h4>
+      
       <p>this event is triggered before the template is rendered</p>
+      
       <table>
-        <thead>
-        <tr>
-          <th>param</th>
-          <th style="text-align:left">type</th>
-          <th style="text-align:left">description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td><code>engine</code></td>
-          <td style="text-align:left">\Phile\Template\TemplateInterface</td>
-          <td style="text-align:left">the raw template engine</td>
-        </tr>
-        <tr>
-          <td><code>data</code></td>
-          <td style="text-align:left">array</td>
-          <td style="text-align:left">the variables being sent to the template engine</td>
-        </tr>
-        </tbody>
+      <colgroup>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      </colgroup>
+      
+      <thead>
+      <tr>
+        <th style="text-align:left;">param</th>
+        <th style="text-align:left;">type</th>
+        <th style="text-align:left;">description</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+      <tr>
+        <td style="text-align:left;"><code>engine</code></td>
+        <td style="text-align:left;">\Phile\Template\TemplateInterface</td>
+        <td style="text-align:left;">the raw template engine</td>
+      </tr>
+      <tr>
+        <td style="text-align:left;"><code>data</code></td>
+        <td style="text-align:left;">array</td>
+        <td style="text-align:left;">the variables being sent to the template engine</td>
+      </tr>
+      </tbody>
       </table>
-      <h4 id="after-_render-_template">after_render_template</h4>
+      
+      <h4 id="after_render_template">after_render_template</h4>
+      
       <p>this event is triggered after the template is rendered</p>
+      
       <table>
-        <thead>
-        <tr>
-          <th>param</th>
-          <th style="text-align:left">type</th>
-          <th style="text-align:left">description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td><code>templateEngine</code></td>
-          <td style="text-align:left">\Phile\Template\TemplateInterface</td>
-          <td style="text-align:left">the template engine</td>
-        </tr>
-        <tr>
-          <td><code>output</code></td>
-          <td style="text-align:left">string</td>
-          <td style="text-align:left">the parsed and ready output</td>
-        </tr>
-        </tbody>
+      <colgroup>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      </colgroup>
+      
+      <thead>
+      <tr>
+        <th style="text-align:left;">param</th>
+        <th style="text-align:left;">type</th>
+        <th style="text-align:left;">description</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+      <tr>
+        <td style="text-align:left;"><code>templateEngine</code></td>
+        <td style="text-align:left;">\Phile\Template\TemplateInterface</td>
+        <td style="text-align:left;">the template engine</td>
+      </tr>
+      <tr>
+        <td style="text-align:left;"><code>output</code></td>
+        <td style="text-align:left;">string</td>
+        <td style="text-align:left;">the parsed and ready output</td>
+      </tr>
+      </tbody>
       </table>
-      <h4 id="before-_read-_file-_meta">before_read_file_meta</h4>
+      
+      <h4 id="before_read_file_meta">before_read_file_meta</h4>
+      
       <p>this event is triggered before the meta data is read and parsed</p>
+      
       <table>
-        <thead>
-        <tr>
-          <th>param</th>
-          <th style="text-align:left">type</th>
-          <th style="text-align:left">description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td><code>rawData</code></td>
-          <td style="text-align:left">string</td>
-          <td style="text-align:left">the unparsed data</td>
-        </tr>
-        <tr>
-          <td><code>meta</code></td>
-          <td style="text-align:left">\Phile\Model\Meta</td>
-          <td style="text-align:left">the meta model</td>
-        </tr>
-        </tbody>
+      <colgroup>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      </colgroup>
+      
+      <thead>
+      <tr>
+        <th style="text-align:left;">param</th>
+        <th style="text-align:left;">type</th>
+        <th style="text-align:left;">description</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+      <tr>
+        <td style="text-align:left;"><code>rawData</code></td>
+        <td style="text-align:left;">string</td>
+        <td style="text-align:left;">the unparsed data</td>
+      </tr>
+      <tr>
+        <td style="text-align:left;"><code>meta</code></td>
+        <td style="text-align:left;">\Phile\Model\Meta</td>
+        <td style="text-align:left;">the meta model</td>
+      </tr>
+      </tbody>
       </table>
-      <h4 id="after-_read-_file-_meta">after_read_file_meta</h4>
+      
+      <h4 id="after_read_file_meta">after_read_file_meta</h4>
+      
       <p>this event is triggered after the meta data is read and parsed</p>
+      
       <table>
-        <thead>
-        <tr>
-          <th>param</th>
-          <th style="text-align:left">type</th>
-          <th style="text-align:left">description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td><code>rawData</code></td>
-          <td style="text-align:left">string</td>
-          <td style="text-align:left">the unparsed data</td>
-        </tr>
-        <tr>
-          <td><code>meta</code></td>
-          <td style="text-align:left">\Phile\Model\Meta</td>
-          <td style="text-align:left">the meta model</td>
-        </tr>
-        </tbody>
+      <colgroup>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      </colgroup>
+      
+      <thead>
+      <tr>
+        <th style="text-align:left;">param</th>
+        <th style="text-align:left;">type</th>
+        <th style="text-align:left;">description</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+      <tr>
+        <td style="text-align:left;"><code>rawData</code></td>
+        <td style="text-align:left;">string</td>
+        <td style="text-align:left;">the unparsed data</td>
+      </tr>
+      <tr>
+        <td style="text-align:left;"><code>meta</code></td>
+        <td style="text-align:left;">\Phile\Model\Meta</td>
+        <td style="text-align:left;">the meta model</td>
+      </tr>
+      </tbody>
       </table>
-      <h4 id="before-_load-_content">before_load_content</h4>
+      
+      <h4 id="before_load_content">before_load_content</h4>
+      
       <p>this event is triggered before the content is loaded</p>
+      
       <table>
-        <thead>
-        <tr>
-          <th>param</th>
-          <th style="text-align:left">type</th>
-          <th style="text-align:left">description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td><code>filePath</code></td>
-          <td style="text-align:left">string</td>
-          <td style="text-align:left">the path to the file</td>
-        </tr>
-        <tr>
-          <td><code>page</code></td>
-          <td style="text-align:left">\Phile\Model\Page</td>
-          <td style="text-align:left">the page model</td>
-        </tr>
-        </tbody>
+      <colgroup>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      </colgroup>
+      
+      <thead>
+      <tr>
+        <th style="text-align:left;">param</th>
+        <th style="text-align:left;">type</th>
+        <th style="text-align:left;">description</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+      <tr>
+        <td style="text-align:left;"><code>filePath</code></td>
+        <td style="text-align:left;">string</td>
+        <td style="text-align:left;">the path to the file</td>
+      </tr>
+      <tr>
+        <td style="text-align:left;"><code>page</code></td>
+        <td style="text-align:left;">\Phile\Model\Page</td>
+        <td style="text-align:left;">the page model</td>
+      </tr>
+      </tbody>
       </table>
-      <h4 id="after-_load-_content">after_load_content</h4>
+      
+      <h4 id="after_load_content">after_load_content</h4>
+      
       <p>this event is triggered after the content is loaded</p>
+      
       <table>
-        <thead>
-        <tr>
-          <th>param</th>
-          <th style="text-align:left">type</th>
-          <th style="text-align:left">description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td><code>filePath</code></td>
-          <td style="text-align:left">string</td>
-          <td style="text-align:left">the path to the file</td>
-        </tr>
-        <tr>
-          <td><code>rawData</code></td>
-          <td style="text-align:left">string</td>
-          <td style="text-align:left">the raw data</td>
-        </tr>
-        <tr>
-          <td><code>page</code></td>
-          <td style="text-align:left">\Phile\Model\Page</td>
-          <td style="text-align:left">the page model</td>
-        </tr>
-        </tbody>
+      <colgroup>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      </colgroup>
+      
+      <thead>
+      <tr>
+        <th style="text-align:left;">param</th>
+        <th style="text-align:left;">type</th>
+        <th style="text-align:left;">description</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+      <tr>
+        <td style="text-align:left;"><code>filePath</code></td>
+        <td style="text-align:left;">string</td>
+        <td style="text-align:left;">the path to the file</td>
+      </tr>
+      <tr>
+        <td style="text-align:left;"><code>rawData</code></td>
+        <td style="text-align:left;">string</td>
+        <td style="text-align:left;">the raw data</td>
+      </tr>
+      <tr>
+        <td style="text-align:left;"><code>page</code></td>
+        <td style="text-align:left;">\Phile\Model\Page</td>
+        <td style="text-align:left;">the page model</td>
+      </tr>
+      </tbody>
       </table>
-      <h4 id="before-_parse-_content">before_parse_content</h4>
+      
+      <h4 id="before_parse_content">before_parse_content</h4>
+      
       <p>this event is triggered before the content is parsed</p>
+      
       <table>
-        <thead>
-        <tr>
-          <th>param</th>
-          <th style="text-align:left">type</th>
-          <th style="text-align:left">description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td><code>content</code></td>
-          <td style="text-align:left">string</td>
-          <td style="text-align:left">the raw data</td>
-        </tr>
-        <tr>
-          <td><code>page</code></td>
-          <td style="text-align:left">\Phile\Model\Page</td>
-          <td style="text-align:left">the page model</td>
-        </tr>
-        </tbody>
+      <colgroup>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      </colgroup>
+      
+      <thead>
+      <tr>
+        <th style="text-align:left;">param</th>
+        <th style="text-align:left;">type</th>
+        <th style="text-align:left;">description</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+      <tr>
+        <td style="text-align:left;"><code>content</code></td>
+        <td style="text-align:left;">string</td>
+        <td style="text-align:left;">the raw data</td>
+      </tr>
+      <tr>
+        <td style="text-align:left;"><code>page</code></td>
+        <td style="text-align:left;">\Phile\Model\Page</td>
+        <td style="text-align:left;">the page model</td>
+      </tr>
+      </tbody>
       </table>
-      <h4 id="after-_parse-_content">after_parse_content</h4>
+      
+      <h4 id="after_parse_content">after_parse_content</h4>
+      
       <p>this event is triggered after the content is parsed</p>
+      
       <table>
-        <thead>
-        <tr>
-          <th>param</th>
-          <th style="text-align:left">type</th>
-          <th style="text-align:left">description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td><code>content</code></td>
-          <td style="text-align:left">string</td>
-          <td style="text-align:left">the raw data</td>
-        </tr>
-        <tr>
-          <td><code>page</code></td>
-          <td style="text-align:left">\Phile\Model\Page</td>
-          <td style="text-align:left">the page model</td>
-        </tr>
-        </tbody>
+      <colgroup>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      <col style="text-align:left;"/>
+      </colgroup>
+      
+      <thead>
+      <tr>
+        <th style="text-align:left;">param</th>
+        <th style="text-align:left;">type</th>
+        <th style="text-align:left;">description</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+      <tr>
+        <td style="text-align:left;"><code>content</code></td>
+        <td style="text-align:left;">string</td>
+        <td style="text-align:left;">the raw data</td>
+      </tr>
+      <tr>
+        <td style="text-align:left;"><code>page</code></td>
+        <td style="text-align:left;">\Phile\Model\Page</td>
+        <td style="text-align:left;">the page model</td>
+      </tr>
+      </tbody>
       </table>
+            
 
             <!-- Content End -->
 

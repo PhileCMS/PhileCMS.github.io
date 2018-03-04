@@ -1,0 +1,38 @@
+<p>Here is short tutorial how to satisfy <a href="https://github.com/PhileCMS/Phile/wiki/%5BHOW-TO%5D-Installation#requirements">Requirements</a> for <a href="https://github.com/PhileCMS/Phile/wiki/%5BHOW-TO%5D-Installation">PhileCMS installation guide</a> on CentOS 7.</p>
+<pre><code class="lang-bash"># run all commands with root privileges or with sudo
+$ su -
+
+# install basic apache+php server
+yum install httpd php
+
+# enables apache by default and start it
+systemctl start httpd
+systemctl enable httpd
+
+# allow it in filewall
+firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-service=https
+systemctl restart firewalld
+</code></pre>
+<p>To enable <code>mod_rewrite</code> module, you should add <code>AllowOverride All</code> in the <code>&lt;Directory&gt;</code> section in apache&#39;s virtual host config file.</p>
+<p>If you don&#39;t create extra config file and use just default <code>/etc/httpd/conf/httpd.conf</code>, follow next steps:</p>
+<ul>
+<li>open default apache config file (vim /etc/httpd/conf/httpd.conf)</li>
+<li>find section for <code>&lt;Directory &quot;/var/www/html&quot;&gt;</code>. It looks like</li>
+</ul>
+<pre><code class="lang-xml"># Further relax access to the default document root:
+&lt;Directory &quot;/var/www/html&quot;&gt;
+...
+    #
+    # AllowOverride controls what directives may be placed in .htaccess files.
+    # It can be &quot;All&quot;, &quot;None&quot;, or any combination of the keywords:
+    #   Options FileInfo AuthConfig Limit
+    #
+    AllowOverride None
+...
+&lt;/Directory&gt;
+</code></pre>
+<ul>
+<li>replace <code>AllowOverride None</code> with <code>AllowOverride All</code>.</li>
+<li><code>systemctl restart httpd</code></li>
+</ul>
