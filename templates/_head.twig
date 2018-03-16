@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="title" content="{{ title }} - PhileCMS">
+  <meta property="og:title" content="{{ title }} - PhileCMS">
+  <meta name="description" content="PhileCMS - the flat-file PHP CMS">
+  <meta itemprop="description" content="{{ title }} - PhileCMS - the flat-file PHP CMS">
+  <meta property="og:description" content="{{ title }} - PhileCMS - the flat-file PHP CMS">
+  <meta itemprop="url" content="http://philecms.github.io/">
+  <meta property="og:url" content="http://philecms.github.io/">
+  <meta property="og:site_name" content="PhileCMS">
+  <meta property="article:author" content="PhileCMS" />
+  <meta itemprop="image logo" content="{{ base_url }}img/phile-logo.png">
+  <meta property="og:image" content="{{ base_url }}img/phile-logo.png">
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ base_url }}css/style.min.css" media="screen" />
+  <!--[if IE]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <title>{{ title }} - Flat-File PHP CMS - PhileCMS</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="home-page">
+
+<nav class="top-menu section-1">
+  <div class="grid">
+    <div class="col-1-3 top-menu-hero">
+      <p>
+        <a href="{{ base_url }}index.html">
+          <img src="{{ base_url }}img/phile-logo.svg" alt="phile-logo">
+        </a>
+        <span id="pageTitle">
+          {{ title }}
+        </span>
+      </p>
+    </div>
+    <div class="col-2-3 top-menu-nav right">
+      <ul>
+        <li>
+          <a href="{{ base_url }}index.html" class="{% if title == 'PhileCMS' %}item-active{% endif %}">
+            <i class="fa fa-home"></i>
+            PhileCMS
+          </a>
+        </li>
+        <li>
+          <a href="{{ base_url }}wiki/Home.html" class="{% if title != 'PhileCMS' %}item-active{% endif %}">
+            <i class="fa fa-book"></i>
+            Docs
+          </a>
+        </li>
+        <li>
+          <a href="{{ base_url }}api/">
+            <i class="fa fa-sitemap"></i>
+            PhpDoc 
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/PhileCMS/Phile">
+            <i class="fa fa-github"></i>
+            Source
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

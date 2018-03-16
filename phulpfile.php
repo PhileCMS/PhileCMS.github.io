@@ -122,8 +122,9 @@ $phulp->task('wiki', function (Phulp\Phulp $phulp) {
 
             $fullname = explode('.', $distFile->getName())[0];
             $title = preg_replace('/\[.*\]-/', '', $fullname);
+            $base_url = '../';
 
-            $vars = compact(['title', 'fullname']);
+            $vars = compact(['title', 'fullname', 'base_url']);
             $content = $twig->render($distFile->getName(), $vars);
             $distFile->setContent($content); 
         }))
