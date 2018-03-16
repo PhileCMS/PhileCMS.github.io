@@ -129,6 +129,9 @@ $phulp->task('wiki', function (Phulp\Phulp $phulp) {
             $distFile->setContent($content); 
         }))
         ->pipe($phulp->dest('wiki'));
+
+    file_put_contents('wiki/index.html', "<!DOCTYPE html><html><head><meta http-equiv='refresh' content='0; url=Home.html' /></head></html>");
+    
 });
 
 /**

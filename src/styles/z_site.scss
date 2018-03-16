@@ -217,6 +217,9 @@ table {
 
   a {
     white-space: nowrap;
+    &:hover {
+        text-decoration: none;
+    }
   }
 }
 

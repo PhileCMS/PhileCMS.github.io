@@ -11,7 +11,7 @@
     <directory>vendor/phile-cms/phile/plugins/phile</directory>
   </files>
   <transformations>
-    <template name="responsive"/>
+    <!--<template name="responsive"/>-->
   </transformations>
 </phpdoc>
 
