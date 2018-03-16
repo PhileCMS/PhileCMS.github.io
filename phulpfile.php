@@ -89,6 +89,19 @@ $phulp->task('wiki', function (Phulp\Phulp $phulp) {
         }))
         ->pipe($phulp->dest('wiki'));
 
+    // prepare sidebar for twig usage
+    $phulp->src(['wiki'], '/.html$/')
+        ->pipe($phulp->iterate(function(Phulp\DistFile $distFile) use ($config) {
+            $content = $distFile->getContent();
+            $content = preg_replace(
+                '/href="https:\/\/github.*?\/wiki\/(.*?)"/',
+                "href=\"\\1.html\"",
+                $content
+            );
+            $distFile->setContent($content); 
+        }))
+        ->pipe($phulp->dest('wiki'));
+
     // prepare HTML for twig usage
     $phulp->src(['wiki'], '/^[^_].*\.html$/')
         ->pipe($phulp->iterate(function(Phulp\DistFile $distFile) {
