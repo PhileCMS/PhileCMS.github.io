@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="title" content="Installation - PhileCMS">
+  <meta property="og:title" content="Installation - PhileCMS">
+  <meta name="description" content="PhileCMS - the flat-file PHP CMS">
+  <meta itemprop="description" content="Installation - PhileCMS - the flat-file PHP CMS">
+  <meta property="og:description" content="Installation - PhileCMS - the flat-file PHP CMS">
+  <meta itemprop="url" content="http://philecms.github.io/">
+  <meta property="og:url" content="http://philecms.github.io/">
+  <meta property="og:site_name" content="PhileCMS">
+  <meta property="article:author" content="PhileCMS" />
+  <meta itemprop="image logo" content="../img/phile-logo.png">
+  <meta property="og:image" content="../img/phile-logo.png">
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.min.css" media="screen" />
+  <!--[if IE]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <title>Installation - Flat-File PHP CMS - PhileCMS</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="home-page">
+
+<nav class="top-menu section-1">
+  <div class="grid">
+    <div class="col-1-3 top-menu-hero">
+      <p>
+        <a href="index.html">
+          <img src="../img/phile-logo.svg" alt="phile-logo">
+        </a>
+        <span id="pageTitle">
+          Installation
+        </span>
+      </p>
+    </div>
+    <div class="col-2-3 top-menu-nav right">
+      <ul>
+        <li>
+          <a href="../index.html" class="">
+            <i class="fa fa-home"></i>
+            PhileCMS
+          </a>
+        </li>
+        <li>
+          <a href="Home.html" class="item-active">
+            <i class="fa fa-book"></i>
+            Docs
+          </a>
+        </li>
+        <li>
+          <a href="../api/">
+            <i class="fa fa-sitemap"></i>
+            PhpDoc 
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/PhileCMS/Phile">
+            <i class="fa fa-github"></i>
+            Source
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="container">
+    <section id="main_content">
+      <aside class="wiki-aside">
+        <h2>Navigation</h2>
+<ul>
+<li><a href='Home.html'>Home</a></li>
+</ul>
+<h3>How-To</h3>
+<ul>
+<li><a href='%5BHOW-TO%5D-Installation.html'>Installation</a></li>
+<li><a href='%5BHOW-TO%5D-How-To-Blog.html'>How-To Blog</a></li>
+<li><a href='%5BHOW-TO%5D-Pagination.html'>Pagination</a></li>
+<li><a href='%5BHOW-TO%5D-Using-Nginx-with-Phile.html'>Using Nginx</a></li>
+</ul>
+<h3>Community</h3>
+<ul>
+<li><a href='%5BCOMMUNITY%5D-Sites-using-Phile.html'>Sites using Phile</a></li>
+<li><a href='%5BCOMMUNITY%5D-Plugins.html'>Plugins</a></li>
+<li><a href='%5BCOMMUNITY%5D-Themes.html'>Themes</a></li>
+</ul>
+<h3>Plugin-Development</h3>
+<ul>
+<li><a href='%5BDEVELOPER%5D-Plugins.html'>Plugins</a></li>
+<li><a href='%5BDEVELOPER%5D-Event-System.html'>Event-System</a></li>
+<li><a href='%5BDEVELOPER%5D-Service-Locator.html'>Service-Locator</a></li>
+<li><a href='%5BDEVELOPER%5D-Data-Storage-Engine.html'>Data Storage Engine</a></li>
+<li><a href='%5BDEVELOPER%5D-Use-Core-Classes.html'>Use Core Classes</a></li>
+<li><a href='%5BDEVELOPER%5D-Best-Practice.html'>Best Practice</a></li>
+<li><a href='%5BDEVELOPER%5D-Publish-A-Plugin.html'>Publish</a></li>
+</ul>
+<h3>Core-Development</h3>
+<ul>
+<li><a href='%5BDEVELOPER%5D-Introduction.html'>Introduction</a></li>
+<li><a href='%5BDEVELOPER%5D-Developer-Guidelines.html'>Developer-Guidelines</a></li>
+<li><a href='%5BDEVELOPER%5D-Release-Guide.html'>Release Guide</a></li>
+</ul>      </aside>
+      <div style="overflow:hidden;">
+        <h1>Installation</h1>
+        
+<h2>Requirements</h2>
+<ul>
+<li>PHP <code>&gt;=5.6.0</code></li>
+<li>If you're running Apache, <code>mod_rewrite</code> must be enabled</li>
+</ul>
+<h2>Download the Files</h2>
+<h4>Download from <a href="https://philecms.github.io/">https://philecms.github.io/</a></h4>
+<p>Download and extract the the latest version from <a href="https://philecms.github.io/">https://philecms.github.io/</a>.</p>
+<h4>Download via composer</h4>
+<p>Install <a href="http://php.net/manual/en/install.php">PHP</a> and then <a href="https://getcomposer.org/doc/00-intro.md#system-requirements">composer</a>. Then create a new Phile project:</p>
+<pre><code>composer create-project --no-dev phile-cms/phile</code></pre>
+<h4>Download for Developers</h4>
+<p>Clone the repository and install the required libraries by running in the root directory (the root has the <code>composer.json</code> file):</p>
+<pre><code class="language-shell">git clone https://github.com/PhileCMS/Phile phile
+cd phile
+composer install</code></pre>
+<h2>Put the Files on the Web-Server</h2>
+<p>Upload the Phile folder to your web-server. If you open the URL of that folder in your web browser you should see Phile's setup page.</p>
+<p>If you upload the folder content separately don't miss the <code>.htaccess</code> file. It's placed the root-directory and might be invisible on systems like Linux or Mac OS X.</p>
+<p>Phile can also run locally using PHP's build in web-server. In the Phile root directory:</p>
+<pre><code class="language-shell">php -S localhost:8080</code></pre>
+<p>to start Phile at <a href="http://localhost:8080/">http://localhost:8080/</a>.</p>
+<h2>Post Installation</h2>
+<h4>EncryptionKey</h4>
+<p>You must set the encryption key value in the <code>config.php</code> to a non-empty string. Follow the instruction on screen when you first visit your Phile installation. Make sure to backup this key (or even better your whole <code>config.php</code>) file.</p>
+<h4>Permissions</h4>
+<p>If you run into problems make sure you have full access privileges on the content, html caching and template caching folders:</p>
+<pre><code class="language-shell">chmod 777 content lib/cache lib/datastorage</code></pre>
+<p>The <code>lib/cache</code> is needed for the <a href="https://github.com/PhileCMS/Phile/tree/master/plugins/phile/phpFastCache">philePhpFastCache</a> and <a href="https://github.com/PhileCMS/Phile/tree/master/plugins/phile/templateTwig">phileTemplateTwig</a>.</p>
+<h2>Development</h2>
+<p>You can turn <a href="https://github.com/PhileCMS/Phile/blob/master/plugins/phile/templateTwig/config.php#L7">debug to <strong>true</strong></a> when building a theme. It exposes the <a href="http://twig.sensiolabs.org/doc/functions/dump.html"><code>dump()</code></a> function in Twig.</p>
+<p>If you want to contribute to the development of Phile, you can install the additional libraries required for documentation with composer, from the root directory of your phile instance:</p>
+<pre><code>composer install</code></pre>
+<h2>Production</h2>
+<p>Keep the <a href="https://github.com/PhileCMS/Phile/blob/master/default_config.php#L98">philePhpFastCache plugin</a> enabled. This caches page requests, which will decrease server load immensely.</p>
+<p>Make sure you turn the <a href="https://github.com/PhileCMS/Phile/blob/master/plugins/phile/templateTwig/config.php#L5">Twig cache</a> on during production. This will greatly increase the speed of your site.</p>
+<p>Lastly, be sure to run <code>composer dump-autoload --optimize</code> so that composer can serve the optimized version of the autoloader. There is speculation that this could increase the performance of your site by ~20%.</p>
+<h2>Additional Setup and Configuration</h2>
+<h4>Setup a Virtual Host in apache</h4>
+<p>Set up a virtual host inside your <code>apache.conf</code>, and then restart apache:</p>
+<pre><code class="language-apache">NameVirtualHost *:80 # if needed
+
+&lt;VirtualHost *:80&gt;
+    DocumentRoot "/your/htdocs/phile"
+    ServerName phile.demo
+&lt;/VirtualHost&gt;</code></pre>
+<p>Add an entry to <code>/etc/hosts</code>:</p>
+<pre><code class="language-shell"># phile CMS on local server
+127.0.0.1   phile.demo</code></pre>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+<footer class="section-1">
+  <div class="grid">
+    <div class="col-1-2">
+      <h3>
+        <a href="https://github.com/orgs/PhileCMS/people">
+          Core Authors
+        </a>
+      </h3>
+      <ul>
+        <li>
+          <a href="https://github.com/james2doyle" target="_blank">
+            James Doyle - great ideas, code a lot of plugins and worked on the
+            core
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/NeoBlack" target="_blank">
+            Frank Nägler - refactoring of the core and introducing OOP concepts
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/Schlaefer" target="_blank">
+            Schlaefer
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-1-2 center">
+      <p>
+        <a href="https://github.com/PhileCMS">
+          Hosted on Github. Maintained by the PhileCMS community</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.min.js"></script>
+</body>
+</html>

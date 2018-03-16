@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="title" content="How-To-Blog - PhileCMS">
+  <meta property="og:title" content="How-To-Blog - PhileCMS">
+  <meta name="description" content="PhileCMS - the flat-file PHP CMS">
+  <meta itemprop="description" content="How-To-Blog - PhileCMS - the flat-file PHP CMS">
+  <meta property="og:description" content="How-To-Blog - PhileCMS - the flat-file PHP CMS">
+  <meta itemprop="url" content="http://philecms.github.io/">
+  <meta property="og:url" content="http://philecms.github.io/">
+  <meta property="og:site_name" content="PhileCMS">
+  <meta property="article:author" content="PhileCMS" />
+  <meta itemprop="image logo" content="../img/phile-logo.png">
+  <meta property="og:image" content="../img/phile-logo.png">
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.min.css" media="screen" />
+  <!--[if IE]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <title>How-To-Blog - Flat-File PHP CMS - PhileCMS</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="home-page">
+
+<nav class="top-menu section-1">
+  <div class="grid">
+    <div class="col-1-3 top-menu-hero">
+      <p>
+        <a href="index.html">
+          <img src="../img/phile-logo.svg" alt="phile-logo">
+        </a>
+        <span id="pageTitle">
+          How-To-Blog
+        </span>
+      </p>
+    </div>
+    <div class="col-2-3 top-menu-nav right">
+      <ul>
+        <li>
+          <a href="../index.html" class="">
+            <i class="fa fa-home"></i>
+            PhileCMS
+          </a>
+        </li>
+        <li>
+          <a href="Home.html" class="item-active">
+            <i class="fa fa-book"></i>
+            Docs
+          </a>
+        </li>
+        <li>
+          <a href="../api/">
+            <i class="fa fa-sitemap"></i>
+            PhpDoc 
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/PhileCMS/Phile">
+            <i class="fa fa-github"></i>
+            Source
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="container">
+    <section id="main_content">
+      <aside class="wiki-aside">
+        <h2>Navigation</h2>
+<ul>
+<li><a href='Home.html'>Home</a></li>
+</ul>
+<h3>How-To</h3>
+<ul>
+<li><a href='%5BHOW-TO%5D-Installation.html'>Installation</a></li>
+<li><a href='%5BHOW-TO%5D-How-To-Blog.html'>How-To Blog</a></li>
+<li><a href='%5BHOW-TO%5D-Pagination.html'>Pagination</a></li>
+<li><a href='%5BHOW-TO%5D-Using-Nginx-with-Phile.html'>Using Nginx</a></li>
+</ul>
+<h3>Community</h3>
+<ul>
+<li><a href='%5BCOMMUNITY%5D-Sites-using-Phile.html'>Sites using Phile</a></li>
+<li><a href='%5BCOMMUNITY%5D-Plugins.html'>Plugins</a></li>
+<li><a href='%5BCOMMUNITY%5D-Themes.html'>Themes</a></li>
+</ul>
+<h3>Plugin-Development</h3>
+<ul>
+<li><a href='%5BDEVELOPER%5D-Plugins.html'>Plugins</a></li>
+<li><a href='%5BDEVELOPER%5D-Event-System.html'>Event-System</a></li>
+<li><a href='%5BDEVELOPER%5D-Service-Locator.html'>Service-Locator</a></li>
+<li><a href='%5BDEVELOPER%5D-Data-Storage-Engine.html'>Data Storage Engine</a></li>
+<li><a href='%5BDEVELOPER%5D-Use-Core-Classes.html'>Use Core Classes</a></li>
+<li><a href='%5BDEVELOPER%5D-Best-Practice.html'>Best Practice</a></li>
+<li><a href='%5BDEVELOPER%5D-Publish-A-Plugin.html'>Publish</a></li>
+</ul>
+<h3>Core-Development</h3>
+<ul>
+<li><a href='%5BDEVELOPER%5D-Introduction.html'>Introduction</a></li>
+<li><a href='%5BDEVELOPER%5D-Developer-Guidelines.html'>Developer-Guidelines</a></li>
+<li><a href='%5BDEVELOPER%5D-Release-Guide.html'>Release Guide</a></li>
+</ul>      </aside>
+      <div style="overflow:hidden;">
+        <h1>How-To-Blog</h1>
+        
+<p><em>Disclaimer</em></p>
+<p>The following instructions are assuming you are using the default Phile installation (Twig Templates and the Markdown parser).</p>
+<h3>Setup</h3>
+<p><a href="https://github.com/PhileCMS/Phile-Blog-Theme">Please see the blog demo theme</a>.</p>
+<h3>Organizing Content</h3>
+<p><strong>IMPORTANT</strong>: Here is the typical way that content files work in Phile:</p>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th style="text-align: left;">URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>content/index.md</td>
+<td style="text-align: left;">/</td>
+</tr>
+<tr>
+<td>content/sub.md</td>
+<td style="text-align: left;">/sub</td>
+</tr>
+<tr>
+<td>content/sub/index.md</td>
+<td style="text-align: left;">/sub (same as above)</td>
+</tr>
+<tr>
+<td>content/sub/page.md</td>
+<td style="text-align: left;">/sub/page</td>
+</tr>
+<tr>
+<td>content/a/very/long/url.md</td>
+<td style="text-align: left;">/a/very/long/url</td>
+</tr>
+</tbody>
+</table>
+<p>Here are some typical blogging style URL structures. You can re-create URL styles with folder structure:</p>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th style="text-align: left;">URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>content/posts/article.md</td>
+<td style="text-align: left;">/posts/article</td>
+</tr>
+<tr>
+<td>content/2013/11/10/post-name.md</td>
+<td style="text-align: left;">/2013/11/10/post-name</td>
+</tr>
+<tr>
+<td>content/category/dogs/about-huskies.md</td>
+<td style="text-align: left;">/category/dogs/about-huskies</td>
+</tr>
+<tr>
+<td>content/tags/cats/about-long-hairs.md</td>
+<td style="text-align: left;">/tags/cats/about-long-hairs</td>
+</tr>
+</tbody>
+</table>
+<h3>Using Images</h3>
+<p>Images just need the path to where they exists. So this path:</p>
+<p><code>Phile/content/images/picture.jpg</code></p>
+<p>Becomes:</p>
+<p><code>{{ base_url }}/content/images/picture.jpg</code></p>
+<p>Or if there was an image in the theme:</p>
+<p><code>{{ theme_url }}/images/theme-logo.png</code></p>
+<h3>Splitting Content</h3>
+<p>There are a couple ways to split content. The reasons you might want to do that is for things like sidebars, widgets, accordions, tabbed panes, column content, etc.</p>
+<p>Here is a demo of how to split content without plugins:</p>
+<pre><code class="language-markdown">### Section 1
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+&lt;hr&gt;
+
+### Section 2
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</code></pre>
+<p>Now in your HTML you can split at that <code>&lt;hr&gt;</code> tag:</p>
+<pre><code class="language-html">&lt;div class="column-1"&gt;
+  {{ content|split('&lt;hr&gt;')[0] }}
+&lt;/div&gt;
+&lt;div class="column-2"&gt;
+  {{ content|split('&lt;hr&gt;')[1] }}
+&lt;/div&gt;</code></pre>
+<p>The <code>&lt;hr&gt;</code> tag is not the special thing here. The <code>split</code> filter in Twig is the special function. You can use any tag or made-up tag (how about <code>&lt;split&gt;</code>?) to do this.</p>
+<p>This can even be done across different partials or be conditial based on some meta tag.</p>
+<h3>JavaScript Constants</h3>
+<p>Here is a trick to get access to Phile variables in your javascript.</p>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;!-- a bunch of stuff here --&gt;
+  &lt;script type="text/javascript"&gt;
+  // bind a phile object to the window
+  window.Phile = {
+    const: {
+      root_dir: '{{ constant('ROOT_DIR') }}',
+      content_dir: '{{ constant('CONTENT_DIR') }}',
+      content_ext: '{{ constant('CONTENT_EXT') }}',
+      lib_dir: '{{ constant('LIB_DIR') }}',
+      plugins_dir: '{{ constant('PLUGINS_DIR') }}',
+      themes_dir: '{{ constant('THEMES_DIR') }}',
+      cache_dir: '{{ constant('CACHE_DIR') }}'
+    },
+    base_url: '{{ base_url }}',
+    theme_url: '{{ theme_url }}',
+    config: JSON.parse('{{ config|json_encode() }}') // encode the config array to a string and then parse that string
+  };
+  &lt;/script&gt;
+&lt;/head&gt;</code></pre>
+<p>Now you can access <code>window.Phile</code> and see some of the settings and constants.</p>
+<h3>Ajax Demo</h3>
+<p>Here is a simple demo of using the above settings to make an ajax call (using jQuery) to some other content:</p>
+<pre><code class="language-javascript">$.get(Phile.base_url + '/sub/page', function(data) {
+  // print out the HTML for parsed sub/page file
+  console.log(data);
+});</code></pre>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+<footer class="section-1">
+  <div class="grid">
+    <div class="col-1-2">
+      <h3>
+        <a href="https://github.com/orgs/PhileCMS/people">
+          Core Authors
+        </a>
+      </h3>
+      <ul>
+        <li>
+          <a href="https://github.com/james2doyle" target="_blank">
+            James Doyle - great ideas, code a lot of plugins and worked on the
+            core
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/NeoBlack" target="_blank">
+            Frank Nägler - refactoring of the core and introducing OOP concepts
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/Schlaefer" target="_blank">
+            Schlaefer
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-1-2 center">
+      <p>
+        <a href="https://github.com/PhileCMS">
+          Hosted on Github. Maintained by the PhileCMS community</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="title" content="Pagination - PhileCMS">
+  <meta property="og:title" content="Pagination - PhileCMS">
+  <meta name="description" content="PhileCMS - the flat-file PHP CMS">
+  <meta itemprop="description" content="Pagination - PhileCMS - the flat-file PHP CMS">
+  <meta property="og:description" content="Pagination - PhileCMS - the flat-file PHP CMS">
+  <meta itemprop="url" content="http://philecms.github.io/">
+  <meta property="og:url" content="http://philecms.github.io/">
+  <meta property="og:site_name" content="PhileCMS">
+  <meta property="article:author" content="PhileCMS" />
+  <meta itemprop="image logo" content="../img/phile-logo.png">
+  <meta property="og:image" content="../img/phile-logo.png">
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.min.css" media="screen" />
+  <!--[if IE]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <title>Pagination - Flat-File PHP CMS - PhileCMS</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="home-page">
+
+<nav class="top-menu section-1">
+  <div class="grid">
+    <div class="col-1-3 top-menu-hero">
+      <p>
+        <a href="index.html">
+          <img src="../img/phile-logo.svg" alt="phile-logo">
+        </a>
+        <span id="pageTitle">
+          Pagination
+        </span>
+      </p>
+    </div>
+    <div class="col-2-3 top-menu-nav right">
+      <ul>
+        <li>
+          <a href="../index.html" class="">
+            <i class="fa fa-home"></i>
+            PhileCMS
+          </a>
+        </li>
+        <li>
+          <a href="Home.html" class="item-active">
+            <i class="fa fa-book"></i>
+            Docs
+          </a>
+        </li>
+        <li>
+          <a href="../api/">
+            <i class="fa fa-sitemap"></i>
+            PhpDoc 
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/PhileCMS/Phile">
+            <i class="fa fa-github"></i>
+            Source
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="container">
+    <section id="main_content">
+      <aside class="wiki-aside">
+        <h2>Navigation</h2>
+<ul>
+<li><a href='Home.html'>Home</a></li>
+</ul>
+<h3>How-To</h3>
+<ul>
+<li><a href='%5BHOW-TO%5D-Installation.html'>Installation</a></li>
+<li><a href='%5BHOW-TO%5D-How-To-Blog.html'>How-To Blog</a></li>
+<li><a href='%5BHOW-TO%5D-Pagination.html'>Pagination</a></li>
+<li><a href='%5BHOW-TO%5D-Using-Nginx-with-Phile.html'>Using Nginx</a></li>
+</ul>
+<h3>Community</h3>
+<ul>
+<li><a href='%5BCOMMUNITY%5D-Sites-using-Phile.html'>Sites using Phile</a></li>
+<li><a href='%5BCOMMUNITY%5D-Plugins.html'>Plugins</a></li>
+<li><a href='%5BCOMMUNITY%5D-Themes.html'>Themes</a></li>
+</ul>
+<h3>Plugin-Development</h3>
+<ul>
+<li><a href='%5BDEVELOPER%5D-Plugins.html'>Plugins</a></li>
+<li><a href='%5BDEVELOPER%5D-Event-System.html'>Event-System</a></li>
+<li><a href='%5BDEVELOPER%5D-Service-Locator.html'>Service-Locator</a></li>
+<li><a href='%5BDEVELOPER%5D-Data-Storage-Engine.html'>Data Storage Engine</a></li>
+<li><a href='%5BDEVELOPER%5D-Use-Core-Classes.html'>Use Core Classes</a></li>
+<li><a href='%5BDEVELOPER%5D-Best-Practice.html'>Best Practice</a></li>
+<li><a href='%5BDEVELOPER%5D-Publish-A-Plugin.html'>Publish</a></li>
+</ul>
+<h3>Core-Development</h3>
+<ul>
+<li><a href='%5BDEVELOPER%5D-Introduction.html'>Introduction</a></li>
+<li><a href='%5BDEVELOPER%5D-Developer-Guidelines.html'>Developer-Guidelines</a></li>
+<li><a href='%5BDEVELOPER%5D-Release-Guide.html'>Release Guide</a></li>
+</ul>      </aside>
+      <div style="overflow:hidden;">
+        <h1>Pagination</h1>
+        
+<p>This wiki describes several ways to get the next/previous page. However, if you are looking for a way to only display a specific set of posts or want to display X posts per page, then you can check out the <a href="https://github.com/Stijn-Flipper/philePaginator">Phile Paginator</a> plugin.</p>
+<h2>Since Phile 1.2</h2>
+<p>Let's assume you content folder looks like this:</p>
+<pre><code>content/
+|-- 404.md
+|-- blog
+|   |-- 1.md
+|   `-- 2.md
+|-- index.md
+|-- projects
+    |-- 1.md
+    `-- 2.md</code></pre>
+<p>and you want a navigation in the blog pages. First you should group all pages by subfolder and sort by date (a usual meta-tag for blog pages): in your config.php set</p>
+<pre><code>$config['pages_order']  = 'page.folder:asc meta.date:asc meta.title:desc';</code></pre>
+<p>Then use in your twig template for the blog pages:</p>
+<pre><code>{% for page in pages %}
+    {% if current_page.title == page.title %}
+        {% if page.previousPage is defined and page.previousPage.folder == "blog" %}
+            &lt;a href="{{ page.previousPage.url }}"&gt; Previous &lt;/a&gt;
+        {% endif %}
+
+        {% if page.nextPage is defined and page.nextPage.folder == "blog" %}
+            &lt;a href="{{ page.nextPage.url }}"&gt; Next &lt;/a&gt;
+        {% endif %}
+    {% endif %}
+{% endfor %}</code></pre>
+<h2>Directory hierarchy (pre Phile 1.2)</h2>
+<p>Phile doesn't provide a good general solution for previous/next pagination (yet). This wiki shows you several workarounds to provide a previous/next pagination on your Phile site. Feel free to add another solution if you have implemented one.</p>
+<p>This paginator relies on the directory hierarchy. For example, if your Phile site has the following hierarchy:</p>
+<pre><code>content/
+|-- 404.md
+|-- blog
+|   |-- 1.md
+|   |-- 2.md
+|   |-- 3.md
+|   |-- 4.md
+|   `-- 5.md
+|-- index.md
+|-- projects
+    |-- 1.md
+    `-- 2.md</code></pre>
+<p>Then you can just take a look at the url of the current page and replace the number (the ID) by its predecessor/successor:</p>
+<pre><code class="language-html">&lt;ul class="pager"&gt;
+  &lt;li&gt;&lt;a href="{{ base_url }}/blog/{{ current_page.url | split('/') | last - 1}}"&gt;&amp;laquo;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="{{ base_url }}/blog/"&gt;More posts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="{{ base_url }}/blog/{{ current_page.url | split('/') | last + 1}}"&gt;&amp;raquo;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<p><strong>Pro</strong></p>
+<ul>
+<li>Takes into account in which directory the posts are stored (e.g. project posts vs. blog posts).</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>Directory hierarchy assumes the post with the highest ID is the latest post (they <em>are</em> most of the cases)</li>
+<li>There's no possibility to check whether the URL is valid, so the <code>next</code> button of the latest post will redirect you to the 404 page, likewise for the <code>previous</code> button for the first post.</li>
+</ul>
+<p><strong>Credits:</strong> <a href="https://github.com/Stijn-Flipper/">Stijn-Flipper</a></p>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+<footer class="section-1">
+  <div class="grid">
+    <div class="col-1-2">
+      <h3>
+        <a href="https://github.com/orgs/PhileCMS/people">
+          Core Authors
+        </a>
+      </h3>
+      <ul>
+        <li>
+          <a href="https://github.com/james2doyle" target="_blank">
+            James Doyle - great ideas, code a lot of plugins and worked on the
+            core
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/NeoBlack" target="_blank">
+            Frank Nägler - refactoring of the core and introducing OOP concepts
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/Schlaefer" target="_blank">
+            Schlaefer
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-1-2 center">
+      <p>
+        <a href="https://github.com/PhileCMS">
+          Hosted on Github. Maintained by the PhileCMS community</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.min.js"></script>
+</body>
+</html>

@@ -1,6 +1,8 @@
-{% set current = "1.9.0" %}
+{% extends "layout.twig" %}
+{% set title = "PhileCMS" %}
 {% set download = "https://github.com/PhileCMS/Phile/releases/download/" ~ current ~ "/Phile.zip" %}
 
+{% block content %}
 <header class="big-heading">
   <div class="grid header-inside">
     <div class="col-1-2">
@@ -240,3 +242,4 @@
   </div>
 </section>
 
+{% endblock %}

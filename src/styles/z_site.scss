@@ -19,7 +19,9 @@ html {
 }
 
 body {
-  font: normal normal 400 16px/1.4 'Lato', sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  font-family: Lato, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -204,6 +206,10 @@ table {
   p, li {
     margin: 0.5em 1em 0.5em 0;
   }
+
+  a.item-active {
+    font-weight: bold;
+  }
 }
 
 .top-menu-nav {
@@ -313,6 +319,10 @@ pre code, .hljs {
   line-height: 1.4;
 }
 
+code, .hljs {
+  font-size: 0.9em;
+}
+
 @media handheld, only screen and (max-width: 767px) {
   body {
     line-height: 1.6em;
@@ -347,4 +357,9 @@ pre code, .hljs {
 .info {
   font-size: small;
   color: #606060;
+}
+
+.wiki-aside {
+    float: right;
+    padding: 0 0 2em 2em;
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+  <parser>
+    <target>build/api-cache</target>
+  </parser>
+  <transformer>
+    <target>api</target>
+  </transformer>
+  <files>
+    <directory>vendor/phile-cms/phile/lib/Phile</directory>
+    <directory>vendor/phile-cms/phile/plugins/phile</directory>
+  </files>
+  <transformations>
+    <template name="responsive"/>
+  </transformations>
+</phpdoc>
+

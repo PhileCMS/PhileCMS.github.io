@@ -15,9 +15,9 @@ pids
 logs
 results
 
-npm-debug.log
-node_modules
+build/
+phpDocumentor.phar
 
 # composer
-/docs
-/lib/vendor
+composer.lock
+vendor/

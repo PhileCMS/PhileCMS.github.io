@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="title" content="Publish-A-Plugin - PhileCMS">
+  <meta property="og:title" content="Publish-A-Plugin - PhileCMS">
+  <meta name="description" content="PhileCMS - the flat-file PHP CMS">
+  <meta itemprop="description" content="Publish-A-Plugin - PhileCMS - the flat-file PHP CMS">
+  <meta property="og:description" content="Publish-A-Plugin - PhileCMS - the flat-file PHP CMS">
+  <meta itemprop="url" content="http://philecms.github.io/">
+  <meta property="og:url" content="http://philecms.github.io/">
+  <meta property="og:site_name" content="PhileCMS">
+  <meta property="article:author" content="PhileCMS" />
+  <meta itemprop="image logo" content="../img/phile-logo.png">
+  <meta property="og:image" content="../img/phile-logo.png">
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.min.css" media="screen" />
+  <!--[if IE]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <title>Publish-A-Plugin - Flat-File PHP CMS - PhileCMS</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="home-page">
+
+<nav class="top-menu section-1">
+  <div class="grid">
+    <div class="col-1-3 top-menu-hero">
+      <p>
+        <a href="index.html">
+          <img src="../img/phile-logo.svg" alt="phile-logo">
+        </a>
+        <span id="pageTitle">
+          Publish-A-Plugin
+        </span>
+      </p>
+    </div>
+    <div class="col-2-3 top-menu-nav right">
+      <ul>
+        <li>
+          <a href="../index.html" class="">
+            <i class="fa fa-home"></i>
+            PhileCMS
+          </a>
+        </li>
+        <li>
+          <a href="Home.html" class="item-active">
+            <i class="fa fa-book"></i>
+            Docs
+          </a>
+        </li>
+        <li>
+          <a href="../api/">
+            <i class="fa fa-sitemap"></i>
+            PhpDoc 
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/PhileCMS/Phile">
+            <i class="fa fa-github"></i>
+            Source
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="container">
+    <section id="main_content">
+      <aside class="wiki-aside">
+        <h2>Navigation</h2>
+<ul>
+<li><a href='Home.html'>Home</a></li>
+</ul>
+<h3>How-To</h3>
+<ul>
+<li><a href='%5BHOW-TO%5D-Installation.html'>Installation</a></li>
+<li><a href='%5BHOW-TO%5D-How-To-Blog.html'>How-To Blog</a></li>
+<li><a href='%5BHOW-TO%5D-Pagination.html'>Pagination</a></li>
+<li><a href='%5BHOW-TO%5D-Using-Nginx-with-Phile.html'>Using Nginx</a></li>
+</ul>
+<h3>Community</h3>
+<ul>
+<li><a href='%5BCOMMUNITY%5D-Sites-using-Phile.html'>Sites using Phile</a></li>
+<li><a href='%5BCOMMUNITY%5D-Plugins.html'>Plugins</a></li>
+<li><a href='%5BCOMMUNITY%5D-Themes.html'>Themes</a></li>
+</ul>
+<h3>Plugin-Development</h3>
+<ul>
+<li><a href='%5BDEVELOPER%5D-Plugins.html'>Plugins</a></li>
+<li><a href='%5BDEVELOPER%5D-Event-System.html'>Event-System</a></li>
+<li><a href='%5BDEVELOPER%5D-Service-Locator.html'>Service-Locator</a></li>
+<li><a href='%5BDEVELOPER%5D-Data-Storage-Engine.html'>Data Storage Engine</a></li>
+<li><a href='%5BDEVELOPER%5D-Use-Core-Classes.html'>Use Core Classes</a></li>
+<li><a href='%5BDEVELOPER%5D-Best-Practice.html'>Best Practice</a></li>
+<li><a href='%5BDEVELOPER%5D-Publish-A-Plugin.html'>Publish</a></li>
+</ul>
+<h3>Core-Development</h3>
+<ul>
+<li><a href='%5BDEVELOPER%5D-Introduction.html'>Introduction</a></li>
+<li><a href='%5BDEVELOPER%5D-Developer-Guidelines.html'>Developer-Guidelines</a></li>
+<li><a href='%5BDEVELOPER%5D-Release-Guide.html'>Release Guide</a></li>
+</ul>      </aside>
+      <div style="overflow:hidden;">
+        <h1>Publish-A-Plugin</h1>
+        
+<h2>composer.json – Publish Using Composer</h2>
+<p>We recommend to create a <code>composer.json</code> file for each plugin. we have created a composer installer for plugins, which make it easy to install plugins in the correct folder by a single line of code:</p>
+<pre><code class="language-bash">composer require mycompany/my-cool-plugin:dev-master</code></pre>
+<p>here is an example <code>composer.json</code> file which must be located in the root of your repository, if you add a <code>composer.json</code> file to your repository please also add your repository to <a href="https://packagist.org/">Packagist.org</a></p>
+<pre><code>{
+    "name": "mycompany/my-cool-plugin", // will result in install path: plugins/mycompany/myCoolPlugin
+    "type": "phile-plugin", // this type is important
+    "version": "1.0.0",
+    "license": "MIT",
+    "description": "a short description of your plugin", // add a short description here
+    "homepage": "http://philecms.com", // feel free to add your homepage or repo url
+    "keywords": ["cms", "phile", "myTag"], // please use the tags "cms" and "phile" for each plugin and add your own
+    "authors": [
+        {
+            "name": "Dave Developer",
+            "email": "dave@example.com",
+            "homepage": "http://example.com/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        // feel free to add more requirements for your plugin here
+        "phile-cms/phile": "1.0.0", // version 1.0.0 of phile cms is required
+        "phile-cms/plugin-installer-plugin": "1.0.0" // version 1.0.0 of the composer plugin installer is required
+    }
+}</code></pre>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+<footer class="section-1">
+  <div class="grid">
+    <div class="col-1-2">
+      <h3>
+        <a href="https://github.com/orgs/PhileCMS/people">
+          Core Authors
+        </a>
+      </h3>
+      <ul>
+        <li>
+          <a href="https://github.com/james2doyle" target="_blank">
+            James Doyle - great ideas, code a lot of plugins and worked on the
+            core
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/NeoBlack" target="_blank">
+            Frank Nägler - refactoring of the core and introducing OOP concepts
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/Schlaefer" target="_blank">
+            Schlaefer
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-1-2 center">
+      <p>
+        <a href="https://github.com/PhileCMS">
+          Hosted on Github. Maintained by the PhileCMS community</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.min.js"></script>
+</body>
+</html>
