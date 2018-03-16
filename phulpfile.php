@@ -106,9 +106,11 @@ $phulp->task('wiki', function (Phulp\Phulp $phulp) {
         ->pipe($phulp->iterate(function(Phulp\DistFile $distFile) use ($config) {
             $loader = new \Twig_Loader_Filesystem(['templates', 'wiki']);
             $twig = new Twig_Environment($loader);
-            $title = explode('.', $distFile->getName())[0];
-            $title = preg_replace('/\[.*\]-/', '', $title);
-            $vars = compact(['title']);
+
+            $fullname = explode('.', $distFile->getName())[0];
+            $title = preg_replace('/\[.*\]-/', '', $fullname);
+
+            $vars = compact(['title', 'fullname']);
             $content = $twig->render($distFile->getName(), $vars);
             $distFile->setContent($content); 
         }))

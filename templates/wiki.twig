@@ -77,6 +77,11 @@
         <h1>{{ title }}</h1>
         {% block content %}{% endblock %}
       </div>
+      <div class="info" style="margin-top: 2em;">
+          <a href="https://github.com/PhileCMS/Phile/wiki/{{ fullname|url_encode() }}">
+              Edit the source page on github…
+            </a>
+      </div>
     </section>
   </div>
 </div>
