@@ -92,13 +92,12 @@
 </ul>
 <h3>Plugin-Development</h3>
 <ul>
-<li><a href='%5BDEVELOPER%5D-Plugins.html'>Plugins</a></li>
-<li><a href='%5BDEVELOPER%5D-Event-System.html'>Event-System</a></li>
-<li><a href='%5BDEVELOPER%5D-Service-Locator.html'>Service-Locator</a></li>
-<li><a href='%5BDEVELOPER%5D-Data-Storage-Engine.html'>Data Storage Engine</a></li>
-<li><a href='%5BDEVELOPER%5D-Use-Core-Classes.html'>Use Core Classes</a></li>
-<li><a href='%5BDEVELOPER%5D-Best-Practice.html'>Best Practice</a></li>
-<li><a href='%5BDEVELOPER%5D-Publish-A-Plugin.html'>Publish</a></li>
+<li><a href='%5BPLUGIN%5D-Plugins.html'>Plugins</a></li>
+<li><a href='%5BPLUGIN%5D-Event-System.html'>Event-System</a></li>
+<li><a href='%5BPLUGIN%5D-Service-Locator.html'>Service-Locator</a></li>
+<li><a href='%5BPLUGIN%5D-Use-Core-Classes.html'>Use Core Classes</a></li>
+<li><a href='%5BPLUGIN%5D-Best-Practice.html'>Best Practice</a></li>
+<li><a href='%5BPLUGIN%5D-Publish-A-Plugin.html'>Publish</a></li>
 </ul>
 <h3>Core-Development</h3>
 <ul>
@@ -107,10 +106,9 @@
 <li><a href='%5BDEVELOPER%5D-Release-Guide.html'>Release Guide</a></li>
 </ul>      </aside>
       <div style="overflow:hidden;">
-        <h1>Pagination</h1>
         
+<h1>Pagination</h1>
 <p>This wiki describes several ways to get the next/previous page. However, if you are looking for a way to only display a specific set of posts or want to display X posts per page, then you can check out the <a href="https://github.com/Stijn-Flipper/philePaginator">Phile Paginator</a> plugin.</p>
-<h2>Since Phile 1.2</h2>
 <p>Let's assume you content folder looks like this:</p>
 <pre><code>content/
 |-- 404.md
@@ -135,37 +133,6 @@
         {% endif %}
     {% endif %}
 {% endfor %}</code></pre>
-<h2>Directory hierarchy (pre Phile 1.2)</h2>
-<p>Phile doesn't provide a good general solution for previous/next pagination (yet). This wiki shows you several workarounds to provide a previous/next pagination on your Phile site. Feel free to add another solution if you have implemented one.</p>
-<p>This paginator relies on the directory hierarchy. For example, if your Phile site has the following hierarchy:</p>
-<pre><code>content/
-|-- 404.md
-|-- blog
-|   |-- 1.md
-|   |-- 2.md
-|   |-- 3.md
-|   |-- 4.md
-|   `-- 5.md
-|-- index.md
-|-- projects
-    |-- 1.md
-    `-- 2.md</code></pre>
-<p>Then you can just take a look at the url of the current page and replace the number (the ID) by its predecessor/successor:</p>
-<pre><code class="language-html">&lt;ul class="pager"&gt;
-  &lt;li&gt;&lt;a href="{{ base_url }}/blog/{{ current_page.url | split('/') | last - 1}}"&gt;&amp;laquo;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="{{ base_url }}/blog/"&gt;More posts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="{{ base_url }}/blog/{{ current_page.url | split('/') | last + 1}}"&gt;&amp;raquo;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
-<p><strong>Pro</strong></p>
-<ul>
-<li>Takes into account in which directory the posts are stored (e.g. project posts vs. blog posts).</li>
-</ul>
-<p><strong>Cons</strong></p>
-<ul>
-<li>Directory hierarchy assumes the post with the highest ID is the latest post (they <em>are</em> most of the cases)</li>
-<li>There's no possibility to check whether the URL is valid, so the <code>next</code> button of the latest post will redirect you to the 404 page, likewise for the <code>previous</code> button for the first post.</li>
-</ul>
-<p><strong>Credits:</strong> <a href="https://github.com/Stijn-Flipper/">Stijn-Flipper</a></p>
 
       </div>
       <div class="info" style="margin-top: 2em;">

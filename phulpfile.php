@@ -83,7 +83,7 @@ $phulp->task('wiki', function (Phulp\Phulp $phulp) {
     $phulp->src(['wiki'], '/_Sidebar/')
         ->pipe($phulp->iterate(function(Phulp\DistFile $distFile) use ($config) {
             $content = $distFile->getContent();
-            $content = preg_replace('/href="(?=http)(.*?)"/', "href=\"Home\"", $content);
+//            $content = preg_replace('/href="(?=http)(.*?)"/', "href=\"Home\"", $content);
             $content = preg_replace('/href="(.*?)"/', "href='\\1.html'", $content);
             $distFile->setContent($content); 
         }))

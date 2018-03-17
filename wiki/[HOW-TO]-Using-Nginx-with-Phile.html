@@ -92,13 +92,12 @@
 </ul>
 <h3>Plugin-Development</h3>
 <ul>
-<li><a href='%5BDEVELOPER%5D-Plugins.html'>Plugins</a></li>
-<li><a href='%5BDEVELOPER%5D-Event-System.html'>Event-System</a></li>
-<li><a href='%5BDEVELOPER%5D-Service-Locator.html'>Service-Locator</a></li>
-<li><a href='%5BDEVELOPER%5D-Data-Storage-Engine.html'>Data Storage Engine</a></li>
-<li><a href='%5BDEVELOPER%5D-Use-Core-Classes.html'>Use Core Classes</a></li>
-<li><a href='%5BDEVELOPER%5D-Best-Practice.html'>Best Practice</a></li>
-<li><a href='%5BDEVELOPER%5D-Publish-A-Plugin.html'>Publish</a></li>
+<li><a href='%5BPLUGIN%5D-Plugins.html'>Plugins</a></li>
+<li><a href='%5BPLUGIN%5D-Event-System.html'>Event-System</a></li>
+<li><a href='%5BPLUGIN%5D-Service-Locator.html'>Service-Locator</a></li>
+<li><a href='%5BPLUGIN%5D-Use-Core-Classes.html'>Use Core Classes</a></li>
+<li><a href='%5BPLUGIN%5D-Best-Practice.html'>Best Practice</a></li>
+<li><a href='%5BPLUGIN%5D-Publish-A-Plugin.html'>Publish</a></li>
 </ul>
 <h3>Core-Development</h3>
 <ul>
@@ -107,15 +106,15 @@
 <li><a href='%5BDEVELOPER%5D-Release-Guide.html'>Release Guide</a></li>
 </ul>      </aside>
       <div style="overflow:hidden;">
-        <h1>Using-Nginx-with-Phile</h1>
         
-<h3>Using Phile from root</h3>
+<h1>Using Phile with Nginx</h1>
+<h2>Using Phile from root</h2>
 <p>Use this if you plan to host Phile from <a href="http://yourdomain.com/">http://yourdomain.com/</a> or the root of a subdomain.</p>
 <p>An example Nginx config:</p>
 <pre><code>  location / {
     try_files $uri $uri/ /index.php$args;
   }</code></pre>
-<h3>Using Phile from a subdirectory</h3>
+<h2>Using Phile from a subdirectory</h2>
 <p>Use this if you plan to host Phile from <a href="http://yourdomain.com/blog">http://yourdomain.com/blog</a></p>
 <p>An example Nginx config:</p>
 <pre><code>  location /blog {
@@ -125,7 +124,7 @@
   location @blog {
     rewrite ^/blog/(.*)$ /blog/index.php/$1;
   }</code></pre>
-<h3>Blocking access to files that users should not see</h3>
+<h2>Blocking access to files that users should not see</h2>
 <p>You should spend some time making sure that at least your config.php file cannot be accessed. Especially since it holds an encryption key.</p>
 <p>I think the following is a fairly comprehensive list of the files that you should block</p>
 <pre><code>location ~ /.git/ { access_log off; log_not_found off; deny all; }

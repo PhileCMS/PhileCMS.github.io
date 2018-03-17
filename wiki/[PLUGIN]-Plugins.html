@@ -4,11 +4,11 @@
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="title" content="Use-Core-Classes - PhileCMS">
-  <meta property="og:title" content="Use-Core-Classes - PhileCMS">
+  <meta name="title" content="Plugins - PhileCMS">
+  <meta property="og:title" content="Plugins - PhileCMS">
   <meta name="description" content="PhileCMS - the flat-file PHP CMS">
-  <meta itemprop="description" content="Use-Core-Classes - PhileCMS - the flat-file PHP CMS">
-  <meta property="og:description" content="Use-Core-Classes - PhileCMS - the flat-file PHP CMS">
+  <meta itemprop="description" content="Plugins - PhileCMS - the flat-file PHP CMS">
+  <meta property="og:description" content="Plugins - PhileCMS - the flat-file PHP CMS">
   <meta itemprop="url" content="http://philecms.github.io/">
   <meta property="og:url" content="http://philecms.github.io/">
   <meta property="og:site_name" content="PhileCMS">
@@ -19,7 +19,7 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.min.css" media="screen" />
   <!--[if IE]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <title>Use-Core-Classes - Flat-File PHP CMS - PhileCMS</title>
+  <title>Plugins - Flat-File PHP CMS - PhileCMS</title>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body class="home-page">
@@ -33,7 +33,7 @@
         </a>
         <span id="pageTitle">
             <a href="">
-              Use-Core-Classes
+              Plugins
             </a>
         </span>
       </p>
@@ -92,13 +92,12 @@
 </ul>
 <h3>Plugin-Development</h3>
 <ul>
-<li><a href='%5BDEVELOPER%5D-Plugins.html'>Plugins</a></li>
-<li><a href='%5BDEVELOPER%5D-Event-System.html'>Event-System</a></li>
-<li><a href='%5BDEVELOPER%5D-Service-Locator.html'>Service-Locator</a></li>
-<li><a href='%5BDEVELOPER%5D-Data-Storage-Engine.html'>Data Storage Engine</a></li>
-<li><a href='%5BDEVELOPER%5D-Use-Core-Classes.html'>Use Core Classes</a></li>
-<li><a href='%5BDEVELOPER%5D-Best-Practice.html'>Best Practice</a></li>
-<li><a href='%5BDEVELOPER%5D-Publish-A-Plugin.html'>Publish</a></li>
+<li><a href='%5BPLUGIN%5D-Plugins.html'>Plugins</a></li>
+<li><a href='%5BPLUGIN%5D-Event-System.html'>Event-System</a></li>
+<li><a href='%5BPLUGIN%5D-Service-Locator.html'>Service-Locator</a></li>
+<li><a href='%5BPLUGIN%5D-Use-Core-Classes.html'>Use Core Classes</a></li>
+<li><a href='%5BPLUGIN%5D-Best-Practice.html'>Best Practice</a></li>
+<li><a href='%5BPLUGIN%5D-Publish-A-Plugin.html'>Publish</a></li>
 </ul>
 <h3>Core-Development</h3>
 <ul>
@@ -107,26 +106,56 @@
 <li><a href='%5BDEVELOPER%5D-Release-Guide.html'>Release Guide</a></li>
 </ul>      </aside>
       <div style="overflow:hidden;">
-        <h1>Use-Core-Classes</h1>
         
-<h2>Use Core Classes</h2>
-<h3>Send a Response</h3>
-<p>Use the <code>Phile\Core\Response</code> class to send an answer to the browser. You can easily send your own response:</p>
-<pre><code class="language-php">// sends 'Hello World' to the browser
-$response = new \Phile\Core\Response;
-$response-&gt;setBody('Hello World')-&gt;send(); </code></pre>
-<p>To reuse ore manipulate Phile's core response listen to the <code>after_init_core</code> event.</p>
-<h3>Access the Session</h3>
-<p><code>Phile\Core\Session</code> allows easy access to the Session environment. For example</p>
-<pre><code class="language-php">// set a session variable
-Session::set('isLoggedIn', true);
+<h1>Plugins</h1>
+<h2>Primer</h2>
+<p>The new plugin concept of Phile is a little bit different to pico, but also easy to understand. A lot of logic follows the concept <strong><a href="http://en.wikipedia.org/wiki/Convention_over_configuration">convention over configuration</a></strong>, so please read the following list of conventions.</p>
+<p>For another example of all these conventions, take a look at the <a href="https://github.com/PhileCMS/Phile/tree/master/plugins/mycompany/demoPlugin">example plugin</a>.</p>
+<h2>Basic Folder Setup</h2>
+<pre><code>plugins/               // Phile's plugin-folder
+  mycompany/           // [1]
+    myCoolPlugin/      // [2]
+      Classes/
+        Plugin.php     // [3]
+      config.php       // [4]</code></pre>
+<ul>
+<li>
+<p>Your Plugin requires its own vendor and package folder under the <code>plugins/</code> folder:</p>
+<ul>
+<li>[1] The name of the vendor folder must be lowercase like <code>mycompany</code></li>
+<li>[2] The name of the package folder must be lowerCamelCase like <code>myCoolPlugin</code></li>
+</ul>
+</li>
+<li>
+<p>Within your plugin folder you need at least two files:</p>
+<ul>
+<li>[3] <code>Classes\Plugin.php</code> this file contains your <code>Plugin</code> class (see below)</li>
+<li>[4] <code>config.php</code> this file must return an array.</li>
+</ul>
+</li>
+</ul>
+<h2>[3] Plugin Class</h2>
+<p>Here's a barebone <code>Plugin.php</code>:</p>
+<pre><code class="language-php">&lt;?php
+namespace Phile\Plugin\Mycompany\MyCoolPlugin;
 
-// read a session variable
-$lastVisitedPage = Session::get('lastVisitedPage');</code></pre>
+class Plugin extends \Phile\Plugin\AbstractPlugin { }</code></pre>
+<p>The filename is always <code>Plugin.php</code> and the class name <code>Plugin</code>. The class must extend  <code>\Phile\Plugin\AbstractPlugin</code>.</p>
+<p>Every plugin lives in its own namespace <code>Phile\Plugin\&lt;vendor&gt;\&lt;package&gt;</code>:</p>
+<ul>
+<li>The namespace always starts with <code>Phile\Plugin</code></li>
+<li>The namespace ending must match the folder setup:
+<ul>
+<li><code>&lt;vendor&gt;</code> in lowercase must be the vendor folder <code>[1]</code></li>
+<li><code>&lt;package&gt;</code> in lowerCamelCase must be the package folder <code>[2]</code></li>
+</ul></li>
+</ul>
+<p>So in this case <code>Phile\Plugin\Mycompany\MyCoolPlugin</code>. Every additional class within this namespace and placed into <code>Classes/</code> is autoloaded.</p>
+<p><a href="%5BDEVELOPER%5D-Event-System.html">Read on how to use events</a>.</p>
 
       </div>
       <div class="info" style="margin-top: 2em;">
-          <a href="https://github.com/PhileCMS/Phile/wiki/%5BDEVELOPER%5D-Use-Core-Classes">
+          <a href="https://github.com/PhileCMS/Phile/wiki/%5BPLUGIN%5D-Plugins">
               Edit the source page on github…
             </a>
       </div>

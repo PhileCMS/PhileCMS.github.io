@@ -4,11 +4,11 @@
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="title" content="Service-Locator - PhileCMS">
-  <meta property="og:title" content="Service-Locator - PhileCMS">
+  <meta name="title" content="Use-Core-Classes - PhileCMS">
+  <meta property="og:title" content="Use-Core-Classes - PhileCMS">
   <meta name="description" content="PhileCMS - the flat-file PHP CMS">
-  <meta itemprop="description" content="Service-Locator - PhileCMS - the flat-file PHP CMS">
-  <meta property="og:description" content="Service-Locator - PhileCMS - the flat-file PHP CMS">
+  <meta itemprop="description" content="Use-Core-Classes - PhileCMS - the flat-file PHP CMS">
+  <meta property="og:description" content="Use-Core-Classes - PhileCMS - the flat-file PHP CMS">
   <meta itemprop="url" content="http://philecms.github.io/">
   <meta property="og:url" content="http://philecms.github.io/">
   <meta property="og:site_name" content="PhileCMS">
@@ -19,7 +19,7 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.min.css" media="screen" />
   <!--[if IE]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <title>Service-Locator - Flat-File PHP CMS - PhileCMS</title>
+  <title>Use-Core-Classes - Flat-File PHP CMS - PhileCMS</title>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body class="home-page">
@@ -33,7 +33,7 @@
         </a>
         <span id="pageTitle">
             <a href="">
-              Service-Locator
+              Use-Core-Classes
             </a>
         </span>
       </p>
@@ -92,13 +92,12 @@
 </ul>
 <h3>Plugin-Development</h3>
 <ul>
-<li><a href='%5BDEVELOPER%5D-Plugins.html'>Plugins</a></li>
-<li><a href='%5BDEVELOPER%5D-Event-System.html'>Event-System</a></li>
-<li><a href='%5BDEVELOPER%5D-Service-Locator.html'>Service-Locator</a></li>
-<li><a href='%5BDEVELOPER%5D-Data-Storage-Engine.html'>Data Storage Engine</a></li>
-<li><a href='%5BDEVELOPER%5D-Use-Core-Classes.html'>Use Core Classes</a></li>
-<li><a href='%5BDEVELOPER%5D-Best-Practice.html'>Best Practice</a></li>
-<li><a href='%5BDEVELOPER%5D-Publish-A-Plugin.html'>Publish</a></li>
+<li><a href='%5BPLUGIN%5D-Plugins.html'>Plugins</a></li>
+<li><a href='%5BPLUGIN%5D-Event-System.html'>Event-System</a></li>
+<li><a href='%5BPLUGIN%5D-Service-Locator.html'>Service-Locator</a></li>
+<li><a href='%5BPLUGIN%5D-Use-Core-Classes.html'>Use Core Classes</a></li>
+<li><a href='%5BPLUGIN%5D-Best-Practice.html'>Best Practice</a></li>
+<li><a href='%5BPLUGIN%5D-Publish-A-Plugin.html'>Publish</a></li>
 </ul>
 <h3>Core-Development</h3>
 <ul>
@@ -107,31 +106,19 @@
 <li><a href='%5BDEVELOPER%5D-Release-Guide.html'>Release Guide</a></li>
 </ul>      </aside>
       <div style="overflow:hidden;">
-        <h1>Service-Locator</h1>
         
-<p>Within in the core Phile uses a lot of services, which accessible through the ServiceLocator class. This makes it possible to replace a service with a complete new logic. In the following section, we tell you, which service classes available and how to replace a service with your own.</p>
-<p>To register a service use:</p>
-<pre><code class="language-php">\Phile\Core\ServiceLocator::registerService(&lt;service name&gt;, &lt;class instance&gt;);</code></pre>
-<p>Each service has to implement an interface defined in <code>Phile\ServiceLocator\&lt;Service&gt;Interface</code>.</p>
-<h2>Service: Phile_Parser</h2>
-<p>You can replace the markdown parser with your own parser, if you like. This works by replacing the default parser with a plugin. To show you, check out the Markdown plugin that comes with Phile. Or, take a look at the <a href="https://github.com/PhileCMS/Sundown-Parser-Plugin">Sundown-Parser-Plugin</a>.</p>
-<p>To replace the parser, you need only one line of code to register a new parser:</p>
-<pre><code class="language-php">ServiceLocator::registerService('Phile_Parser', new \Phile\Parser\Sundown($this-&gt;settings));</code></pre>
-<h2>Service: Phile_Template</h2>
-<p>The template engine is also a service, you can replace the default template engine (twig) with your own. The way you can do this, is the same like the Phile_Parser:</p>
-<pre><code class="language-php">ServiceLocator::registerService('Phile_Template', new \Phile\Template\MyTemplateEngine());</code></pre>
-<h2>Service: Phile_Cache</h2>
-<p>Internal PhileCMS use an object cache to improve the performance. however if you want another cache system, register your own:</p>
-<pre><code class="language-php">ServiceLocator::registerService('Phile_Cache', new \Phile\Cache\MyCacheEngine());</code></pre>
-<h2>Service: Phile_Data_Persistence</h2>
-<p>Yes, Phile works without any database, but if you need the possiblity to persist data, you can use the Phile_Data_Persistence service. with the core we provide you a simple file based data storage, you can implement your own or maybe found a plugin with another storage engine, replace it like this:</p>
-<pre><code class="language-php">ServiceLocator::registerService('Phile_Data_Persistence', new \Phile\Persistence\MyPersistenceEngine());</code></pre>
-<h2>Service: Phile_Parser_Meta</h2>
-<p>You can override the meta data parser with your own. The default parser handles meta in either a HTML block comment or a Javascript/PHP block comment. If you wanted to support YAML, this would be the service you would override.</p>
+<h1>Use Core Classes</h1>
+<h2>Access the Session</h2>
+<p><code>Phile\Core\Session</code> allows easy access to the Session environment. For example</p>
+<pre><code class="language-php">// set a session variable
+Session::set('isLoggedIn', true);
+
+// read a session variable
+$lastVisitedPage = Session::get('lastVisitedPage');</code></pre>
 
       </div>
       <div class="info" style="margin-top: 2em;">
-          <a href="https://github.com/PhileCMS/Phile/wiki/%5BDEVELOPER%5D-Service-Locator">
+          <a href="https://github.com/PhileCMS/Phile/wiki/%5BPLUGIN%5D-Use-Core-Classes">
               Edit the source page on github…
             </a>
       </div>

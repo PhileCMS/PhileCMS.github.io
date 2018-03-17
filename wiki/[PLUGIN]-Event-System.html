@@ -4,11 +4,11 @@
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="title" content="Data-Storage-Engine - PhileCMS">
-  <meta property="og:title" content="Data-Storage-Engine - PhileCMS">
+  <meta name="title" content="Event-System - PhileCMS">
+  <meta property="og:title" content="Event-System - PhileCMS">
   <meta name="description" content="PhileCMS - the flat-file PHP CMS">
-  <meta itemprop="description" content="Data-Storage-Engine - PhileCMS - the flat-file PHP CMS">
-  <meta property="og:description" content="Data-Storage-Engine - PhileCMS - the flat-file PHP CMS">
+  <meta itemprop="description" content="Event-System - PhileCMS - the flat-file PHP CMS">
+  <meta property="og:description" content="Event-System - PhileCMS - the flat-file PHP CMS">
   <meta itemprop="url" content="http://philecms.github.io/">
   <meta property="og:url" content="http://philecms.github.io/">
   <meta property="og:site_name" content="PhileCMS">
@@ -19,7 +19,7 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.min.css" media="screen" />
   <!--[if IE]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <title>Data-Storage-Engine - Flat-File PHP CMS - PhileCMS</title>
+  <title>Event-System - Flat-File PHP CMS - PhileCMS</title>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body class="home-page">
@@ -33,7 +33,7 @@
         </a>
         <span id="pageTitle">
             <a href="">
-              Data-Storage-Engine
+              Event-System
             </a>
         </span>
       </p>
@@ -92,13 +92,12 @@
 </ul>
 <h3>Plugin-Development</h3>
 <ul>
-<li><a href='%5BDEVELOPER%5D-Plugins.html'>Plugins</a></li>
-<li><a href='%5BDEVELOPER%5D-Event-System.html'>Event-System</a></li>
-<li><a href='%5BDEVELOPER%5D-Service-Locator.html'>Service-Locator</a></li>
-<li><a href='%5BDEVELOPER%5D-Data-Storage-Engine.html'>Data Storage Engine</a></li>
-<li><a href='%5BDEVELOPER%5D-Use-Core-Classes.html'>Use Core Classes</a></li>
-<li><a href='%5BDEVELOPER%5D-Best-Practice.html'>Best Practice</a></li>
-<li><a href='%5BDEVELOPER%5D-Publish-A-Plugin.html'>Publish</a></li>
+<li><a href='%5BPLUGIN%5D-Plugins.html'>Plugins</a></li>
+<li><a href='%5BPLUGIN%5D-Event-System.html'>Event-System</a></li>
+<li><a href='%5BPLUGIN%5D-Service-Locator.html'>Service-Locator</a></li>
+<li><a href='%5BPLUGIN%5D-Use-Core-Classes.html'>Use Core Classes</a></li>
+<li><a href='%5BPLUGIN%5D-Best-Practice.html'>Best Practice</a></li>
+<li><a href='%5BPLUGIN%5D-Publish-A-Plugin.html'>Publish</a></li>
 </ul>
 <h3>Core-Development</h3>
 <ul>
@@ -107,28 +106,35 @@
 <li><a href='%5BDEVELOPER%5D-Release-Guide.html'>Release Guide</a></li>
 </ul>      </aside>
       <div style="overflow:hidden;">
-        <h1>Data-Storage-Engine</h1>
         
-<p>Phile has a simple file based data storage engine.</p>
-<p>Use it to persist some data, without a database.</p>
-<p>Here are some short examples how to use it:</p>
-<pre><code>$storage = \Phile\ServiceLocator::getService('Phile_Data_Persistence');
+<h1>The Event System</h1>
+<h2>The Basics</h2>
+<p>One of the main feature of Phile is new event system, which replace the hook system of pico.</p>
+<p>In the core Phile triggers a lot of events, and for every event you can register your plugin to get informed. Depending on the event data is passed along an can be manipulated by the plugin. </p>
+<p>You can find a list of all triggered events on the startpage of the demo pages after installing Phile.</p>
+<p>The easiest way to subscribe to events is using the <code>$events</code> property in your plugin:</p>
+<pre><code class="language-php">class Plugin extends \Phile\Plugin\AbstractPlugin {
 
-// check first if a key exist before you call `delete` or `get`, else an exception can be thrown.
-$storage-&gt;has('MyDataRow_123');
+    protected $events = ['after_load_content' =&gt; 'doStuff'];
 
-// set data to the storage
-$storage-&gt;set('MyDataRow_123', $data);
-
-// get data from the storage
-$storage-&gt;get('MyDataRow_123');
-
-// and delete data from the storage
-$storage-&gt;delete('MyDataRow_123');</code></pre>
+    protected doStuff($eventData) { 
+        // do something
+    }
+}</code></pre>
+<p>That's it. Now when the <code>after_load_content</code> event happens <code>doStuff()</code> is called.</p>
+<h2>Choosing the Right Event</h2>
+<p>The two major stages in Phile are:</p>
+<ol>
+<li>bootstrap the environment (load configs, load plugins, populate services, …)</li>
+<li>process request into response (evaluate incoming request, find content, render content, serve response, …) </li>
+</ol>
+<p>Plug-ins should consider in which phase they are doing what. As a rule of thumb:</p>
+<p>If a plugin <em>provides facilities</em> to the core (e.g. implements a  ServiceLocator), then it probably wants to register its functionality during the bootstrap stage (e.g. <code>plugins_loaded</code> event). The bootstrap phase <em>should not create or send output</em>.</p>
+<p>The more common case is that a plugin <em>requires facilities</em> from the core (current page, template engine) to <em>create or manipulate output</em>. This  should be done in events during the processing phase.</p>
 
       </div>
       <div class="info" style="margin-top: 2em;">
-          <a href="https://github.com/PhileCMS/Phile/wiki/%5BDEVELOPER%5D-Data-Storage-Engine">
+          <a href="https://github.com/PhileCMS/Phile/wiki/%5BPLUGIN%5D-Event-System">
               Edit the source page on github…
             </a>
       </div>

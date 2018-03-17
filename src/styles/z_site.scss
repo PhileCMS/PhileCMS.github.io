@@ -210,10 +210,6 @@ table {
   a.item-active {
     font-weight: bold;
   }
-}
-
-.top-menu-nav {
-  padding-left: 120px;
 
   a {
     white-space: nowrap;
@@ -221,6 +217,10 @@ table {
         text-decoration: none;
     }
   }
+}
+
+.top-menu-nav {
+  padding-left: 120px;
 }
 
 .top-menu-hero {
@@ -324,6 +324,13 @@ pre code, .hljs {
 
 code, .hljs {
   font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f3f3;
+    padding: 0 0.3em;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
 }
 
 @media handheld, only screen and (max-width: 767px) {
