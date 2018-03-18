@@ -4,7 +4,7 @@
         "reisraff/phulp-minifier": "^1.0",
         "reisraff/phulp-scss-compiler": "^1.0",
         "vladkens/autoprefixer": "*",
-        "phile-cms/phile": "^1.9",
+        "phile-cms/phile": "dev-master",
         "twig/twig": "^1.0",
         "erusev/parsedown": "^1.7"
     }

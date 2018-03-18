@@ -1,6 +1,5 @@
 {% extends "layout.twig" %}
 {% set title = "PhileCMS" %}
-{% set download = "https://github.com/PhileCMS/Phile/releases/download/" ~ current ~ "/Phile.zip" %}
 
 {% block content %}
 <header class="big-heading">
@@ -32,8 +31,7 @@
 <div class="section section-2">
   <div class="grid">
     <div class="col-1-2 center">
-      <a href="https://github.com/PhileCMS/Phile/releases/download/{{ current }}/Phile.zip"
-         class="btn">
+      <a href="{{ phile_download }}" class="btn">
         Download Phile {{ current }}
       </a>
       <br>

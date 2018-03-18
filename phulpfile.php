@@ -9,11 +9,15 @@ $config = [
 ];
 
 $phulp->task('default', function (Phulp\Phulp $phulp) {
-    $phulp->start(['js', 'scss', 'css', 'twig', 'cleanup']);
+    $phulp->start(['js', 'scss', 'css', 'twig', 'wiki', 'cleanup']);
 });
 
 $phulp->task('release', function ($phulp) {
-    $phulp->start(['phpdoc', 'wiki', 'default']);
+    $phulp->start(['composer-update', 'phpdoc', 'default']);
+});
+
+$phulp->task('composer-update', function (Phulp\Phulp $phulp) {
+    $phulp->exec(['command' => 'composer update --no-dev phile-cms/phile', 'cwd' => '.']);
 });
 
 $phulp->task('js', function ($phulp) {
@@ -33,7 +37,6 @@ $phulp->task('css', function ($phulp) {
         ->pipe(new CssMinifier(['join' => true, 'joinName' => 'style.min.css']))
         ->pipe($phulp->dest('css/'));
 });
-
 
 $phulp->task('twig', function ($phulp) use ($config) {
     $phulp->src(['pages/'], '/\.html$/')
