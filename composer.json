@@ -4,8 +4,9 @@
         "reisraff/phulp-minifier": "^1.0",
         "reisraff/phulp-scss-compiler": "^1.0",
         "vladkens/autoprefixer": "*",
-        "phile-cms/phile": "dev-master",
+        "phile-cms/phile": "dev-develop",
         "twig/twig": "^1.0",
-        "erusev/parsedown": "^1.7"
+        "erusev/parsedown": "^1.7",
+        "caseyamcl/toc": "^1.1"
     }
 }

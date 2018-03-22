@@ -70,16 +70,20 @@
 </nav>
 
 <div class="container">
-  <div class="container">
-    <section id="main_content">
-      <aside class="wiki-aside">
-        <h2>Navigation</h2>
+  <div class="grid">
+      <section id="main_content">
+
+        <div class="col-1-4">
+          <aside class="wiki-aside">
+            <h2>Navigation</h2>
 <ul>
 <li><a href='Home.html'>Home</a></li>
 </ul>
 <h3>How-To</h3>
 <ul>
 <li><a href='%5BHOW-TO%5D-Installation.html'>Installation</a></li>
+<li><a href='%5BHOW-TO%5D-Configuration.html'>Configuration</a></li>
+<li><a href='%5BHOW-TO%5D-Updating.html'>Updating</a></li>
 <li><a href='%5BHOW-TO%5D-How-To-Blog.html'>How-To Blog</a></li>
 <li><a href='%5BHOW-TO%5D-Pagination.html'>Pagination</a></li>
 <li><a href='%5BHOW-TO%5D-Using-Nginx-with-Phile.html'>Using Nginx</a></li>
@@ -104,33 +108,57 @@
 <li><a href='%5BDEVELOPER%5D-Introduction.html'>Introduction</a></li>
 <li><a href='%5BDEVELOPER%5D-Developer-Guidelines.html'>Developer-Guidelines</a></li>
 <li><a href='%5BDEVELOPER%5D-Release-Guide.html'>Release Guide</a></li>
-</ul>      </aside>
-      <div style="overflow:hidden;">
-        
-<h1>Plugin Best Practices</h1>
+</ul>          </aside>
+        </div>
+
+        <div class="col-3-4">
+                      <div class="toc">
+              <h2>Table of Contents</h2>
+              <ul>
+  <li class="first">
+    <a href="#resolve-plugin-path">Resolve Plugin Path</a>
+  </li>
+  <li>
+    <a href="#access-global-configuration">Access Global Configuration</a>
+  </li>
+  <li>
+    <a href="#access-template-variables">Access Template Variables</a>
+  </li>
+  <li class="last">
+    <a href="#send-a-response">Send a Response</a>
+  </li>
+</ul>
+
+            </div>
+          
+          
+<h1 id="plugin-best-practices">Plugin Best Practices</h1>
 <p>Phile's code-base is compact. You're free to use it as you see fit. That's one of the great aspects of Phile. </p>
 <p>Nevertheless you're strongly encouraged to take advantage of events and data passed by events. You should also always prefer methods and attributes provided by the <code>Phile\Plugin\AbstractPlugin</code> class. There's a special effort that those facilities stay as stable as possible when developing the Phile core.</p>
-<h2>Resolve Plugin Path</h2>
+<h2 id="resolve-plugin-path">Resolve Plugin Path</h2>
 <pre><code class="language-php">// do:
 $this-&gt;getPluginPath();
 
 // DONT!
 Utility::resolvePath();</code></pre>
-<h2>Access Global Configuration</h2>
+<h2 id="access-global-configuration">Access Global Configuration</h2>
 <pre><code class="language-php">// access in in config_loaded event:
-$config = $data['config']
+$config = $eventData['config'];
+…
 
 // DONT!
 Registry::get('Phile_Settings')</code></pre>
-<h2>Access Template Variables</h2>
+<h2 id="access-template-variables">Access Template Variables</h2>
 <pre><code class="language-php">// access in template_engine_registered event:
-$data['data'] 
+$templateVars = $eventData['data'];
+…
+$eventData['data'] = $myTemplateVars;
 
 // DONT!
 Registry::get('templateVars')</code></pre>
-<h2>Send a Response</h2>
+<h2 id="send-a-response">Send a Response</h2>
 <p>The core uses <a href="https://www.php-fig.org/psr/psr-7/">PSR-7</a> Request and Response objects and allows the usage of <a href="https://www.php-fig.org/psr/psr-15/">PSR-15</a> compatible middleware.</p>
-<p>In the past sending output early and exiting at any moment wasn't a problem. Using Phile standalone and without additional middleware that's still the case. But with additional middleware the system breaks because it depends on request and response &quot;bubbling&quot; through the middleware.</p>
+<p>In the past sending output early and exiting at any moment wasn't a problem. Using Phile standalone and without additional middleware that's still the case. But with additional middleware the system breaks because it depends on request and response "bubbling" through the middleware.</p>
 <p>To send output early in a middleware-conform way the following events:</p>
 <ul>
 <li><code>after_init_core</code></li>
@@ -156,12 +184,14 @@ Registry::get('templateVars')</code></pre>
 }</code></pre>
 <p>The core is going to stops further request-processing and sends the response early.</p>
 
-      </div>
-      <div class="info" style="margin-top: 2em;">
-          <a href="https://github.com/PhileCMS/Phile/wiki/%5BPLUGIN%5D-Best-Practice">
-              Edit the source page on github…
-            </a>
-      </div>
+
+          <p class="info">
+              <a href="https://github.com/PhileCMS/Phile/wiki/%5BPLUGIN%5D-Best-Practice">
+                  Edit the source page on github…
+              </a>
+          </p>
+        </div>
+
     </section>
   </div>
 </div>

@@ -70,16 +70,20 @@
 </nav>
 
 <div class="container">
-  <div class="container">
-    <section id="main_content">
-      <aside class="wiki-aside">
-        <h2>Navigation</h2>
+  <div class="grid">
+      <section id="main_content">
+
+        <div class="col-1-4">
+          <aside class="wiki-aside">
+            <h2>Navigation</h2>
 <ul>
 <li><a href='Home.html'>Home</a></li>
 </ul>
 <h3>How-To</h3>
 <ul>
 <li><a href='%5BHOW-TO%5D-Installation.html'>Installation</a></li>
+<li><a href='%5BHOW-TO%5D-Configuration.html'>Configuration</a></li>
+<li><a href='%5BHOW-TO%5D-Updating.html'>Updating</a></li>
 <li><a href='%5BHOW-TO%5D-How-To-Blog.html'>How-To Blog</a></li>
 <li><a href='%5BHOW-TO%5D-Pagination.html'>Pagination</a></li>
 <li><a href='%5BHOW-TO%5D-Using-Nginx-with-Phile.html'>Using Nginx</a></li>
@@ -104,14 +108,32 @@
 <li><a href='%5BDEVELOPER%5D-Introduction.html'>Introduction</a></li>
 <li><a href='%5BDEVELOPER%5D-Developer-Guidelines.html'>Developer-Guidelines</a></li>
 <li><a href='%5BDEVELOPER%5D-Release-Guide.html'>Release Guide</a></li>
-</ul>      </aside>
-      <div style="overflow:hidden;">
-        
-<h1>Plugins</h1>
-<h2>Primer</h2>
+</ul>          </aside>
+        </div>
+
+        <div class="col-3-4">
+                      <div class="toc">
+              <h2>Table of Contents</h2>
+              <ul>
+  <li class="first">
+    <a href="#primer">Primer</a>
+  </li>
+  <li>
+    <a href="#basic-folder-setup">Basic Folder Setup</a>
+  </li>
+  <li class="last">
+    <a href="#3-plugin-class">[3] Plugin Class</a>
+  </li>
+</ul>
+
+            </div>
+          
+          
+<h1 id="plugins">Plugins</h1>
+<h2 id="primer">Primer</h2>
 <p>The new plugin concept of Phile is a little bit different to pico, but also easy to understand. A lot of logic follows the concept <strong><a href="http://en.wikipedia.org/wiki/Convention_over_configuration">convention over configuration</a></strong>, so please read the following list of conventions.</p>
 <p>For another example of all these conventions, take a look at the <a href="https://github.com/PhileCMS/Phile/tree/master/plugins/mycompany/demoPlugin">example plugin</a>.</p>
-<h2>Basic Folder Setup</h2>
+<h2 id="basic-folder-setup">Basic Folder Setup</h2>
 <pre><code>plugins/               // Phile's plugin-folder
   mycompany/           // [1]
     myCoolPlugin/      // [2]
@@ -134,7 +156,7 @@
 </ul>
 </li>
 </ul>
-<h2>[3] Plugin Class</h2>
+<h2 id="3-plugin-class">[3] Plugin Class</h2>
 <p>Here's a barebone <code>Plugin.php</code>:</p>
 <pre><code class="language-php">&lt;?php
 namespace Phile\Plugin\Mycompany\MyCoolPlugin;
@@ -151,14 +173,15 @@ class Plugin extends \Phile\Plugin\AbstractPlugin { }</code></pre>
 </ul></li>
 </ul>
 <p>So in this case <code>Phile\Plugin\Mycompany\MyCoolPlugin</code>. Every additional class within this namespace and placed into <code>Classes/</code> is autoloaded.</p>
-<p><a href="%5BDEVELOPER%5D-Event-System.html">Read on how to use events</a>.</p>
 
-      </div>
-      <div class="info" style="margin-top: 2em;">
-          <a href="https://github.com/PhileCMS/Phile/wiki/%5BPLUGIN%5D-Plugins">
-              Edit the source page on github…
-            </a>
-      </div>
+
+          <p class="info">
+              <a href="https://github.com/PhileCMS/Phile/wiki/%5BPLUGIN%5D-Plugins">
+                  Edit the source page on github…
+              </a>
+          </p>
+        </div>
+
     </section>
   </div>
 </div>

@@ -1,20 +1,32 @@
 {% include '_head.twig' %}
 
 <div class="container">
-  <div class="container">
-    <section id="main_content">
-      <aside class="wiki-aside">
-        {% include '_Sidebar.html' %}
-      </aside>
-      <div style="overflow:hidden;">
-{#        <h1>{{ title }}</h1>#}
-        {% block content %}{% endblock %}
-      </div>
-      <div class="info" style="margin-top: 2em;">
-          <a href="https://github.com/PhileCMS/Phile/wiki/{{ fullname|url_encode() }}">
-              Edit the source page on github…
-            </a>
-      </div>
+  <div class="grid">
+      <section id="main_content">
+
+        <div class="col-1-4">
+          <aside class="wiki-aside">
+            {% include '_Sidebar.html' %}
+          </aside>
+        </div>
+
+        <div class="col-3-4">
+          {% if toc is not empty %}
+            <div class="toc">
+              <h2>Table of Contents</h2>
+              {{ toc|raw }}
+            </div>
+          {% endif %}
+
+          {% block content %}{% endblock %}
+
+          <p class="info">
+              <a href="https://github.com/PhileCMS/Phile/wiki/{{ fullname|url_encode() }}">
+                  Edit the source page on github…
+              </a>
+          </p>
+        </div>
+
     </section>
   </div>
 </div>

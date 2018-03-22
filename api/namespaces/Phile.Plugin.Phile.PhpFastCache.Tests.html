@@ -21,55 +21,7 @@
     <script src="../js/jquery.smooth-scroll.js"></script>
     <script src="../js/prism.min.js"></script>
     <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
-        <script type="text/javascript">
-        function loadExternalCodeSnippets() {
-            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-                var src = pre.getAttribute('data-src');
-                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-                var language = 'php';
-
-                var code = document.createElement('code');
-                code.className = 'language-' + language;
-
-                pre.textContent = '';
-
-                code.textContent = 'Loading…';
-
-                pre.appendChild(code);
-
-                var xhr = new XMLHttpRequest();
-
-                xhr.open('GET', src, true);
-
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4) {
-
-                        if (xhr.status < 400 && xhr.responseText) {
-                            code.textContent = xhr.responseText;
-
-                            Prism.highlightElement(code);
-                        }
-                        else if (xhr.status >= 400) {
-                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
-                        }
-                        else {
-                            code.textContent = '✖ Error: File does not exist or is empty';
-                        }
-                    }
-                };
-
-                xhr.send(null);
-            });
-        }
-
-        $(document).ready(function(){
-            loadExternalCodeSnippets();
-        });
-        $('#source-view').on('shown', function () {
-            loadExternalCodeSnippets();
-        })
-    </script>
-
+    
     <link rel="shortcut icon" href="../images/favicon.ico"/>
     <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
     <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
@@ -114,7 +66,7 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="../reports/errors.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">74</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">89</span>
                                 </a>
                             </li>
                             <li>
@@ -124,7 +76,7 @@
                             </li>
                             <li>
                                 <a href="../reports/deprecated.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">19</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">14</span>
                                 </a>
                             </li>
                         </ul>
@@ -144,28 +96,28 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1641687196"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1692605001"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1641687196" class="accordion-body collapse in">
+            <div id="namespace-1692605001" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-828499844"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-859454347"></a>
                                 <a href="../namespaces/Phile.html" style="margin-left: 30px; padding-left: 0">Phile</a>
             </div>
-            <div id="namespace-828499844" class="accordion-body collapse ">
+            <div id="namespace-859454347" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-157647127"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-520079815"></a>
                                 <a href="../namespaces/Phile.Core.html" style="margin-left: 30px; padding-left: 0">Core</a>
             </div>
-            <div id="namespace-157647127" class="accordion-body collapse ">
+            <div id="namespace-520079815" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -175,9 +127,7 @@
                                                     <li class="class"><a href="../classes/Phile.Core.Container.html">Container</a></li>
                                                     <li class="class"><a href="../classes/Phile.Core.Event.html">Event</a></li>
                                                     <li class="class"><a href="../classes/Phile.Core.Registry.html">Registry</a></li>
-                                                    <li class="class"><a href="../classes/Phile.Core.RequestHandler.html">RequestHandler</a></li>
                                                     <li class="class"><a href="../classes/Phile.Core.Response.html">Response</a></li>
-                                                    <li class="class"><a href="../classes/Phile.Core.Router.html">Router</a></li>
                                                     <li class="class"><a href="../classes/Phile.Core.ServiceLocator.html">ServiceLocator</a></li>
                                                     <li class="class"><a href="../classes/Phile.Core.Session.html">Session</a></li>
                                                     <li class="class"><a href="../classes/Phile.Core.Utility.html">Utility</a></li>
@@ -190,10 +140,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1970851428"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-165731408"></a>
                                 <a href="../namespaces/Phile.Exception.html" style="margin-left: 30px; padding-left: 0">Exception</a>
             </div>
-            <div id="namespace-1970851428" class="accordion-body collapse ">
+            <div id="namespace-165731408" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -212,10 +162,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1819106515"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-268177808"></a>
                                 <a href="../namespaces/Phile.FilterIterator.html" style="margin-left: 30px; padding-left: 0">FilterIterator</a>
             </div>
-            <div id="namespace-1819106515" class="accordion-body collapse ">
+            <div id="namespace-268177808" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -231,10 +181,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1583897533"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1534028195"></a>
                                 <a href="../namespaces/Phile.Gateway.html" style="margin-left: 30px; padding-left: 0">Gateway</a>
             </div>
-            <div id="namespace-1583897533" class="accordion-body collapse ">
+            <div id="namespace-1534028195" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -249,10 +199,30 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1289946391"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2014560811"></a>
+                                <a href="../namespaces/Phile.Http.html" style="margin-left: 30px; padding-left: 0">Http</a>
+            </div>
+            <div id="namespace-2014560811" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Phile.Http.RequestHandler.html">RequestHandler</a></li>
+                                                    <li class="class"><a href="../classes/Phile.Http.ResponseFactory.html">ResponseFactory</a></li>
+                                                    <li class="class"><a href="../classes/Phile.Http.Server.html">Server</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1609024381"></a>
                                 <a href="../namespaces/Phile.Model.html" style="margin-left: 30px; padding-left: 0">Model</a>
             </div>
-            <div id="namespace-1289946391" class="accordion-body collapse ">
+            <div id="namespace-1609024381" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -269,35 +239,33 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1449736402"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1574803975"></a>
                                 <a href="../namespaces/Phile.Plugin.html" style="margin-left: 30px; padding-left: 0">Plugin</a>
             </div>
-            <div id="namespace-1449736402" class="accordion-body collapse ">
+            <div id="namespace-1574803975" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1840549336"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-958052456"></a>
                                 <a href="../namespaces/Phile.Plugin.Phile.html" style="margin-left: 30px; padding-left: 0">Phile</a>
             </div>
-            <div id="namespace-1840549336" class="accordion-body collapse ">
+            <div id="namespace-958052456" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-948635913"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-122480254"></a>
                                 <a href="../namespaces/Phile.Plugin.Phile.ErrorHandler.html" style="margin-left: 30px; padding-left: 0">ErrorHandler</a>
             </div>
-            <div id="namespace-948635913" class="accordion-body collapse ">
+            <div id="namespace-122480254" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
                     <ul>
-                                                                                                    <li class="class"><a href="../classes/Phile.Plugin.Phile.ErrorHandler.Development.html">Development</a></li>
-                                                    <li class="class"><a href="../classes/Phile.Plugin.Phile.ErrorHandler.ErrorLog.html">ErrorLog</a></li>
-                                                    <li class="class"><a href="../classes/Phile.Plugin.Phile.ErrorHandler.Plugin.html">Plugin</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phile.Plugin.Phile.ErrorHandler.Plugin.html">Plugin</a></li>
                                             </ul>
                 </div>
             </div>
@@ -307,19 +275,19 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1114174420"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1379207133"></a>
                                 <a href="../namespaces/Phile.Plugin.Phile.ParserMarkdown.html" style="margin-left: 30px; padding-left: 0">ParserMarkdown</a>
             </div>
-            <div id="namespace-1114174420" class="accordion-body collapse ">
+            <div id="namespace-1379207133" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1994031832"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-823451535"></a>
                                 <a href="../namespaces/Phile.Plugin.Phile.ParserMarkdown.Parser.html" style="margin-left: 30px; padding-left: 0">Parser</a>
             </div>
-            <div id="namespace-1994031832" class="accordion-body collapse ">
+            <div id="namespace-823451535" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -343,24 +311,42 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-739461483"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-159456189"></a>
                                 <a href="../namespaces/Phile.Plugin.Phile.ParserMeta.html" style="margin-left: 30px; padding-left: 0">ParserMeta</a>
             </div>
-            <div id="namespace-739461483" class="accordion-body collapse ">
+            <div id="namespace-159456189" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-466363650"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-168365506"></a>
                                 <a href="../namespaces/Phile.Plugin.Phile.ParserMeta.Parser.html" style="margin-left: 30px; padding-left: 0">Parser</a>
             </div>
-            <div id="namespace-466363650" class="accordion-body collapse ">
+            <div id="namespace-168365506" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
                     <ul>
                                                                                                     <li class="class"><a href="../classes/Phile.Plugin.Phile.ParserMeta.Parser.Meta.html">Meta</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-13120120"></a>
+                                <a href="../namespaces/Phile.Plugin.Phile.ParserMeta.Tests.html" style="margin-left: 30px; padding-left: 0">Tests</a>
+            </div>
+            <div id="namespace-13120120" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Phile.Plugin.Phile.ParserMeta.Tests.MetaTest.html">MetaTest</a></li>
                                             </ul>
                 </div>
             </div>
@@ -379,11 +365,29 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-513015288"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1241958475"></a>
                                 <a href="../namespaces/Phile.Plugin.Phile.PhpFastCache.html" style="margin-left: 30px; padding-left: 0">PhpFastCache</a>
             </div>
-            <div id="namespace-513015288" class="accordion-body collapse ">
+            <div id="namespace-1241958475" class="accordion-body collapse ">
                 <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1704561132"></a>
+                                <a href="../namespaces/Phile.Plugin.Phile.PhpFastCache.Tests.html" style="margin-left: 30px; padding-left: 0">Tests</a>
+            </div>
+            <div id="namespace-1704561132" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Phile.Plugin.Phile.PhpFastCache.Tests.PhileToPsr16CacheAdapterTest.html">PhileToPsr16CacheAdapterTest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
                     
                     <ul>
@@ -398,10 +402,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1712599568"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1717514038"></a>
                                 <a href="../namespaces/Phile.Plugin.Phile.SetupCheck.html" style="margin-left: 30px; padding-left: 0">SetupCheck</a>
             </div>
-            <div id="namespace-1712599568" class="accordion-body collapse ">
+            <div id="namespace-1717514038" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -416,19 +420,19 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-384934375"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1599397882"></a>
                                 <a href="../namespaces/Phile.Plugin.Phile.SimpleFileDataPersistence.html" style="margin-left: 30px; padding-left: 0">SimpleFileDataPersistence</a>
             </div>
-            <div id="namespace-384934375" class="accordion-body collapse ">
+            <div id="namespace-1599397882" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-356467964"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-853725581"></a>
                                 <a href="../namespaces/Phile.Plugin.Phile.SimpleFileDataPersistence.Persistence.html" style="margin-left: 30px; padding-left: 0">Persistence</a>
             </div>
-            <div id="namespace-356467964" class="accordion-body collapse ">
+            <div id="namespace-853725581" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -452,19 +456,19 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-360305807"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-54513769"></a>
                                 <a href="../namespaces/Phile.Plugin.Phile.TemplateTwig.html" style="margin-left: 30px; padding-left: 0">TemplateTwig</a>
             </div>
-            <div id="namespace-360305807" class="accordion-body collapse ">
+            <div id="namespace-54513769" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-8102239"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-818795771"></a>
                                 <a href="../namespaces/Phile.Plugin.Phile.TemplateTwig.Template.html" style="margin-left: 30px; padding-left: 0">Template</a>
             </div>
-            <div id="namespace-8102239" class="accordion-body collapse ">
+            <div id="namespace-818795771" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -488,10 +492,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-715249424"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1572956817"></a>
                                 <a href="../namespaces/Phile.Plugin.Phile.TestPlugin.html" style="margin-left: 30px; padding-left: 0">TestPlugin</a>
             </div>
-            <div id="namespace-715249424" class="accordion-body collapse ">
+            <div id="namespace-1572956817" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -524,16 +528,15 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-603515094"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-417248798"></a>
                                 <a href="../namespaces/Phile.Repository.html" style="margin-left: 30px; padding-left: 0">Repository</a>
             </div>
-            <div id="namespace-603515094" class="accordion-body collapse ">
+            <div id="namespace-417248798" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
                     <ul>
-                                                                                                    <li class="class"><a href="../classes/Phile.Repository.Page.html">Page</a></li>
-                                                    <li class="class"><a href="../classes/Phile.Repository.PageCollection.html">PageCollection</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phile.Repository.PageCollection.html">PageCollection</a></li>
                                             </ul>
                 </div>
             </div>
@@ -543,16 +546,15 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1928589242"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-788517326"></a>
                                 <a href="../namespaces/Phile.ServiceLocator.html" style="margin-left: 30px; padding-left: 0">ServiceLocator</a>
             </div>
-            <div id="namespace-1928589242" class="accordion-body collapse ">
+            <div id="namespace-788517326" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
                     <ul>
                                                     <li class="interface"><a href="../classes/Phile.ServiceLocator.CacheInterface.html">CacheInterface</a></li>
-                                                    <li class="interface"><a href="../classes/Phile.ServiceLocator.ErrorHandlerInterface.html">ErrorHandlerInterface</a></li>
                                                     <li class="interface"><a href="../classes/Phile.ServiceLocator.MetaInterface.html">MetaInterface</a></li>
                                                     <li class="interface"><a href="../classes/Phile.ServiceLocator.ParserInterface.html">ParserInterface</a></li>
                                                     <li class="interface"><a href="../classes/Phile.ServiceLocator.PersistenceInterface.html">PersistenceInterface</a></li>
@@ -566,10 +568,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-107055005"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-990384882"></a>
                                 <a href="../namespaces/Phile.Test.html" style="margin-left: 30px; padding-left: 0">Test</a>
             </div>
-            <div id="namespace-107055005" class="accordion-body collapse ">
+            <div id="namespace-990384882" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -583,13 +585,7 @@
 
                     
                     <ul>
-                                                                                                    <li class="class"><a href="../classes/Phile.Event.html">Event</a></li>
-                                                    <li class="class"><a href="../classes/Phile.Exception.html">Exception</a></li>
-                                                    <li class="class"><a href="../classes/Phile.Phile.html">Phile</a></li>
-                                                    <li class="class"><a href="../classes/Phile.Registry.html">Registry</a></li>
-                                                    <li class="class"><a href="../classes/Phile.ServiceLocator.html">ServiceLocator</a></li>
-                                                    <li class="class"><a href="../classes/Phile.Session.html">Session</a></li>
-                                                    <li class="class"><a href="../classes/Phile.Utility.html">Utility</a></li>
+                                                                                                    <li class="class"><a href="../classes/Phile.Exception.html">Exception</a></li>
                                             </ul>
                 </div>
             </div>
@@ -609,38 +605,41 @@
     <section class="row-fluid">
         <div class="span10 offset2">
             <div class="row-fluid">
-                <div class="span8 content file">
+                <div class="span8 content namespace">
                     <nav>
-                                                                    </nav>
+                                                <a href="../namespaces/Phile.Plugin.Phile.PhpFastCache.html">\Phile\Plugin\Phile\PhpFastCache</a>
+                                            </nav>
+                    <h1><small>\Phile\Plugin\Phile\PhpFastCache</small>Tests</h1>
 
-                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
-                    <h1><small>lib/Phile</small>Session.php</h1>
-                    <p><em>The Session class</em></p>
                     
-
                     
                     
                                         <h2>Classes</h2>
                     <table class="table table-hover">
                                             <tr>
-                            <td><a href="../classes/Phile.Session.html">Session</a></td>
-                            <td><em>the Session class for implementing a session</em></td>
+                            <td><a href="../classes/Phile.Plugin.Phile.PhpFastCache.Tests.PhileToPsr16CacheAdapterTest.html">PhileToPsr16CacheAdapterTest</a></td>
+                            <td><em>Class for Phile test-cases</em></td>
                         </tr>
                                         </table>
                                     </div>
 
                 <aside class="span4 detailsbar">
                     <dl>
-                                                    <dt>Package</dt>
-                            <dd><div class="namespace-wrapper">\Default</div></dd>
-                        
-                        
+                        <dt>Namespace hierarchy</dt>
+                        <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                    <div class="namespace-wrapper"><a href="../namespaces/default.html">\</a></div>
+                                                            
+                                    <div class="namespace-wrapper"><a href="../namespaces/Phile.html">\Phile</a></div>
+                                                            
+                                    <div class="namespace-wrapper"><a href="../namespaces/Phile.Plugin.html">\Phile\Plugin</a></div>
+                                                            
+                                    <div class="namespace-wrapper"><a href="../namespaces/Phile.Plugin.Phile.html">\Phile\Plugin\Phile</a></div>
+                                                            
+                                    <div class="namespace-wrapper"><a href="../namespaces/Phile.Plugin.Phile.PhpFastCache.html">\Phile\Plugin\Phile\PhpFastCache</a></div>
+                                                                                        <div class="namespace-wrapper">\Phile\Plugin\Phile\PhpFastCache\Tests</div>
+                        </dd>
                     </dl>
-                    <h2>Tags</h2>
-                    <table class="table table-condensed">
-                                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                                            </table>
-
                 </aside>
             </div>
 
@@ -648,16 +647,6 @@
             
         </div>
     </section>
-
-    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="source-view-label"></h3>
-        </div>
-        <div class="modal-body">
-            <pre data-src="../files/lib/Phile/Session.php.txt" class="language-php line-numbers"></pre>
-        </div>
-    </div>
 
     <footer class="row-fluid">
         <section class="span10 offset2">
@@ -696,7 +685,7 @@
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on March 16th, 2018 at 19:05.
+                    on March 22nd, 2018 at 16:13.
                 </section>
             </section>
         </section>

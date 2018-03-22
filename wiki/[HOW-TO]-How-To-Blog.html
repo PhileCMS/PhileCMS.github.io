@@ -70,16 +70,20 @@
 </nav>
 
 <div class="container">
-  <div class="container">
-    <section id="main_content">
-      <aside class="wiki-aside">
-        <h2>Navigation</h2>
+  <div class="grid">
+      <section id="main_content">
+
+        <div class="col-1-4">
+          <aside class="wiki-aside">
+            <h2>Navigation</h2>
 <ul>
 <li><a href='Home.html'>Home</a></li>
 </ul>
 <h3>How-To</h3>
 <ul>
 <li><a href='%5BHOW-TO%5D-Installation.html'>Installation</a></li>
+<li><a href='%5BHOW-TO%5D-Configuration.html'>Configuration</a></li>
+<li><a href='%5BHOW-TO%5D-Updating.html'>Updating</a></li>
 <li><a href='%5BHOW-TO%5D-How-To-Blog.html'>How-To Blog</a></li>
 <li><a href='%5BHOW-TO%5D-Pagination.html'>Pagination</a></li>
 <li><a href='%5BHOW-TO%5D-Using-Nginx-with-Phile.html'>Using Nginx</a></li>
@@ -104,15 +108,42 @@
 <li><a href='%5BDEVELOPER%5D-Introduction.html'>Introduction</a></li>
 <li><a href='%5BDEVELOPER%5D-Developer-Guidelines.html'>Developer-Guidelines</a></li>
 <li><a href='%5BDEVELOPER%5D-Release-Guide.html'>Release Guide</a></li>
-</ul>      </aside>
-      <div style="overflow:hidden;">
-        
-<h1>How To Blog</h1>
+</ul>          </aside>
+        </div>
+
+        <div class="col-3-4">
+                      <div class="toc">
+              <h2>Table of Contents</h2>
+              <ul>
+  <li class="first">
+    <a href="#setup">Setup</a>
+  </li>
+  <li>
+    <a href="#organizing-content">Organizing Content</a>
+  </li>
+  <li>
+    <a href="#using-images">Using Images</a>
+  </li>
+  <li>
+    <a href="#splitting-content">Splitting Content</a>
+  </li>
+  <li>
+    <a href="#javascript-constants">JavaScript Constants</a>
+  </li>
+  <li class="last">
+    <a href="#ajax-demo">Ajax Demo</a>
+  </li>
+</ul>
+
+            </div>
+          
+          
+<h1 id="how-to-blog">How To Blog</h1>
 <p><em>Disclaimer</em></p>
 <p>The following instructions are assuming you are using the default Phile installation (Twig Templates and the Markdown parser).</p>
-<h2>Setup</h2>
+<h2 id="setup">Setup</h2>
 <p><a href="https://github.com/PhileCMS/Phile-Blog-Theme">Please see the blog demo theme</a>.</p>
-<h2>Organizing Content</h2>
+<h2 id="organizing-content">Organizing Content</h2>
 <p><strong>IMPORTANT</strong>: Here is the typical way that content files work in Phile:</p>
 <table>
 <thead>
@@ -171,14 +202,14 @@
 </tr>
 </tbody>
 </table>
-<h2>Using Images</h2>
+<h2 id="using-images">Using Images</h2>
 <p>Images just need the path to where they exists. So this path:</p>
 <p><code>Phile/content/images/picture.jpg</code></p>
 <p>Becomes:</p>
 <p><code>{{ base_url }}/content/images/picture.jpg</code></p>
 <p>Or if there was an image in the theme:</p>
 <p><code>{{ theme_url }}/images/theme-logo.png</code></p>
-<h2>Splitting Content</h2>
+<h2 id="splitting-content">Splitting Content</h2>
 <p>There are a couple ways to split content. The reasons you might want to do that is for things like sidebars, widgets, accordions, tabbed panes, column content, etc.</p>
 <p>Here is a demo of how to split content without plugins:</p>
 <pre><code class="language-markdown">### Section 1
@@ -199,7 +230,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 &lt;/div&gt;</code></pre>
 <p>The <code>&lt;hr&gt;</code> tag is not the special thing here. The <code>split</code> filter in Twig is the special function. You can use any tag or made-up tag (how about <code>&lt;split&gt;</code>?) to do this.</p>
 <p>This can even be done across different partials or be conditial based on some meta tag.</p>
-<h2>JavaScript Constants</h2>
+<h2 id="javascript-constants">JavaScript Constants</h2>
 <p>Here is a trick to get access to Phile variables in your javascript.</p>
 <pre><code class="language-html">&lt;head&gt;
   &lt;!-- a bunch of stuff here --&gt;
@@ -222,19 +253,21 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
   &lt;/script&gt;
 &lt;/head&gt;</code></pre>
 <p>Now you can access <code>window.Phile</code> and see some of the settings and constants.</p>
-<h2>Ajax Demo</h2>
+<h2 id="ajax-demo">Ajax Demo</h2>
 <p>Here is a simple demo of using the above settings to make an ajax call (using jQuery) to some other content:</p>
 <pre><code class="language-javascript">$.get(Phile.base_url + '/sub/page', function(data) {
   // print out the HTML for parsed sub/page file
   console.log(data);
 });</code></pre>
 
-      </div>
-      <div class="info" style="margin-top: 2em;">
-          <a href="https://github.com/PhileCMS/Phile/wiki/%5BHOW-TO%5D-How-To-Blog">
-              Edit the source page on github…
-            </a>
-      </div>
+
+          <p class="info">
+              <a href="https://github.com/PhileCMS/Phile/wiki/%5BHOW-TO%5D-How-To-Blog">
+                  Edit the source page on github…
+              </a>
+          </p>
+        </div>
+
     </section>
   </div>
 </div>

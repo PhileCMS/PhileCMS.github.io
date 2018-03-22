@@ -8,12 +8,12 @@ $config = [
     'templateVars' => include 'templateVars.php'
 ];
 
-$phulp->task('default', function (Phulp\Phulp $phulp) {
-    $phulp->start(['js', 'scss', 'css', 'twig', 'wiki', 'cleanup']);
+$phulp->task('default', function ($phulp) {
+    $phulp->start(['composer-update', 'html', 'phpdoc']);
 });
 
-$phulp->task('release', function ($phulp) {
-    $phulp->start(['composer-update', 'phpdoc', 'default']);
+$phulp->task('html', function (Phulp\Phulp $phulp) {
+    $phulp->start(['js', 'css', 'twig', 'wiki']);
 });
 
 $phulp->task('composer-update', function (Phulp\Phulp $phulp) {
@@ -26,16 +26,25 @@ $phulp->task('js', function ($phulp) {
         ->pipe($phulp->dest('js/'));
 });
 
-$phulp->task('scss', function ($phulp) {
+$phulp->task('css', function ($phulp) {
+    // comile scss
     $phulp->src(['src/styles/'], '/scss$/')
         ->pipe(new ScssCompiler(['import_paths' => ['src/styles/']]))
         ->pipe($phulp->dest('css/'));
-});
 
-$phulp->task('css', function ($phulp) {
+    // join and minify
     $phulp->src(['css/'], '/z_site.css/')
         ->pipe(new CssMinifier(['join' => true, 'joinName' => 'style.min.css']))
         ->pipe($phulp->dest('css/'));
+
+    // cleanup temp files 
+    $phulp->src(['css/'], '/.*(?<!\.min\.css)$/')
+        ->pipe($phulp->iterate(function(Phulp\DistFile $distFile) {
+            $file = $distFile->getFullpath() . '/' . $distFile->getName();
+            if (file_exists($file)) {
+                unlink($file);
+            }
+    }));
 });
 
 $phulp->task('twig', function ($phulp) use ($config) {
@@ -49,20 +58,10 @@ $phulp->task('twig', function ($phulp) use ($config) {
         ->pipe($phulp->dest(__DIR__));
 });
 
-$phulp->task('cleanup', function ($phulp) {
-    $phulp->src(['css/'], '/.*(?<!\.min\.css)$/')
-        ->pipe($phulp->iterate(function(Phulp\DistFile $distFile) {
-            $file = $distFile->getFullpath() . '/' . $distFile->getName();
-            if (file_exists($file)) {
-                unlink($file);
-            }
-        }));
-});
-
 /**
  * Create documentation from wiki
  */
-$phulp->task('wiki', function (Phulp\Phulp $phulp) {
+$phulp->task('wiki', function (Phulp\Phulp $phulp) use ($config) {
     // clean wiki dir
     $phulp->src(['wiki'])->pipe($phulp->clean());
 
@@ -84,17 +83,16 @@ $phulp->task('wiki', function (Phulp\Phulp $phulp) {
 
     // prepare sidebar for twig usage
     $phulp->src(['wiki'], '/_Sidebar/')
-        ->pipe($phulp->iterate(function(Phulp\DistFile $distFile) use ($config) {
+        ->pipe($phulp->iterate(function(Phulp\DistFile $distFile) {
             $content = $distFile->getContent();
-//            $content = preg_replace('/href="(?=http)(.*?)"/', "href=\"Home\"", $content);
             $content = preg_replace('/href="(.*?)"/', "href='\\1.html'", $content);
             $distFile->setContent($content); 
         }))
         ->pipe($phulp->dest('wiki'));
 
-    // prepare sidebar for twig usage
+    // convert github links to local 
     $phulp->src(['wiki'], '/.html$/')
-        ->pipe($phulp->iterate(function(Phulp\DistFile $distFile) use ($config) {
+        ->pipe($phulp->iterate(function(Phulp\DistFile $distFile) {
             $content = $distFile->getContent();
             $content = preg_replace(
                 '/href="https:\/\/github.*?\/wiki\/(.*?)"/',
@@ -105,34 +103,45 @@ $phulp->task('wiki', function (Phulp\Phulp $phulp) {
         }))
         ->pipe($phulp->dest('wiki'));
 
-    // prepare HTML for twig usage
-    $phulp->src(['wiki'], '/^[^_].*\.html$/')
-        ->pipe($phulp->iterate(function(Phulp\DistFile $distFile) {
-            $html = '{% extends "wiki.twig" %}'
-                . "\n{% block content %}\n{% raw %}\n"
-                . $distFile->getContent() 
-                . "\n{% endraw %}\n{% endblock %}";
-            $distFile->setContent($html);
-        }))
-        ->pipe($phulp->dest('wiki/'));
-
-
     // pipe HTML pages through twig layout
     $phulp->src(['wiki'], '/^[^_].*\.html$/')
         ->pipe($phulp->iterate(function(Phulp\DistFile $distFile) use ($config) {
-            $loader = new \Twig_Loader_Filesystem(['templates', 'wiki']);
+            $content = $distFile->getContent();
+
+            // This ensures that all header tags have `id` attributes so they can be used as anchor links
+            $markupFixer = new TOC\MarkupFixer();
+            $content = $markupFixer->fix($content);
+
+            // This generates the Table of Contents in HTML
+            $tocGenerator = new TOC\TocGenerator();
+            $toc = $tocGenerator->getHtmlMenu($content, 2);
+
+            $html = '{% extends "wiki.twig" %}'
+                . "\n{% block content %}\n{% verbatim %}\n"
+                . $content 
+                . "\n{% endverbatim %}\n{% endblock %}";
+            $loader1 = new Twig_Loader_Array(array(
+                $distFile->getName() => $html,
+            ));
+
+            $loader2 = new \Twig_Loader_Filesystem(['templates', 'wiki']);
+            
+            $loader = new Twig_Loader_Chain(array($loader1, $loader2));
             $twig = new Twig_Environment($loader);
 
             $fullname = explode('.', $distFile->getName())[0];
             $title = preg_replace('/\[.*\]-/', '', $fullname);
             $base_url = '../';
 
-            $vars = compact(['title', 'fullname', 'base_url']);
+            $vars = compact(['title', 'fullname', 'base_url', 'toc']);
+            $vars += $config['templateVars'];
             $content = $twig->render($distFile->getName(), $vars);
+
             $distFile->setContent($content); 
         }))
         ->pipe($phulp->dest('wiki'));
 
+    // index redirect to Home page 
     file_put_contents('wiki/index.html', "<!DOCTYPE html><html><head><meta http-equiv='refresh' content='0; url=Home.html' /></head></html>");
     
 });

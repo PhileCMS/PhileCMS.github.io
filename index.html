@@ -102,7 +102,7 @@
         Download Phile 1.9.0
       </a>
       <br>
-      <span class="info"> requires PHP 5.6+ </span>
+      <span class="info"> requires PHP 5.6.0+ </span>
     </div>
     <div class="col-1-2 left-center">
       <p>
@@ -185,7 +185,7 @@
           existing plugins</a>
         or learn to
         <a
-          href="wiki/%5BDEVELOPER%5D-Plugins.html">
+          href="wiki/%5BPLUGIN%5D-Plugins.html">
           write your own plugin.</a>
       </p>
     </div>
@@ -291,10 +291,20 @@
       <ul>
         <li>Object Oriented Design (classes)</li>
         <li>Events system</li>
-        <li>Parser Overloading</li>
-        <li>Template Engine Overloading</li>
-        <li>PSR-0, PSR-1/PSR-2, PSR-7/PSR-15</li>
-        <li>Uses Composer</li>
+        <li><a href="https://github.com/PhileCMS/Phile/blob/master/composer.json">Uses Composer</a></li>
+        <li>Replaceable core modules (plugins)
+        
+        <ul>
+        <li>Parser (default: <a href="https://github.com/michelf/php-markdown">Markdown</a>)</li>
+        <li>Template Engine (default: <a href="http://twig.sensiolabs.org/">Twig</a>)</li>
+        <li>Cache (default: <a href="https://github.com/khoaofgod/phpfastcache">phpFastCache</a>)</li>
+        <li>Error handler (default: Phile handler)</li>
+        <li>Meta parser (default: Phile parser)</li>
+        <li>Simple Data Persistence (default: Phile file-based)</li>
+        </ul></li>
+        <li>Per-Plugin <code>config.php</code> files</li>
+        <li>Namespaced plugins so classes can have the same name</li>
+        <li><a id="MMDHTMLSCROLLPOINT"></a>PSR–0,PSR–1/2, PSR–7/15</li>
       </ul>
 
     </div>

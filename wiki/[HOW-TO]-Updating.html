@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="title" content="Updating - PhileCMS">
+  <meta property="og:title" content="Updating - PhileCMS">
+  <meta name="description" content="PhileCMS - the flat-file PHP CMS">
+  <meta itemprop="description" content="Updating - PhileCMS - the flat-file PHP CMS">
+  <meta property="og:description" content="Updating - PhileCMS - the flat-file PHP CMS">
+  <meta itemprop="url" content="http://philecms.github.io/">
+  <meta property="og:url" content="http://philecms.github.io/">
+  <meta property="og:site_name" content="PhileCMS">
+  <meta property="article:author" content="PhileCMS" />
+  <meta itemprop="image logo" content="../img/phile-logo.png">
+  <meta property="og:image" content="../img/phile-logo.png">
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.min.css" media="screen" />
+  <!--[if IE]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <title>Updating - Flat-File PHP CMS - PhileCMS</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="home-page">
+
+<nav class="top-menu section-1">
+  <div class="grid">
+    <div class="col-1-3 top-menu-hero">
+      <p>
+        <a href="../index.html">
+          <img src="../img/phile-logo.svg" alt="phile-logo">
+        </a>
+        <span id="pageTitle">
+            <a href="">
+              Updating
+            </a>
+        </span>
+      </p>
+    </div>
+    <div class="col-2-3 top-menu-nav right">
+      <ul>
+        <li>
+          <a href="../index.html" class="">
+            <i class="fa fa-home"></i>
+            PhileCMS
+          </a>
+        </li>
+        <li>
+          <a href="../wiki/Home.html" class="item-active">
+            <i class="fa fa-book"></i>
+            Docs
+          </a>
+        </li>
+        <li>
+          <a href="../api/">
+            <i class="fa fa-sitemap"></i>
+            PhpDoc 
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/PhileCMS/Phile">
+            <i class="fa fa-github"></i>
+            Source
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="grid">
+      <section id="main_content">
+
+        <div class="col-1-4">
+          <aside class="wiki-aside">
+            <h2>Navigation</h2>
+<ul>
+<li><a href='Home.html'>Home</a></li>
+</ul>
+<h3>How-To</h3>
+<ul>
+<li><a href='%5BHOW-TO%5D-Installation.html'>Installation</a></li>
+<li><a href='%5BHOW-TO%5D-Configuration.html'>Configuration</a></li>
+<li><a href='%5BHOW-TO%5D-Updating.html'>Updating</a></li>
+<li><a href='%5BHOW-TO%5D-How-To-Blog.html'>How-To Blog</a></li>
+<li><a href='%5BHOW-TO%5D-Pagination.html'>Pagination</a></li>
+<li><a href='%5BHOW-TO%5D-Using-Nginx-with-Phile.html'>Using Nginx</a></li>
+</ul>
+<h3>Community</h3>
+<ul>
+<li><a href='%5BCOMMUNITY%5D-Sites-using-Phile.html'>Sites using Phile</a></li>
+<li><a href='%5BCOMMUNITY%5D-Plugins.html'>Plugins</a></li>
+<li><a href='%5BCOMMUNITY%5D-Themes.html'>Themes</a></li>
+</ul>
+<h3>Plugin-Development</h3>
+<ul>
+<li><a href='%5BPLUGIN%5D-Plugins.html'>Plugins</a></li>
+<li><a href='%5BPLUGIN%5D-Event-System.html'>Event-System</a></li>
+<li><a href='%5BPLUGIN%5D-Service-Locator.html'>Service-Locator</a></li>
+<li><a href='%5BPLUGIN%5D-Use-Core-Classes.html'>Use Core Classes</a></li>
+<li><a href='%5BPLUGIN%5D-Best-Practice.html'>Best Practice</a></li>
+<li><a href='%5BPLUGIN%5D-Publish-A-Plugin.html'>Publish</a></li>
+</ul>
+<h3>Core-Development</h3>
+<ul>
+<li><a href='%5BDEVELOPER%5D-Introduction.html'>Introduction</a></li>
+<li><a href='%5BDEVELOPER%5D-Developer-Guidelines.html'>Developer-Guidelines</a></li>
+<li><a href='%5BDEVELOPER%5D-Release-Guide.html'>Release Guide</a></li>
+</ul>          </aside>
+        </div>
+
+        <div class="col-3-4">
+          
+          
+<h1 id="update-to-a-new-phile-version">Update to a New Phile Version</h1>
+<p>You update to a new Phile version by downloading the new Phile release and overwrite the files in your installation.</p>
+<p>Phile follows <a href="https://semver.org/">Semantic Versioning</a>. That means that in a new "x.y.z" Version</p>
+<ul>
+<li>New z versions should be a drop-in replacement, you don't have to worry about anything.</li>
+<li>New y versions should be a drop-in replacement. But look out for Update Notes for that release which line-out an update-process.</li>
+<li>New x versions are not a drop-in replacement and may going to break existing installions and plugins. Check the Update Notes for further information.</li>
+</ul>
+<p>To update a non-breaking release download it and:</p>
+<ul>
+<li><strong>&lt;root&gt;/</strong>
+<ul>
+<li>Copy over the new <code>composer.json</code> and add your local requirements to it.</li>
+<li>Copy over any other <em>files</em> in the root <code>/</code></li>
+</ul></li>
+<li><strong>config/</strong>
+<ul>
+<li>Replace the contents of the <code>config/</code> directory except for your <code>config/config.php</code> file. If you changed any other file in that directory you have to carry over those changes manually.</li>
+</ul></li>
+<li><strong>lib/</strong>
+<ul>
+<li>Copy over the new <code>lib/Phile</code></li>
+<li>Copy over the new <code>lib/vendor</code></li>
+<li>Clear the cache by deleting the contents of the cache directory <code>lib/cache</code>).</li>
+</ul></li>
+<li><strong>plugins/</strong>
+<ul>
+<li>Copy over the new core plugins in <code>plugins/phile</code></li>
+</ul></li>
+<li><strong>themes/</strong>
+<ul>
+<li>If you use the default theme copy that over.</li>
+</ul></li>
+</ul>
+<p>Run <code>composer update --no-dev</code> if you added other composer requirements.</p>
+
+
+          <p class="info">
+              <a href="https://github.com/PhileCMS/Phile/wiki/%5BHOW-TO%5D-Updating">
+                  Edit the source page on github…
+              </a>
+          </p>
+        </div>
+
+    </section>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+<footer class="section-1">
+  <div class="grid">
+    <div class="col-1-2">
+      <h3>
+        <a href="https://github.com/orgs/PhileCMS/people">
+          Core Authors
+        </a>
+      </h3>
+      <ul>
+        <li>
+          <a href="https://github.com/james2doyle" target="_blank">
+            James Doyle - great ideas, code a lot of plugins and worked on the
+            core
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/NeoBlack" target="_blank">
+            Frank Nägler - refactoring of the core and introducing OOP concepts
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/Schlaefer" target="_blank">
+            Schlaefer
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-1-2 center">
+      <p>
+        <a href="https://github.com/PhileCMS">
+          Hosted on Github. Maintained by the PhileCMS community</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/script.min.js"></script>
+</body>
+</html>

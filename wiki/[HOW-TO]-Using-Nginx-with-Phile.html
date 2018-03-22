@@ -70,16 +70,20 @@
 </nav>
 
 <div class="container">
-  <div class="container">
-    <section id="main_content">
-      <aside class="wiki-aside">
-        <h2>Navigation</h2>
+  <div class="grid">
+      <section id="main_content">
+
+        <div class="col-1-4">
+          <aside class="wiki-aside">
+            <h2>Navigation</h2>
 <ul>
 <li><a href='Home.html'>Home</a></li>
 </ul>
 <h3>How-To</h3>
 <ul>
 <li><a href='%5BHOW-TO%5D-Installation.html'>Installation</a></li>
+<li><a href='%5BHOW-TO%5D-Configuration.html'>Configuration</a></li>
+<li><a href='%5BHOW-TO%5D-Updating.html'>Updating</a></li>
 <li><a href='%5BHOW-TO%5D-How-To-Blog.html'>How-To Blog</a></li>
 <li><a href='%5BHOW-TO%5D-Pagination.html'>Pagination</a></li>
 <li><a href='%5BHOW-TO%5D-Using-Nginx-with-Phile.html'>Using Nginx</a></li>
@@ -104,17 +108,35 @@
 <li><a href='%5BDEVELOPER%5D-Introduction.html'>Introduction</a></li>
 <li><a href='%5BDEVELOPER%5D-Developer-Guidelines.html'>Developer-Guidelines</a></li>
 <li><a href='%5BDEVELOPER%5D-Release-Guide.html'>Release Guide</a></li>
-</ul>      </aside>
-      <div style="overflow:hidden;">
-        
-<h1>Using Phile with Nginx</h1>
-<h2>Using Phile from root</h2>
+</ul>          </aside>
+        </div>
+
+        <div class="col-3-4">
+                      <div class="toc">
+              <h2>Table of Contents</h2>
+              <ul>
+  <li class="first">
+    <a href="#using-phile-from-root">Using Phile from root</a>
+  </li>
+  <li>
+    <a href="#using-phile-from-a-subdirectory">Using Phile from a subdirectory</a>
+  </li>
+  <li class="last">
+    <a href="#blocking-access-to-files-that-users-should-not-see">Blocking access to files that users should not see</a>
+  </li>
+</ul>
+
+            </div>
+          
+          
+<h1 id="using-phile-with-nginx">Using Phile with Nginx</h1>
+<h2 id="using-phile-from-root">Using Phile from root</h2>
 <p>Use this if you plan to host Phile from <a href="http://yourdomain.com/">http://yourdomain.com/</a> or the root of a subdomain.</p>
 <p>An example Nginx config:</p>
 <pre><code>  location / {
     try_files $uri $uri/ /index.php$args;
   }</code></pre>
-<h2>Using Phile from a subdirectory</h2>
+<h2 id="using-phile-from-a-subdirectory">Using Phile from a subdirectory</h2>
 <p>Use this if you plan to host Phile from <a href="http://yourdomain.com/blog">http://yourdomain.com/blog</a></p>
 <p>An example Nginx config:</p>
 <pre><code>  location /blog {
@@ -124,7 +146,7 @@
   location @blog {
     rewrite ^/blog/(.*)$ /blog/index.php/$1;
   }</code></pre>
-<h2>Blocking access to files that users should not see</h2>
+<h2 id="blocking-access-to-files-that-users-should-not-see">Blocking access to files that users should not see</h2>
 <p>You should spend some time making sure that at least your config.php file cannot be accessed. Especially since it holds an encryption key.</p>
 <p>I think the following is a fairly comprehensive list of the files that you should block</p>
 <pre><code>location ~ /.git/ { access_log off; log_not_found off; deny all; }
@@ -133,12 +155,14 @@
   location ~ /(Changelog.md|composer.lock|config.php|default_config.php|LICENSE) { access_log off; log_not_found off; deny all; }
   location ~ /\.          { access_log off; log_not_found off; deny all; }</code></pre>
 
-      </div>
-      <div class="info" style="margin-top: 2em;">
-          <a href="https://github.com/PhileCMS/Phile/wiki/%5BHOW-TO%5D-Using-Nginx-with-Phile">
-              Edit the source page on github…
-            </a>
-      </div>
+
+          <p class="info">
+              <a href="https://github.com/PhileCMS/Phile/wiki/%5BHOW-TO%5D-Using-Nginx-with-Phile">
+                  Edit the source page on github…
+              </a>
+          </p>
+        </div>
+
     </section>
   </div>
 </div>

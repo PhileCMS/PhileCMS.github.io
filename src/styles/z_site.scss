@@ -2,7 +2,7 @@
 @import "imports/_grid";
 @import "imports/_mixins";
 // vanilla highlight.js theme file
-@import "imports/_railscasts";
+// @import "imports/_railscasts";
 
 // [class^="icon"] {
 //   position: relative;
@@ -89,6 +89,10 @@ hr {
   margin: 1em 0;
   background-color: rgba(0,0,0,0.2);
   width: 100%;
+}
+
+ul {
+  margin: 0.5em 0;
 }
 
 li {
@@ -333,6 +337,25 @@ code {
     border-radius: 4px;
 }
 
+.wiki-aside {
+    padding: 0 4em 2em 0;
+    // font-size: small;
+}
+
+.toc {
+  font-size: small;
+}
+
+.toc, .wiki-aside {
+    ul {
+      margin: 0.2em 0;
+      padding-bottom: 0;
+    }
+    & > ul {
+      padding-left: 0;
+    }
+}
+
 @media handheld, only screen and (max-width: 767px) {
   body {
     line-height: 1.6em;
@@ -362,14 +385,17 @@ code {
       font-size: 22px;
     }
   }
+
+  .toc, .wiki-aside {
+    line-height: 1.4em;
+    li {
+      padding: 0;
+    }
+  }
+
 }
 
 .info {
   font-size: small;
   color: #606060;
-}
-
-.wiki-aside {
-    float: right;
-    padding: 0 0 2em 2em;
 }

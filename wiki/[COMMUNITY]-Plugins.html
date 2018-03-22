@@ -70,16 +70,20 @@
 </nav>
 
 <div class="container">
-  <div class="container">
-    <section id="main_content">
-      <aside class="wiki-aside">
-        <h2>Navigation</h2>
+  <div class="grid">
+      <section id="main_content">
+
+        <div class="col-1-4">
+          <aside class="wiki-aside">
+            <h2>Navigation</h2>
 <ul>
 <li><a href='Home.html'>Home</a></li>
 </ul>
 <h3>How-To</h3>
 <ul>
 <li><a href='%5BHOW-TO%5D-Installation.html'>Installation</a></li>
+<li><a href='%5BHOW-TO%5D-Configuration.html'>Configuration</a></li>
+<li><a href='%5BHOW-TO%5D-Updating.html'>Updating</a></li>
 <li><a href='%5BHOW-TO%5D-How-To-Blog.html'>How-To Blog</a></li>
 <li><a href='%5BHOW-TO%5D-Pagination.html'>Pagination</a></li>
 <li><a href='%5BHOW-TO%5D-Using-Nginx-with-Phile.html'>Using Nginx</a></li>
@@ -104,12 +108,67 @@
 <li><a href='%5BDEVELOPER%5D-Introduction.html'>Introduction</a></li>
 <li><a href='%5BDEVELOPER%5D-Developer-Guidelines.html'>Developer-Guidelines</a></li>
 <li><a href='%5BDEVELOPER%5D-Release-Guide.html'>Release Guide</a></li>
-</ul>      </aside>
-      <div style="overflow:hidden;">
-        
-<h1>Plugin Repository</h1>
+</ul>          </aside>
+        </div>
+
+        <div class="col-3-4">
+                      <div class="toc">
+              <h2>Table of Contents</h2>
+              <ul>
+  <li class="first">
+    <a href="#admin-backend">Admin &amp; Backend</a>
+  </li>
+  <li>
+    <a href="#caching">Caching</a>
+  </li>
+  <li>
+    <a href="#content-source">Content Source</a>
+  </li>
+  <li>
+    <a href="#development">Development</a>
+  </li>
+  <li>
+    <a href="#embed-external-content">Embed External Content</a>
+  </li>
+  <li>
+    <a href="#markup-extension">Markup Extension</a>
+  </li>
+  <li>
+    <a href="#markup-parser">Markup Parser</a>
+  </li>
+  <li>
+    <a href="#css-pre-processors">CSS Pre-Processors</a>
+  </li>
+  <li>
+    <a href="#meta-information">Meta Information</a>
+  </li>
+  <li>
+    <a href="#navigation">Navigation</a>
+  </li>
+  <li>
+    <a href="#searching">Searching</a>
+  </li>
+  <li>
+    <a href="#template-engines">Template Engines</a>
+  </li>
+  <li>
+    <a href="#seo">SEO</a>
+  </li>
+  <li>
+    <a href="#compression">Compression</a>
+  </li>
+  <li class="last">
+    <a href="#misc">Misc</a>
+  </li>
+</ul>
+
+            </div>
+          
+          
+<h1 id="plugin-repository">Plugin Repository</h1>
 <p>If you create a plugin and like to share it with us and the community, feel free to add a link to your repository on this page. Please leave core-plugins on top in every category.</p>
-<h2>Admin &amp; Backend</h2>
+<p>If you're searching for plugins also checkout <a href="https://github.com/topics/philecms">github tags</a> or <a href="https://packagist.org/packages/phile-cms/plugin-installer-plugin/dependents">packagist</a>.</p>
+<h2 id="admin-backend">Admin &amp; Backend</h2>
 <ul>
 <li><a href="https://github.com/pschmitt/phileUsers">PhileUsers</a> -- Users and rights management</li>
 <li><a href="https://github.com/Schlaefer/phileAdmin">Phile Admin</a> -- Phile Admin Backend Framework
@@ -118,27 +177,27 @@
 <li><a href="https://github.com/Schlaefer/phileAdminCache">Phile Admin Cache</a> -- Clear cache button</li>
 </ul></li>
 </ul>
-<h2>Caching</h2>
+<h2 id="caching">Caching</h2>
 <ul>
 <li>Phile-PHP Fast Cache (default cache engine, part of the core)</li>
 <li><a href="https://github.com/Schlaefer/phileTotalCache">PhileTotalCache</a> -- Cache complete page output.</li>
 </ul>
-<h2>Content Source</h2>
+<h2 id="content-source">Content Source</h2>
 <ul>
 <li><a href="https://github.com/herbdool/phileDraft">PhileDraft</a> -- Allows publishing of Draft markdown posts to Phile (for 1.0.0-RC1+).</li>
 </ul>
-<h2>Development</h2>
+<h2 id="development">Development</h2>
 <ul>
 <li><a href="https://github.com/Schlaefer/phileDebugbar">Phile Debug Bar</a> - Adds PHP Debug Bar to Phile.</li>
 <li><a href="https://github.com/Schlaefer/phileWhoops">Phile Whoops</a> - Adds Whoops error handler to Phile.</li>
 </ul>
-<h2>Embed External Content</h2>
+<h2 id="embed-external-content">Embed External Content</h2>
 <ul>
 <li><a href="https://github.com/pschmitt/phileDisqus">PhileDisqus</a> -- Embeds Disqus on your Phile website</li>
 <li><a href="https://github.com/PhileCMS/phileTwitter">Phile Twitter</a></li>
 <li><a href="https://github.com/PhileCMS/phileYoutube">Phile YouTube</a></li>
 </ul>
-<h2>Markup Extension</h2>
+<h2 id="markup-extension">Markup Extension</h2>
 <ul>
 <li><a href="https://github.com/infostreams/snippets">Snippets</a> -- Extends Markdown syntax so you can easily add links, images, videos or other content to your page </li>
 <li><a href="https://github.com/Frodox/phileCustomizeLinks">PhileCustomizeLinks</a> -- Create custom links with special Markdown syntax</li>
@@ -149,7 +208,7 @@
 <li><a href="https://github.com/Schlaefer/phileSyntaxHighlight">Syntax Highlight</a> -- based on GeSHi</li>
 <li><a href="https://github.com/PhileCMS/phileRender">Phile Render</a> -- render (include) a content page in another page</li>
 </ul>
-<h2>Markup Parser</h2>
+<h2 id="markup-parser">Markup Parser</h2>
 <ul>
 <li>Phile-Parser-Markdown (default markdown parser, part of the core)</li>
 <li><a href="https://github.com/PhileCMS/Sundown-Parser-Plugin">Sundown-Parser-Plugin</a></li>
@@ -157,18 +216,18 @@
 <li><a href="https://github.com/PhileCMS/phileParserParsedown">Phile Parsedown Parser</a></li>
 <li><a href="https://github.com/PhileCMS/phileMarkdownExtraExtended">Phile Markdown Extra Extended</a></li>
 </ul>
-<h2>CSS Pre-Processors</h2>
+<h2 id="css-pre-processors">CSS Pre-Processors</h2>
 <ul>
 <li><a href="https://github.com/sturple/phileLess">Phile Less</a> -- enabled CSS Less support. </li>
 </ul>
-<h2>Meta Information</h2>
+<h2 id="meta-information">Meta Information</h2>
 <ul>
 <li>Phile-Parse-Meta (default meta parsing engine, part of the core)</li>
 <li><a href="https://github.com/pschmitt/phileTags">PhileTags</a> -- Add Hashtags to your content</li>
 <li><a href="https://github.com/Gibbs/phileLastModified">PhileLastModified</a> -- Returns the last modified date of the page/file (for 1.0.0-RC1).</li>
 <li><a href="https://github.com/pschmitt/phileTableOfContents">PhileTableOfContents</a> -- Generate a table of contents</li>
 </ul>
-<h2>Navigation</h2>
+<h2 id="navigation">Navigation</h2>
 <ul>
 <li><a href="https://github.com/Gibbs/phileSubNavigation">PhileSubNavigation</a> -- Returns an array of the websites structure to build nested navigations with Twig etc (for 1.0.0-RC1).</li>
 <li><a href="https://github.com/Stijn-Flipper/philePaginator">Phile Paginator</a> -- <em>Awesome</em> pagination plugin (list several posts per page and/or select a specific set of posts to be displayed)</li>
@@ -176,29 +235,29 @@
 <li><a href="https://github.com/quasipickle/PhileFamilyPlugin">Phile Page Family</a> -- Access to list of sibling and ancestor pages (for older versions of Phile)</li>
 <li><a href="https://github.com/Schlaefer/phileIndexPaginate">Paginate Folder Plugin for PhileCMS</a></li>
 </ul>
-<h2>Searching</h2>
+<h2 id="searching">Searching</h2>
 <ul>
 <li><a href="https://github.com/infostreams/pagelist-snippet">PagelistSnippet</a> -- A PhileCMS plugin that allows you to list or search pages on your site.</li>
 </ul>
-<h2>Template Engines</h2>
+<h2 id="template-engines">Template Engines</h2>
 <ul>
 <li>Phile-Template-Twig (default template engine, part of the core)</li>
 <li><a href="https://bitbucket.org/jacmoe/templatemthaml">Template-Mthaml</a> - write templates in HAML and let Twig render them</li>
 <li><a href="https://github.com/PhileCMS/phileTemplateSmarty">Phile-Template-Smarty</a></li>
 <li><a href="https://github.com/PhileCMS/phileTemplateLex">Phile-Template-Lex</a></li>
 </ul>
-<h2>SEO</h2>
+<h2 id="seo">SEO</h2>
 <ul>
 <li><a href="https://github.com/pschmitt/phileAnalytics">PhileAnalytics</a> -- Google Analytics code</li>
 <li><a href="https://github.com/pschmitt/philePiwik">PhilePiwik</a> -- Configurable Piwik plugin (js + img tracking)</li>
 <li><a href="https://github.com/PhileCMS/phileXMLSitemap">Phile XML Sitemap-Plugin</a></li>
 </ul>
-<h2>Compression</h2>
+<h2 id="compression">Compression</h2>
 <ul>
 <li><a href="https://github.com/denizdogan/minify-with-minify">Minify With Minify</a> -- Compresses HTML output using <a href="https://github.com/mrclay/minify">Minify</a></li>
 <li><a href="https://github.com/softr/philePageCompressor">Phile Page Compressor</a> -- Compress HTML output to speedup page loading</li>
 </ul>
-<h2>Misc</h2>
+<h2 id="misc">Misc</h2>
 <ul>
 <li><a href="https://github.com/Frodox/phileCustomPostPreview">Phile Custom Post Preview</a> -- Allow to customize length of the post-preview text (mainly useful for blog)</li>
 <li><a href="https://github.com/PhileCMS/Twig-Filters-Plugin">Twig-Filters-Plugin</a></li>
@@ -211,12 +270,14 @@
 <li><a href="https://github.com/PhileCMS/filterByKey">Phile Filter By Key</a> -- filter the pages array by a meta key</li>
 </ul>
 
-      </div>
-      <div class="info" style="margin-top: 2em;">
-          <a href="https://github.com/PhileCMS/Phile/wiki/%5BCOMMUNITY%5D-Plugins">
-              Edit the source page on github…
-            </a>
-      </div>
+
+          <p class="info">
+              <a href="https://github.com/PhileCMS/Phile/wiki/%5BCOMMUNITY%5D-Plugins">
+                  Edit the source page on github…
+              </a>
+          </p>
+        </div>
+
     </section>
   </div>
 </div>

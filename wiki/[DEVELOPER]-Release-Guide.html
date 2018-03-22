@@ -70,16 +70,20 @@
 </nav>
 
 <div class="container">
-  <div class="container">
-    <section id="main_content">
-      <aside class="wiki-aside">
-        <h2>Navigation</h2>
+  <div class="grid">
+      <section id="main_content">
+
+        <div class="col-1-4">
+          <aside class="wiki-aside">
+            <h2>Navigation</h2>
 <ul>
 <li><a href='Home.html'>Home</a></li>
 </ul>
 <h3>How-To</h3>
 <ul>
 <li><a href='%5BHOW-TO%5D-Installation.html'>Installation</a></li>
+<li><a href='%5BHOW-TO%5D-Configuration.html'>Configuration</a></li>
+<li><a href='%5BHOW-TO%5D-Updating.html'>Updating</a></li>
 <li><a href='%5BHOW-TO%5D-How-To-Blog.html'>How-To Blog</a></li>
 <li><a href='%5BHOW-TO%5D-Pagination.html'>Pagination</a></li>
 <li><a href='%5BHOW-TO%5D-Using-Nginx-with-Phile.html'>Using Nginx</a></li>
@@ -104,43 +108,92 @@
 <li><a href='%5BDEVELOPER%5D-Introduction.html'>Introduction</a></li>
 <li><a href='%5BDEVELOPER%5D-Developer-Guidelines.html'>Developer-Guidelines</a></li>
 <li><a href='%5BDEVELOPER%5D-Release-Guide.html'>Release Guide</a></li>
-</ul>      </aside>
-      <div style="overflow:hidden;">
-        
-<h1>Release Guide</h1>
+</ul>          </aside>
+        </div>
+
+        <div class="col-3-4">
+                      <div class="toc">
+              <h2>Table of Contents</h2>
+              <ul>
+  <li class="first">
+    <a href="#prepare-code">Prepare Code</a>
+    <ul class="menu_level_1">
+      <li class="first">
+        <a href="#create-release-branch">Create release branch</a>
+      </li>
+      <li>
+        <a href="#update-version-strings">Update version-strings</a>
+      </li>
+      <li>
+        <a href="#update-composer">Update Composer</a>
+      </li>
+      <li>
+        <a href="#process-deprecated">Process Deprecated</a>
+      </li>
+      <li class="last">
+        <a href="#check-that-everything-is-still-o-k">Check that everything is still O.K.</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#release-code">Release Code</a>
+    <ul class="menu_level_1">
+      <li class="first">
+        <a href="#make-release">Make Release</a>
+      </li>
+      <li>
+        <a href="#create-release-package">Create Release Package</a>
+      </li>
+      <li>
+        <a href="#publish-release-notes">Publish Release Notes</a>
+      </li>
+      <li class="last">
+        <a href="#cleanup">Cleanup</a>
+      </li>
+    </ul>
+  </li>
+  <li class="last">
+    <a href="#update-homepage">Update Homepage</a>
+  </li>
+</ul>
+
+            </div>
+          
+          
+<h1 id="release-guide">Release Guide</h1>
 <ul>
 <li>content: documents steps for releasing a new Phile version</li>
 <li>audience: core-developers</li>
 </ul>
-<h2>Prepare Code</h2>
-<h3>Create release branch</h3>
+<h2 id="prepare-code">Prepare Code</h2>
+<h3 id="create-release-branch">Create release branch</h3>
 <ul>
-<li>branch <code>release/&lt;version-string&gt;</code> release-branch from &quot;develop&quot;</li>
+<li>branch <code>release/&lt;version-string&gt;</code> release-branch from "develop"</li>
 </ul>
-<h3>Update version-strings</h3>
+<h3 id="update-version-strings">Update version-strings</h3>
 <ul>
 <li>update version string in <code>config/bootstrap.php</code></li>
 <li>update <code>changelog.md</code></li>
 </ul>
-<h3>Update Composer</h3>
+<h3 id="update-composer">Update Composer</h3>
 <ul>
 <li>update version string in <code>composer.json</code> </li>
 </ul>
-<p>Without the version string composer will not pickup Phile's version number. It assumes &quot;1.0.0&quot; and will throw an error if you want to install Phile-plugins requiring &quot;Phile &gt;1.0.0&quot;.</p>
+<p>Without the version string composer will not pickup Phile's version number. It assumes "1.0.0" and will throw an error if you want to install Phile-plugins requiring "Phile &gt;1.0.0".</p>
 <ul>
 <li>run <code>composer update --lock</code> </li>
 </ul>
-<p>Just generate new hash in the .lock file without updating packages. Avoids &quot;composer.lock outdated&quot; message. </p>
-<h3>Process Deprecated</h3>
+<p>Just generate new hash in the .lock file without updating packages. Avoids "composer.lock outdated" message. </p>
+<h3 id="process-deprecated">Process Deprecated</h3>
 <ul>
 <li>check code for <code>@deprecated</code> and whether they are due for removal: open a todo-issue for the next release (or remove if trivial)</li>
-<li>check new <code>@deprecated</code> that proper &quot;since &lt;version-string&gt;&quot; is set</li>
+<li>check new <code>@deprecated</code> that proper "since &lt;version-string&gt;" is set</li>
 <li>update release-note with those changes</li>
 </ul>
-<h3>Check that everything is still O.K.</h3>
+<h3 id="check-that-everything-is-still-o-k">Check that everything is still O.K.</h3>
 <ul>
 <li>run-test cases</li>
-<li>check CI services are &quot;green&quot;</li>
+<li>check CI services are "green"</li>
 <li>create release package (see below) and do a test install</li>
 </ul>
 <p>As you see fit:</p>
@@ -149,15 +202,15 @@
 <li>publish pre-release for (public) testing</li>
 <li>…</li>
 </ul>
-<h2>Release Code</h2>
-<h3>Make Release</h3>
+<h2 id="release-code">Release Code</h2>
+<h3 id="make-release">Make Release</h3>
 <ul>
-<li>merge the &quot;release&quot; branch into &quot;master&quot;</li>
-<li>last check that everything is still &quot;green&quot;</li>
-<li>tag &quot;master&quot; with version-string and push to origin</li>
+<li>merge the "release" branch into "master"</li>
+<li>last check that everything is still "green"</li>
+<li>tag "master" with version-string and push to origin</li>
 </ul>
 <p>Pushing the tag to the public github repository marks the official release. The tag or code of that release must not be changed. Instead a new release must be published.</p>
-<h3>Create Release Package</h3>
+<h3 id="create-release-package">Create Release Package</h3>
 <ul>
 <li>create release package</li>
 </ul>
@@ -165,29 +218,31 @@
 <ul>
 <li>attach release .zip to github release-page</li>
 </ul>
-<h3>Publish Release Notes</h3>
+<h3 id="publish-release-notes">Publish Release Notes</h3>
 <ul>
 <li>publish release-note on release-tag</li>
 </ul>
-<h3>Cleanup</h3>
+<h3 id="cleanup">Cleanup</h3>
 <ul>
-<li>merge &quot;master&quot; into &quot;develop&quot;</li>
-<li>remove &quot;release&quot; branch</li>
+<li>merge "master" into "develop"</li>
+<li>remove "release" branch</li>
 <li>(if exists) close the milestone in the issue tracker</li>
 </ul>
 <p>Optional:</p>
 <ul>
-<li>create a new boilerplate &quot;next&quot; release-page</li>
+<li>create a new boilerplate "next" release-page</li>
 </ul>
-<h2>Update Homepage</h2>
+<h2 id="update-homepage">Update Homepage</h2>
 <p>See instructions at <a href="https://github.com/PhileCMS/PhileCMS.github.io">https://github.com/PhileCMS/PhileCMS.github.io</a></p>
 
-      </div>
-      <div class="info" style="margin-top: 2em;">
-          <a href="https://github.com/PhileCMS/Phile/wiki/%5BDEVELOPER%5D-Release-Guide">
-              Edit the source page on github…
-            </a>
-      </div>
+
+          <p class="info">
+              <a href="https://github.com/PhileCMS/Phile/wiki/%5BDEVELOPER%5D-Release-Guide">
+                  Edit the source page on github…
+              </a>
+          </p>
+        </div>
+
     </section>
   </div>
 </div>

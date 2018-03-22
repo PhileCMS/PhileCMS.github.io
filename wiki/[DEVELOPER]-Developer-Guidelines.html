@@ -70,16 +70,20 @@
 </nav>
 
 <div class="container">
-  <div class="container">
-    <section id="main_content">
-      <aside class="wiki-aside">
-        <h2>Navigation</h2>
+  <div class="grid">
+      <section id="main_content">
+
+        <div class="col-1-4">
+          <aside class="wiki-aside">
+            <h2>Navigation</h2>
 <ul>
 <li><a href='Home.html'>Home</a></li>
 </ul>
 <h3>How-To</h3>
 <ul>
 <li><a href='%5BHOW-TO%5D-Installation.html'>Installation</a></li>
+<li><a href='%5BHOW-TO%5D-Configuration.html'>Configuration</a></li>
+<li><a href='%5BHOW-TO%5D-Updating.html'>Updating</a></li>
 <li><a href='%5BHOW-TO%5D-How-To-Blog.html'>How-To Blog</a></li>
 <li><a href='%5BHOW-TO%5D-Pagination.html'>Pagination</a></li>
 <li><a href='%5BHOW-TO%5D-Using-Nginx-with-Phile.html'>Using Nginx</a></li>
@@ -104,31 +108,57 @@
 <li><a href='%5BDEVELOPER%5D-Introduction.html'>Introduction</a></li>
 <li><a href='%5BDEVELOPER%5D-Developer-Guidelines.html'>Developer-Guidelines</a></li>
 <li><a href='%5BDEVELOPER%5D-Release-Guide.html'>Release Guide</a></li>
-</ul>      </aside>
-      <div style="overflow:hidden;">
-        
-<h1>Development Guidelines</h1>
-<h2>Talk to People</h2>
+</ul>          </aside>
+        </div>
+
+        <div class="col-3-4">
+                      <div class="toc">
+              <h2>Table of Contents</h2>
+              <ul>
+  <li class="first">
+    <a href="#talk-to-people">Talk to People</a>
+  </li>
+  <li class="last">
+    <a href="#patch-pull-request-workflow">Patch / Pull Request Workflow</a>
+    <ul class="menu_level_1">
+      <li class="first">
+        <a href="#feature">[FEATURE]</a>
+      </li>
+      <li>
+        <a href="#bugfix">[BUGFIX]</a>
+      </li>
+      <li class="last">
+        <a href="#git-commit-message-template">GIT Commit Message Template</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+            </div>
+          
+          
+<h1 id="development-guidelines">Development Guidelines</h1>
+<h2 id="talk-to-people">Talk to People</h2>
 <p>Always check for existing issues or pull-requests first. Comment or vote for them.</p>
 <p>Please create an issue first and let us discuss this change, before you do any changes. Not all changes will be accepted by the maintainer of the project, you can save a lot of time if you talk to us, before start coding.</p>
 <p><a href="https://gitter.im/PhileCMS/Phile">Gitter.im</a> is also a good place to throw arround ideas in an informal way. Lets talk to each other, to improve PhileCMS.</p>
-<h2>Patch / Pull Request Workflow</h2>
+<h2 id="patch-pull-request-workflow">Patch / Pull Request Workflow</h2>
 <ol>
 <li>Fork Phile on github</li>
 <li>Make your changes</li>
-<li>Run the test cases locally (call <code>./phing</code> in the root and choose &quot;run test suite&quot;), make sure no test fails</li>
+<li>Run the test cases locally (call <code>./phing</code> in the root and choose "run test suite"), make sure no test fails</li>
 <li>Create a pull request on github into the <code>develop</code> branch</li>
 <li><code>Travis CI</code> will build and test your pull request automatically, if all tests passed go to next step</li>
 <li>Each pull request has to be reviewed by <strong>two other people</strong>. If the pull request is reviewed by at least two people (give +1 in the comments), one of the maintainer will accept the request and merge it into the core.</li>
 </ol>
 <p>The maintainers also has a veto, in cases where the code structure is not Ok or an other pull request will add the same feature.</p>
 <p>For each pull request please use one of the following prefix:</p>
-<h3>[FEATURE]</h3>
+<h3 id="feature">[FEATURE]</h3>
 <p>If you implement a new feature, please use this prefix in the title of the pull request.</p>
-<h3>[BUGFIX]</h3>
+<h3 id="bugfix">[BUGFIX]</h3>
 <p>If you fix any bug, please use this prefix in the title of the pull request.</p>
 <p>If you fix a already documented bug, pleaser refer to the issue in the issuetracker.</p>
-<h3>GIT Commit Message Template</h3>
+<h3 id="git-commit-message-template">GIT Commit Message Template</h3>
 <p>Please use the following GIT commit message template, for any pull request.</p>
 <p>You can use a custom template for getting the commit message faster done.</p>
 <p>All you need is the template below and the command</p>
@@ -143,12 +173,14 @@ Documentation: #12346 (refer to github issue number, where a documentation is av
 Releases: 0.9.3 (this should be the next version number, please ask the core developer before you fill in this information or leave it blank
 Related: #1234, #1235 list here all related github issue numbers</code></pre>
 
-      </div>
-      <div class="info" style="margin-top: 2em;">
-          <a href="https://github.com/PhileCMS/Phile/wiki/%5BDEVELOPER%5D-Developer-Guidelines">
-              Edit the source page on github…
-            </a>
-      </div>
+
+          <p class="info">
+              <a href="https://github.com/PhileCMS/Phile/wiki/%5BDEVELOPER%5D-Developer-Guidelines">
+                  Edit the source page on github…
+              </a>
+          </p>
+        </div>
+
     </section>
   </div>
 </div>
