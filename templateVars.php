@@ -15,7 +15,7 @@ $vars['phile_download'] = 'https://github.com/PhileCMS/Phile/releases/download/'
     . $vars['current']
     . '/Phile.zip';
 
-$vars['min_php_version'] = '5.6.0';
+$vars['min_php_version'] = '7.1.0';
 
 return $vars;
 
